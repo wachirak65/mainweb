@@ -91,7 +91,7 @@ function Register () {
                     <p>Or</p>
                     <div className="App">
                         {navigate('../Homepage')}
-                        <button onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-4 py-2">สมัครสมาชิกด้วยบัญชี Google</button>
+                        <button onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-4 py-2"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"10%"} height={"10%"}/>สมัครสมาชิกด้วยบัญชี Google</button>
                     </div>
 
                     <label>ชื่อบัญชี

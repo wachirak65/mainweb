@@ -1,0 +1,14 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.main-container{
+    margin: 10rem;
+    padding:0px 320px 0px 320px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.last-container{
+    padding: 40px 0px;
+}
