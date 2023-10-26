@@ -71,8 +71,9 @@ function Profile() {
             </button>
             
         </section>
-        <img width={"15"} src='https://e1.pngegg.com/pngimages/383/600/png-clipart-icone-de-fleche-icone-inferieure-icone-vers-le-bas-icone-vers-le-bas-icone-de-navigation-ligne-main.png'/>
-        <footer className="foot-container">
+    
+        <footer className="foot-container"> 
+            <img width={"15"} src='https://e1.pngegg.com/pngimages/383/600/png-clipart-icone-de-fleche-icone-inferieure-icone-vers-le-bas-icone-vers-le-bas-icone-de-navigation-ligne-main.png'/>
             <p >our Services</p>
             <h3>แพ็คเกจทั้งหมด</h3>
             <div className='service' >
