@@ -3,7 +3,7 @@ import React, {  useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
-import "./Login.css"
+import "../component/Login.css"
 import {signInWithGoogle,auth } from "../until/App2"
 
 
@@ -87,17 +87,17 @@ function Register () {
         <div id = "form-area" class="form-floating my-2">
             <main class="form-signin w-100 m-auto">
                 <form id='registerForm' onSubmit={handleSubmit}>
-                    <h1>สมัครสมาชิก</h1>
-                    <p>Or</p>
+                    <h1 style={{textAlign:"center"}}>สมัครสมาชิก</h1>
+                    <p style={{textAlign:"center"}}>Or</p>
                     <div className="App">
                         {navigate('../Homepage')}
-                        <button onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-4 py-2"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"10%"} height={"10%"}/>สมัครสมาชิกด้วยบัญชี Google</button>
+                        <button style={{borderRadius:"40px" ,margin:"10px"}} onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-2 py-1"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"10%"} height={"10%"}/>สมัครสมาชิกด้วยบัญชี Google</button>
                     </div>
 
                     <label>ชื่อบัญชี
                     <br/>
                     <input 
-                        className='from-control'
+                        className='form-control'
                         type="text" 
                         name="username" 
                         minLength={5}
@@ -110,7 +110,7 @@ function Register () {
                     <label>อีเมล
                     <br/>
                     <input 
-                        className='from-control'
+                        className='form-control'
                         type="email" 
                         name="email"
                         value={inputs.email || ""} 
@@ -118,10 +118,10 @@ function Register () {
                         placeholder='username@gmail.com'
                     />
                     </label>
-                    <label>รหัสผ่าน<p>(ความยาวอย่างน้อย จํานวน 6-16 ตัวอักษร)</p>
+                    <label>รหัสผ่าน (ความยาวอย่างน้อย จํานวน 6-16 ตัวอักษร)
                     <br/>
                         <input 
-                            className='from-control'
+                            className='form-control'
                             type="password" 
                             name="password" 
                             minLength={6}
@@ -133,9 +133,9 @@ function Register () {
                     </label>
                     <br/>
                         <button 
-                            class="w-100 btn btn-lg btn-primary"
+                            class="w-100 btn btn-l btn-primary"
                             type="submit">
-                            <a class="w-100 btn btn-lg btn-primary">สมัครสมาชิก</a>
+                            <a class="w-100 btn btn-l btn-primary">สมัครสมาชิก</a>
                     </button>
                     <p class="mt-5 mb-3 text-muted">มีบัญชีสมาชิกแล้ว?<a href="Login">เข้าสู่ระบบ</a></p> 
                 </form>

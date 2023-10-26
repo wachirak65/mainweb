@@ -14,36 +14,16 @@ body {
 }
 
 .form-signin {
-    max-width: 330px;
-    padding: 15px;
+    max-width: 400px;
+    padding: 30px;
 }
 
 .form-signin .form-floating:focus-within {
     z-index: 2;
 }
+.form-control{
+    width: 100%; 
+    margin: 15px 0px 15px 0;
+    height: 100%;
+}
 
-* a {
-    text-decoration: none;
-    color: #5DADE2;
-}
-ul{
-    margin:0;
-    padding:0;
-    
-}
-* a ul li{
-    display: flex;
-    position: relative;
-    
-}
-.dropdown{
-    position: absolute;
-    display: block;
-    background-color: #fff;
-    top: 110%;
-    border-radius: 5px;
-    width: 200px;
-    left:0;
-    opacity: 0;
-    visibility: hidden;
-}

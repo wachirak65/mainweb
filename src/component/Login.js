@@ -2,7 +2,7 @@ import React ,{ useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import Swal from "sweetalert2"
 // import withReactContent from "sweetalert2-react-content"
-import "./Login.css"
+import "../component/Login.css"
 import {signInWithGoogle,auth} from '../until/App2';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
@@ -80,17 +80,17 @@ function Login  () {
             
             <main className="form-signin w-100 m-auto">
                 <form id='loginForm' onSubmit={handleSubmit}>
-                <h1>เข้าสู่ระบบ</h1>
-                <p>กรอกบัญชีอีเมลและรหัสผ่านเพื่อเข้าสู่ระบบ</p>
-                <p>Or</p>
+                <h1 style={{textAlign:"center"}}>เข้าสู่ระบบ</h1>
+                <p style={{textAlign:"center"}}>กรอกบัญชีอีเมลและรหัสผ่านเพื่อเข้าสู่ระบบ</p>
+                <p style={{textAlign:"center"}}>Or</p>
                 <div>
                     {navigate('../Homepage')}
-                    <button onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-4 py-2"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"10%"} height={"10%"}/>เข้าสู่ระบบด้วยบัญชี Google</button>
+                    <button style={{borderRadius:"40px" ,margin:"10px"}} onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-2 py-1"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"10%"} height={"10%"}/>เข้าสู่ระบบด้วยบัญชี Google</button>
                 </div>
                     <label>อีเมล
                     <br/>
                     <input 
-                        className='from-control'
+                        className='form-control'
                         type="email" 
                         name="email" 
                         value={inputs.email || ""} 
@@ -98,22 +98,22 @@ function Login  () {
                         placeholder='username@gmail.com'
                     />
                     </label>
-                    <label>รหัสผ่าน<p onClick={handleReset}>ลืมรหัสผ่าน?</p>
+                    <label>รหัสผ่าน    
                     <br/>
                         <input 
-                            className='from-control'
+                            className='form-control'
                             type="password" 
                             name="password" 
                             value={inputs.password || ""} 
                             onChange={handleChange}
                             placeholder='Enter your password'
-                    />
+                    /><p onClick={handleReset}>ลืมรหัสผ่าน?</p>
                     </label>
                     <br/>
                         <button 
-                            class="w-100 btn btn-lg btn-primary"
+                            class="w-100 btn btn-l btn-primary"
                             type="submit">
-                            <a class="w-100 btn btn-lg btn-primary" href="Homepage">เข้าสู่ระบบ</a>
+                            <a class="w-100 btn btn-l btn-primary" href="Homepage">เข้าสู่ระบบ</a>
                         </button>
                     <p class="mt-5 mb-3 text-muted">ยังไม่มีบัญชีสมาชิก?<a href="Register">สมัครสมาชิก</a></p> 
                 </form>

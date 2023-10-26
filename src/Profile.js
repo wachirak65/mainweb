@@ -64,7 +64,8 @@ function Profile() {
                     class="w-30 btn btn-lg btn-success" 
                     type="submit">
                     <a class="w-100 btn btn-s btn-success" href="Login">เข้าสู่ระบบ</a>
-            </button>  <button 
+            </button>  
+            <button 
                     class="w-30 btn btn-lg btn-primary"
                     type="submit">
                     <a class="w-100 btn btn-s btn-primary" href="Register">สมัครสมาชิก</a>
