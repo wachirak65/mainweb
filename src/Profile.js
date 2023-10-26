@@ -73,7 +73,7 @@ function Profile() {
         </section>
         <img width={"15"} src='https://e1.pngegg.com/pngimages/383/600/png-clipart-icone-de-fleche-icone-inferieure-icone-vers-le-bas-icone-vers-le-bas-icone-de-navigation-ligne-main.png'/>
         <footer className="foot-container">
-            <p style={{paddingTop:"50px"}}>our Services</p>
+            <p >our Services</p>
             <h3>แพ็คเกจทั้งหมด</h3>
             <div className='service' >
                 <div className='pack-1'>
