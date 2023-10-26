@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import "./Login.css"
-import { auth } from "../until/App2";
-import { signInWithPopup, GoogleAuthProvider} from "firebase/auth";
-import Homepage from "../Homepage";
+import {signInWithGoogle,auth } from "../until/App2"
+
 
 
 function Register () {
@@ -15,10 +14,10 @@ function Register () {
     const [inputs, setInputs] = useState("");
     // const [value, setValue] = useState("")
 
-    const handleClick =async(e)=>{
-        const provider = await new GoogleAuthProvider();
-        return signInWithPopup(auth,provider);
-    }
+    // const handleClick =async(e)=>{
+    //     const provider = await new GoogleAuthProvider();
+    //     return signInWithPopup(auth,provider);
+    // }
     const handleChange = (event) => {
         
         const name = event.target.name;
@@ -30,13 +29,15 @@ function Register () {
     const handleSubmit = (event) => {
         event.preventDefault();
         createUserWithEmailAndPassword(auth ,inputs)
+        
         .then((user)=>{
             console.log(user);
+            navigate('../Homepage')
             MySwal.fire({
             html:<i>{user.message}</i>,
             icon:"success"})
         }).catch((error) => {
-            console.log(error)
+            console.log(error);
             MySwal.fire({
             html:<i>{error.message}</i>,
             icon:"error",
@@ -88,10 +89,10 @@ function Register () {
                 <form id='registerForm' onSubmit={handleSubmit}>
                     <h1>สมัครสมาชิก</h1>
                     <p>Or</p>
-
-                    <Homepage/>
-                    <button onClick={handleClick} className="mx-auto border-1 bg-white-500 text-black rounded-full px-4 py-2">สมัครสมาชิกด้วยบัญชี Google</button>
-                    
+                    <div className="App">
+                        {navigate('../Homepage')}
+                        <button onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-4 py-2">สมัครสมาชิกด้วยบัญชี Google</button>
+                    </div>
 
                     <label>ชื่อบัญชี
                     <br/>
@@ -99,6 +100,8 @@ function Register () {
                         className='from-control'
                         type="text" 
                         name="username" 
+                        minLength={5}
+                        maxLength={20}
                         value={inputs.username || ""} 
                         onChange={handleChange}
                         placeholder='Enter your name'
@@ -109,13 +112,13 @@ function Register () {
                     <input 
                         className='from-control'
                         type="email" 
-                        name="email" 
+                        name="email"
                         value={inputs.email || ""} 
                         onChange={handleChange}
                         placeholder='username@gmail.com'
                     />
                     </label>
-                    <label>รหัสผ่าน
+                    <label>รหัสผ่าน<p>(ความยาวอย่างน้อย จํานวน 6-16 ตัวอักษร)</p>
                     <br/>
                         <input 
                             className='from-control'

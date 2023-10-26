@@ -5,6 +5,10 @@ import Launchweb from "./Launchweb";
 import Register from "./component/Register";
 import Upload from "./Upload";
 import Homepage from "./Homepage";
+import Mainpage from "./Mainpage";
+import Uploading from "./Uploading";
+import DoneUpload from "./DoneUpload";
+import ForgotPassword from "./ForgotPassword";
 
 function App() {
   return (
@@ -16,6 +20,10 @@ function App() {
         <Route path="Register" element={<Register/>}/>
         <Route path="Homepage" element={<Homepage/>}/>
         <Route path="Upload" element={<Upload/>}/>
+        <Route path="Mainpage" element={<Mainpage/>}/>
+        <Route path="Uploading" element={<Uploading/>}/>
+        <Route path="DoneUpload" element={<DoneUpload/>}/>
+        <Route path="Reset" element={<ForgotPassword/>}/>
       </Routes> 
     </div>
   );

@@ -1,24 +1,21 @@
-
 import React ,{ useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import Swal from "sweetalert2"
 // import withReactContent from "sweetalert2-react-content"
 import "./Login.css"
-import {auth} from '../until/App2';
-import { signInWithPopup ,GoogleAuthProvider} from "firebase/auth";
-import Homepage from "../Homepage";
+import {signInWithGoogle,auth} from '../until/App2';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 function Login  () {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     // const MySwal = withReactContent(Swal)
     
     const [inputs, setInputs] = useState("");
     
-    const handleClick =async(e)=>{
-        const provider = await new GoogleAuthProvider();
-        return signInWithPopup(auth,provider)
-    }
+    // const handleClick =async(e)=>{
+    //     const provider = await new GoogleAuthProvider();
+    //     return signInWithPopup(auth,provider)
+    // }
 
     const handleChange = (event) => {
         
@@ -30,15 +27,18 @@ function Login  () {
     const handleSubmit = (event) => {
         event.preventDefault();
         // signInWithEmailAndPassword(auth ,email,password)
-        signInWithEmailAndPassword(auth ,inputs)
+        signInWithEmailAndPassword(auth ,inputs.name,inputs.value)
         .then((user)=>{
+            navigate('../Homepage')
             console.log(user);
         }).catch((error) => {
             console.log(error);
         });
         
     };
-    
+    const handleReset = ()=>{
+        navigate('/Reset');
+    }
     return (
     <div class="container">
             <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -83,10 +83,10 @@ function Login  () {
                 <h1>เข้าสู่ระบบ</h1>
                 <p>กรอกบัญชีอีเมลและรหัสผ่านเพื่อเข้าสู่ระบบ</p>
                 <p>Or</p>
-
-                <Homepage/>
-                    <button onClick={handleClick} className="mx-auto border-1 bg-white-500 text-black rounded-full px-4 py-2">เข้าสู่ระบบด้วยบัญชี Google</button>
-
+                <div>
+                    {navigate('../Homepage')}
+                    <button onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-4 py-2">เข้าสู่ระบบด้วยบัญชี Google</button>
+                </div>
                     <label>อีเมล
                     <br/>
                     <input 
@@ -98,7 +98,7 @@ function Login  () {
                         placeholder='username@gmail.com'
                     />
                     </label>
-                    <label>รหัสผ่าน
+                    <label>รหัสผ่าน<p onClick={handleReset}>ลืมรหัสผ่าน?</p>
                     <br/>
                         <input 
                             className='from-control'
@@ -114,7 +114,7 @@ function Login  () {
                             class="w-100 btn btn-lg btn-primary"
                             type="submit">
                             <a class="w-100 btn btn-lg btn-primary" href="Homepage">เข้าสู่ระบบ</a>
-                    </button>
+                        </button>
                     <p class="mt-5 mb-3 text-muted">ยังไม่มีบัญชีสมาชิก?<a href="Register">สมัครสมาชิก</a></p> 
                 </form>
             </main>
