@@ -83,9 +83,9 @@ function Login  () {
                 <h1 style={{textAlign:"center"}}>เข้าสู่ระบบ</h1>
                 <p style={{textAlign:"center"}}>กรอกบัญชีอีเมลและรหัสผ่านเพื่อเข้าสู่ระบบ</p>
                 <p style={{textAlign:"center"}}>Or</p>
-                <div>
+                <div className='google-1'>
                     {navigate('../Homepage')}
-                    <button style={{borderRadius:"40px" ,margin:"10px"}} onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-2 py-1"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"10%"} height={"10%"}/>เข้าสู่ระบบด้วยบัญชี Google</button>
+                    <button style={{borderRadius:"40px" ,margin:"10px"}} onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-2 py-1"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"5%"} height={"5%"}/> เข้าสู่ระบบด้วยบัญชี Google</button>
                 </div>
                     <label>อีเมล
                     <br/>
@@ -107,7 +107,7 @@ function Login  () {
                             value={inputs.password || ""} 
                             onChange={handleChange}
                             placeholder='Enter your password'
-                    /><p onClick={handleReset}>ลืมรหัสผ่าน?</p>
+                    /><p style={{color:"blue"}} onClick={handleReset}>ลืมรหัสผ่าน?</p>
                     </label>
                     <br/>
                         <button 
@@ -115,7 +115,7 @@ function Login  () {
                             type="submit">
                             <a class="w-100 btn btn-l btn-primary" href="Homepage">เข้าสู่ระบบ</a>
                         </button>
-                    <p class="mt-5 mb-3 text-muted">ยังไม่มีบัญชีสมาชิก?<a href="Register">สมัครสมาชิก</a></p> 
+                    <p class="mt-5 mb-3 text-muted">ยังไม่มีบัญชีสมาชิก?<a href="Register" style={{textDecoration:"none"}}>สมัครสมาชิก</a></p> 
                 </form>
             </main>
         </div>

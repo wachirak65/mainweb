@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyCpi8REX9TKnBUUjcDIXuTUVaVVWJmOY2k",
     authDomain: "projectweb-ff29d.firebaseapp.com",
@@ -17,8 +18,10 @@ export const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider()
 export const signInWithGoogle = () =>{
+    
     signInWithPopup(auth,provider)
     .then((result)=>{
+        
         const name = result.user.displayName;
         const email = result.user.email;
         const profilePic = result.user.photoURL;

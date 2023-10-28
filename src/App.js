@@ -9,6 +9,8 @@ import Mainpage from "./Mainpage";
 import Uploading from "./Uploading";
 import DoneUpload from "./DoneUpload";
 import ForgotPassword from "./ForgotPassword";
+import Selection from "./Selection";
+import Selections from "./Selections";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="Uploading" element={<Uploading/>}/>
         <Route path="DoneUpload" element={<DoneUpload/>}/>
         <Route path="Reset" element={<ForgotPassword/>}/>
+        <Route path="Selections" element={<Selections/>}/>
+        <Route path="Selection" element={<Selection/>}/>
       </Routes> 
     </div>
   );

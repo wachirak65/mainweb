@@ -13,16 +13,20 @@ body{
 }
 .left-container{
     text-align: center;
-    padding-top: 10px;
-    width: 30vw;
-
+    justify-content: center;
+    align-items: center;
+    padding: 120px;
+    width: 600px;
+    position: absolute;
 }
+
 .right-container{
     margin: 0;
-    
-    padding:0px 700px 100px 700px;
-    width: 120vw;
+    padding:50px 100px 50px 100px;
+    width: 650px;
     text-align: left;
+    left: 50%;
+    position: relative;
 }
 .foot-container{
     text-align: center;
@@ -33,4 +37,16 @@ body{
     align-items: center;
     justify-content: center;
     padding: 100px 40px 100px 0px;
+    
+}
+
+.btn-1{
+    text-align: left;
+    padding-left: 50px;
+}
+
+.btn-2{
+    padding-right: 50px;
+    text-align: right;
+    transform: translateY(-100%);
 }

@@ -26,6 +26,7 @@ function Register () {
     }
 
     
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         createUserWithEmailAndPassword(auth ,inputs)
@@ -89,9 +90,9 @@ function Register () {
                 <form id='registerForm' onSubmit={handleSubmit}>
                     <h1 style={{textAlign:"center"}}>สมัครสมาชิก</h1>
                     <p style={{textAlign:"center"}}>Or</p>
-                    <div className="App">
+                    <div className='google-2'>
                         {navigate('../Homepage')}
-                        <button style={{borderRadius:"40px" ,margin:"10px"}} onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-2 py-1"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"10%"} height={"10%"}/>สมัครสมาชิกด้วยบัญชี Google</button>
+                        <button style={{borderRadius:"40px" ,margin:"10px"}} onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-2 py-1"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"5%"} height={"5%"}/> สมัครสมาชิกด้วยบัญชี Google</button>
                     </div>
 
                     <label>ชื่อบัญชี
@@ -133,11 +134,11 @@ function Register () {
                     </label>
                     <br/>
                         <button 
-                            class="w-100 btn btn-l btn-primary"
-                            type="submit">
-                            <a class="w-100 btn btn-l btn-primary">สมัครสมาชิก</a>
+                            class="w-100 btn btn-l btn"
+                            type="submit" style={{backgroundColor:"purple"}}>
+                            <a class="w-100 btn btn-l btn" style={{backgroundColor:'purple', color:"white"}}>สมัครสมาชิก</a>
                     </button>
-                    <p class="mt-5 mb-3 text-muted">มีบัญชีสมาชิกแล้ว?<a href="Login">เข้าสู่ระบบ</a></p> 
+                    <p class="mt-5 mb-3 text-muted">มีบัญชีสมาชิกแล้ว?<a href="Login" style={{textDecoration:"none"}}>เข้าสู่ระบบ</a></p> 
                 </form>
             </main>
         </div>

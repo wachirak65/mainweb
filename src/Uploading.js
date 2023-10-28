@@ -1,4 +1,5 @@
 import React from 'react'
+import "./Uploading.css"
 
 function Uploading() {
     return (
@@ -38,15 +39,19 @@ function Uploading() {
             </ul> */}
             
         </header>
-        <div class="container-1">
-            <h3>ลาก & วางไฟล์ของคุณ or <a href='#'>เปิดโฟลเดอร์</a></h3>
+        <div class="container-2">
+            <h3>ลาก & วางไฟล์ของคุณ or <a href='#'  style={{textDecoration:"none"}}>เปิดโฟลเดอร์</a></h3>
             <p>อัพโหลดข้อมูลรูปภาพ สภาพแวดล้อมต่างๆ เพื่อให้ AI ใช้ในการวิเคราะห์ </p>
             <hr />
         </div>
             <p>ประเภทไฟล์ที่รองรับ JPG , PNG ขนาดสูงสุดครั้งละ 800 MB</p>
-            <p>ไฟล์ที่กำลังอัปโหลด</p>
-            <button type="button"><a href='#'>อัปโหลดและสร้างโปรเจค</a></button>
+            <p>ไฟล์ที่กำลังอัปโหลด...</p>
+            <button type="button" className="w-10 btn btn-l btn-white"><a href='#' style={{textDecoration:"None",color:"black"}}>อัปโหลดและสร้างโปรเจค</a></button>
+        <footer>
+            <button type="button" className="w-10 btn btn-m btn-white"><a href='Upload' style={{textDecoration:"None",color:"black"}}>ย้อนกลับ</a></button>
+        </footer>
         </div>
+        
     )
 }
 

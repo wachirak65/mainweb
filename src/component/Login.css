@@ -26,4 +26,9 @@ body {
     margin: 15px 0px 15px 0;
     height: 100%;
 }
-
+.google-1 img{
+    transform: translateY(-10%);
+}
+.google-2 img{
+    transform: translateY(-10%);
+}

@@ -54,25 +54,28 @@ function Profile() {
             <h2>คำอธิบายต่างๆ Interface</h2>
             {/* <img src="3.jpg"/> */}
         </article>
-        <section className='right-container'>
-            <h2>บริการของพวกเรา ?</h2>
-            <p>ท่านสามารถเพิ่มประสิทธิภาพการเกษตรของคุณได้ด้วยเทคโนโลยีของเรา 
-                โดรนบินสำรวจของเราจะช่วยท่านทำนายพื้นที่ที่เหมาะสมในการปลูกพืชและพืชที่ควรปลูกอย่างไรให้เหมาะกับสภาพแวดล้อม 
-                ด้วยการสแกนและวิเคราะห์ข้อมูลที่รวบรวมจากโดรนบินสำรวจเรา ท่านจะได้รับข้อมูลที่แม่นยำเกี่ยวกับปริมาณน้ำ, สภาพดิน, 
-                และสภาพอากาศที่ช่วยให้การเกษตรของท่านประสบความสำเร็จ</p>
-            <button 
-                    class="w-30 btn btn-lg btn-success" 
-                    type="submit">
-                    <a class="w-100 btn btn-s btn-success" href="Login">เข้าสู่ระบบ</a>
-            </button>  
-            <button 
-                    class="w-30 btn btn-lg btn-primary"
-                    type="submit">
-                    <a class="w-100 btn btn-s btn-primary" href="Register">สมัครสมาชิก</a>
-            </button>
-            
-        </section>
-    
+            <section className='right-container'>
+                <h2>บริการของพวกเรา ?</h2>
+                <p>ท่านสามารถเพิ่มประสิทธิภาพการเกษตรของคุณได้ด้วยเทคโนโลยีของเรา 
+                    โดรนบินสำรวจของเราจะช่วยท่านทำนายพื้นที่ที่เหมาะสมในการปลูกพืชและพืชที่ควรปลูกอย่างไรให้เหมาะกับสภาพแวดล้อม 
+                    ด้วยการสแกนและวิเคราะห์ข้อมูลที่รวบรวมจากโดรนบินสำรวจเรา ท่านจะได้รับข้อมูลที่แม่นยำเกี่ยวกับปริมาณน้ำ, สภาพดิน, 
+                    และสภาพอากาศที่ช่วยให้การเกษตรของท่านประสบความสำเร็จ</p>
+                <div className="btn-1">
+                    <button 
+                            class="w-30 btn btn-lg btn-success" 
+                            type="submit">
+                            <a class="w-100 btn btn-s btn-success" href="Login">เข้าสู่ระบบ</a>
+                    </button> 
+                </div> 
+                <div className="btn-2">
+                    <button 
+                            class="w-30 btn btn-lg btn-primary"
+                            type="submit">
+                            <a class="w-100 btn btn-s btn-primary" href="Register">สมัครสมาชิก</a>
+                    </button>
+                </div>
+            </section>
+        
         <footer className="foot-container"> 
             <img width={"15"} src='https://e1.pngegg.com/pngimages/383/600/png-clipart-icone-de-fleche-icone-inferieure-icone-vers-le-bas-icone-vers-le-bas-icone-de-navigation-ligne-main.png'/>
             <p >our Services</p>
