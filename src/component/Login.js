@@ -29,7 +29,7 @@ function Login  () {
         // signInWithEmailAndPassword(auth ,email,password)
         signInWithEmailAndPassword(auth ,inputs.name,inputs.value)
         .then((user)=>{
-            navigate('../Homepage')
+            navigate('./Homepage')
             console.log(user);
         }).catch((error) => {
             console.log(error);
@@ -84,7 +84,7 @@ function Login  () {
                 <p style={{textAlign:"center"}}>กรอกบัญชีอีเมลและรหัสผ่านเพื่อเข้าสู่ระบบ</p>
                 <p style={{textAlign:"center"}}>Or</p>
                 <div className='google-1'>
-                    {navigate('../Homepage')}
+                    {navigate('./Homepage')}
                     <button style={{borderRadius:"40px" ,margin:"10px"}} onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-2 py-1"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"5%"} height={"5%"}/> เข้าสู่ระบบด้วยบัญชี Google</button>
                 </div>
                     <label>อีเมล
