@@ -1,0 +1,38 @@
+.lander{
+    margin: 0;
+    width: 800px;
+}
+.narrow-land{
+    width: 250px;
+    position: absolute;
+    right: 15%;
+    top: 18%;
+    text-align: center;
+}
+.pencil{
+    padding:20px 0px 20px 0px;
+}
+.eraser{
+    padding:20px 0px 20px 0px;
+}
+.bin{
+    padding:20px 0px 20px 0px;
+}
+.pencil a{
+    text-decoration: none;
+    color: black;
+}
+.eraser a{
+    text-decoration: none;
+    color: black;
+}
+.bin a{
+    text-decoration: none;
+    color: black;
+}
+.arrow-1{
+    width: 30%;
+}
+.arrow-2{
+    width: 30%;
+}
