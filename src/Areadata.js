@@ -1,5 +1,6 @@
 import React from 'react';
 import  {  useState } from 'react';
+import "./Areadata.css"
 
 function Areadata() {
     const [inputs, setInputs] = useState("");
@@ -32,7 +33,7 @@ function Areadata() {
             </select>
         </header>
         <div className='first-container'>
-            <h2>กรอกข้อมูลพื้นฐานของคุณ</h2>
+            <h4>กรอกข้อมูลพื้นฐานของคุณ</h4>
             <label>ชื่อโปรเจกต์:
                 <input 
                         className='form-control'
@@ -42,6 +43,7 @@ function Areadata() {
                         value={inputs.username || ""} 
                         onChange={handleChange}
                         placeholder='ความยาวไม่เกิน 16 ตัวอักษร '
+                        required
                     />
             </label>
             <br/>
@@ -53,7 +55,8 @@ function Areadata() {
                         value={inputs.number || ""} 
                         onChange={handleChange}
                         placeholder='แสดงยอดตัวเลขต้นทุนต่อรอบ'
-                    />บาท
+                        required
+                    /><p style={{position:"relative", right:"-200%",transform:"translateY(-360%)"}}>บาท</p>
             </label>
             <br/>
             <label>พืชที่ปลูกในปัจจุบัน:
@@ -64,6 +67,7 @@ function Areadata() {
                         value={inputs.plant || ""} 
                         onChange={handleChange}
                         placeholder='เลือกชนิดของพืช'
+                        required
                     />
                     <button type='submit' class="w-20 btn btn-m btn-white">ไม่มี</button>
             </label>
@@ -76,6 +80,7 @@ function Areadata() {
                         value={inputs.plants || ""} 
                         onChange={handleChange}
                         placeholder='เลือกชนิดของพืช'
+                        required
                     />
                     <button type='submit' class="w-20 btn btn-m btn-white">ไม่มี</button>
             </label>
@@ -88,27 +93,30 @@ function Areadata() {
                         value={inputs.human || ""} 
                         onChange={handleChange}
                         placeholder='กรอกเป็นตัวเลข'
-                    />คน
+                        required
+                    /><p style={{position:"relative", right:"-200%",transform:"translateY(-360%)"}}>คน</p>
             </label>
             <br/>
             <label>ระยะเวลาที่สามารถรอได้ :
                 <input 
                         className='form-control'
                         type="text" 
-                        name="human" 
-                        value={inputs.human || ""} 
+                        name="humans" 
+                        value={inputs.humans || ""} 
                         onChange={handleChange}
                         placeholder='กรอกเป็นตัวเลข'
+                        required
                     />
                 <button type='submit' class="w-20 btn btn-m btn-white" maxLength={31} >วัน</button>
                 <button type='submit' class="w-20 btn btn-m btn-white" maxLength={12}>เดือน</button>
                 <button type='submit' class="w-20 btn btn-m btn-white">ปี</button>
             </label>
             <footer class="down-container">
-                <button style={{marginTop:"7rem"}} type="button" className="w-10 btn btn-m btn-white"><a href='Dragarea' style={{textDecoration:"None",color:"black"}}>ย้อนกลับ</a></button>
-                <button style={{marginTop:"7rem"}} type="button" className="w-10 btn btn-m btn-white"><a href='' style={{textDecoration:"None",color:"black"}}>เริ่มประมวลผลพื้นที่</a></button>
+                <button style={{marginTop:"5rem",left:"5%"}} type="button" className="w-10 btn btn-m btn-white"><a href='Dragarea' style={{textDecoration:"None",color:"black"}}>ย้อนกลับ</a></button>
+                <button style={{marginTop:"5rem",left:"5%"}} type="button" className="w-10 btn btn-m btn-white"><a href='' style={{textDecoration:"None",color:"black"}}>เริ่มประมวลผลพื้นที่</a></button>
             </footer>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </div>
     )
 }
