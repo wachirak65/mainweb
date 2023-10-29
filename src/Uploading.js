@@ -85,9 +85,9 @@ function Uploading() {
             {msg && <div style={{textAlign:"center"}}>{msg}</div>}
             {progress.started && <progress style={{color:"green",textAlign:"center",position:"relative",left:"44%"}} min={0} max={100} value={progress.pc}></progress>}
             <br/>
-            <button onClick={handleUploading} style={{left:"42.5%",position:'relative',backgroundColor:"lightgreen"}} type="button" className="w-10 btn btn-l btn-white" ><a href='#' style={{textDecoration:"None",color:"black"}}>อัปโหลดและสร้างโปรเจค</a></button>
+            <button onClick={handleUploading} style={{left:"42.5%",position:'relative',backgroundColor:"lightgreen"}} type="button" className="w-10 btn btn-l btn-white" ><a style={{textDecoration:"None",color:"black"}}>อัปโหลดและสร้างโปรเจค</a></button>
         <footer>
-            <button style={{marginTop:"7rem"}} type="button" className="w-10 btn btn-m btn-white"><a href='Uploading' style={{textDecoration:"None",color:"black"}}>ย้อนกลับ</a></button>
+            <button style={{marginTop:"7rem"}} type="button" className="w-10 btn btn-m btn-white"><a href='Selection' style={{textDecoration:"None",color:"black"}}>ย้อนกลับ</a></button>
         </footer>
         </div>
         

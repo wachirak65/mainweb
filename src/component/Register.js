@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import "../component/Login.css"
-import {signInWithGoogle,auth } from "../until/App2"
-
+import {auth,provider } from "../until/App2"
+import { signInWithPopup } from "firebase/auth";
 
 
 function Register () {
@@ -25,7 +25,29 @@ function Register () {
         setInputs(values => ({...values, [name]: value}))
     }
 
-    
+    const signInWithGoogle = () =>{
+        signInWithPopup(auth,provider)
+        .then((result)=>{
+            console.log(result);
+            navigate('../Selection')
+            MySwal.fire({
+            html:<i>{result.message}</i>,
+            icon:"success"})
+            const name = result.user.displayName;
+            const email = result.user.email;
+            const profilePic = result.user.photoURL;
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+            localStorage.setItem('profilePic', profilePic);
+        })
+        .catch((error) =>{
+            console.log(error);
+            MySwal.fire({
+            html:<i>{error.message}</i>,
+            icon:"error",
+            })
+        });
+    }
     
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -33,7 +55,7 @@ function Register () {
         
         .then((user)=>{
             console.log(user);
-            navigate('../Homepage')
+            navigate('../Selection')
             MySwal.fire({
             html:<i>{user.message}</i>,
             icon:"success"})
@@ -64,8 +86,8 @@ function Register () {
                 </ul>
                 <select name="cars" id="cars" style={{outline: "0px solid transparent"}}>
                     <option value="Guest" selected>Guest</option>
-                    <option value="volvo">โหมดผู้ใช้ทั่วไป</option>
-                    <option value="saab">สมัครสมาชิก</option>
+                    <option value="volvo"><a href='Selection'>โหมดผู้ใช้ทั่วไป</a></option>
+                    <option value="saab"><a href='Register'>สมัครสมาชิก</a></option>
                 </select>
                 {/* <ul>
                     <li style={{ listStyleType :"none",textDecoration:"none" ,color: "#5DADE2"}}><a href="#" class="nav-link px-2 link-lightblue">
@@ -91,8 +113,8 @@ function Register () {
                     <h1 style={{textAlign:"center"}}>สมัครสมาชิก</h1>
                     <p style={{textAlign:"center"}}>Or</p>
                     <div className='google-2'>
-                        {navigate('./Homepage')}
                         <button style={{borderRadius:"40px" ,margin:"10px"}} onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-2 py-1"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"5%"} height={"5%"}/> สมัครสมาชิกด้วยบัญชี Google</button>
+                        
                     </div>
 
                     <label>ชื่อบัญชี

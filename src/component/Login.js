@@ -1,14 +1,14 @@
 import React ,{ useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Swal from "sweetalert2"
-// import withReactContent from "sweetalert2-react-content"
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
 import "../component/Login.css"
-import {signInWithGoogle,auth} from '../until/App2';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import {provider,auth} from '../until/App2';
+import { signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 
 function Login  () {
     const navigate = useNavigate()
-    // const MySwal = withReactContent(Swal)
+    const MySwal = withReactContent(Swal)
     
     const [inputs, setInputs] = useState("");
     
@@ -29,13 +29,41 @@ function Login  () {
         // signInWithEmailAndPassword(auth ,email,password)
         signInWithEmailAndPassword(auth ,inputs.name,inputs.value)
         .then((user)=>{
-            navigate('./Homepage')
+            navigate('../Selection')
             console.log(user);
         }).catch((error) => {
             console.log(error);
+            MySwal.fire({
+            html:<i>{error.message}</i>,
+            icon:"error",
+            })
         });
         
     };
+    const signInWithGoogle = () =>{
+        signInWithPopup(auth,provider)
+        .then((result)=>{
+            console.log(result);
+            navigate('../Selection')
+            MySwal.fire({
+            html:<i>{result.message}</i>,
+            icon:"success"})
+            const name = result.user.displayName;
+            const email = result.user.email;
+            const profilePic = result.user.photoURL;
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+            localStorage.setItem('profilePic', profilePic);
+        })
+        .catch((error) =>{
+            console.log(error);
+            MySwal.fire({
+            html:<i>{error.message}</i>,
+            icon:"error",
+            })
+        });
+    }
+    
     const handleReset = ()=>{
         navigate('/Reset');
     }
@@ -56,8 +84,8 @@ function Login  () {
                 </ul>
                 <select name="cars" id="cars">
                     <option value="Guest" selected>Guest</option>
-                    <option value="volvo">โหมดผู้ใช้ทั่วไป</option>
-                    <option value="saab">สมัครสมาชิก</option>
+                    <option value="volvo"><a href='Selection'>โหมดผู้ใช้ทั่วไป</a></option>
+                    <option value="saab"><a href='./component/Register'>สมัครสมาชิก</a></option>
                 </select>
                 {/* <ul>
                     <li style={{ listStyleType :"none",textDecoration:"none" ,color: "#5DADE2"}}><a href="#" class="nav-link px-2 link-lightblue">
@@ -84,7 +112,6 @@ function Login  () {
                 <p style={{textAlign:"center"}}>กรอกบัญชีอีเมลและรหัสผ่านเพื่อเข้าสู่ระบบ</p>
                 <p style={{textAlign:"center"}}>Or</p>
                 <div className='google-1'>
-                    {navigate('./Homepage')}
                     <button style={{borderRadius:"40px" ,margin:"10px"}} onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-2 py-1"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"5%"} height={"5%"}/> เข้าสู่ระบบด้วยบัญชี Google</button>
                 </div>
                     <label>อีเมล
@@ -113,7 +140,7 @@ function Login  () {
                         <button 
                             class="w-100 btn btn-l btn-primary"
                             type="submit">
-                            <a class="w-100 btn btn-l btn-primary" href="Homepage">เข้าสู่ระบบ</a>
+                            <a class="w-100 btn btn-l btn-primary" href="Selection">เข้าสู่ระบบ</a>
                         </button>
                     <p class="mt-5 mb-3 text-muted">ยังไม่มีบัญชีสมาชิก?<a href="Register" style={{textDecoration:"none"}}>สมัครสมาชิก</a></p> 
                 </form>

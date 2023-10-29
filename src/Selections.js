@@ -34,9 +34,13 @@ function Selections() {
                 <div className ='box-5'><input type='text' name='number' minLength={1} maxLength={1} required></input></div>
                 <div className ='box-6'><input type='text' name='number' minLength={1} maxLength={1} required></input></div>
             </div>
-            <button type='submit' className='w-20 btn btn-l btn-white'>ยืนยัน</button>
+            <button type='submit' className='w-20 btn btn-l btn-white' href="Uploadpage">ยืนยัน</button>
+            
             
         </div>
+        <footer>
+            <button style={{marginTop:"4rem"}} type="button" className="w-10 btn btn-m btn-white"><a href='Selection' style={{textDecoration:"None",color:"black"}}>ย้อนกลับ</a></button>
+        </footer>
     </div>
     
     )

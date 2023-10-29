@@ -1,0 +1,13 @@
+.before {
+    width:250px;
+    text-align: "center";
+    justify-content: center;
+    text-align: center;
+}
+.After{
+    position: absolute;
+    right: 8%;
+    top: 15%;
+    width: 1100px;
+    
+}

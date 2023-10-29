@@ -1,35 +1,22 @@
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyCpi8REX9TKnBUUjcDIXuTUVaVVWJmOY2k",
-    authDomain: "projectweb-ff29d.firebaseapp.com",
-    projectId: "projectweb-ff29d",
-    storageBucket: "projectweb-ff29d.appspot.com",
-    messagingSenderId: "480636001731",
-    appId: "1:480636001731:web:91a0cde0165b10049c7176",
-    measurementId: "G-LB667V04VV"
+    apiKey: "AIzaSyApjIuTAaTrni_Rn0ASOiAjhMJMhn-0JS0",
+    authDomain: "agriuntiredproject.firebaseapp.com",
+    databaseURL: "https://agriuntiredproject-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "agriuntiredproject",
+    storageBucket: "agriuntiredproject.appspot.com",
+    messagingSenderId: "135387709485",
+    appId: "1:135387709485:web:c3398ef1fae8893ece38a4",
+    measurementId: "G-24GYE2NF93"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app); 
 
-const provider = new GoogleAuthProvider()
-export const signInWithGoogle = () =>{
-    
-    signInWithPopup(auth,provider)
-    .then((result)=>{
-        
-        const name = result.user.displayName;
-        const email = result.user.email;
-        const profilePic = result.user.photoURL;
-        localStorage.setItem('name', name);
-        localStorage.setItem('email', email);
-        localStorage.setItem('profilePic', profilePic);
-    })
-    .catch((error) =>{
-        console.log(error);
-    });
-}
+export const provider = new GoogleAuthProvider()

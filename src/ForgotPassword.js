@@ -22,7 +22,7 @@ function ForgotPassword() {
     
     return (
     <div className='container'>
-        <header style={{boxShadow:"5px 5px 5px 5px rgba(0,0,0,0.2)",strokeOpacity:"0.8"}} class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <header style={{strokeOpacity:"0.8"}} class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <a  class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none" href='Profile'>
                 <img style={{borderRadius: "50%"}} src="https://www.zarla.com/images/zarla-k-1x1-2400x2400-20211119-y8r6jygpdqy7qwr4bhcp.png?crop=1:1,smart&width=250&dpr=2" width="15%" height="15%"/> 
                 <h2>LOGO</h2>
@@ -42,9 +42,9 @@ function ForgotPassword() {
                 <option value="saab">สมัครสมาชิก</option>
             </select>
         </header>
-        <h1>ForgotPassword</h1>
-        <form onsubmit = {(e)=>handleOnsubmit(e)}>
-            <input name = "email"/>
+        <h1 style={{textAlign:"center",margin:"14rem 0rem 0rem 0rem"}}>ForgotPassword</h1>
+        <form style={{textAlign:"center",margin:"2rem 0rem 2rem 0rem"}} onsubmit = {(e)=>handleOnsubmit(e)}>
+            <input  name = "email"/>
             <button>Reset</button>
         </form>
     </div>

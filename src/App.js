@@ -9,6 +9,10 @@ import Uploading from "./Uploading";
 import ForgotPassword from "./ForgotPassword";
 import Selection from "./Selection";
 import Selections from "./Selections";
+import Uploadpage from "./Uploadpage";
+import Areadata from "./Areadata";
+import Dragarea from "./Dragarea";
+
 
 function App() {
   return (
@@ -21,9 +25,12 @@ function App() {
         <Route path="Homepage" element={<Homepage/>}/>
         <Route path="Mainpage" element={<Mainpage/>}/>
         <Route path="Uploading" element={<Uploading/>}/>
+        <Route path="Uploadpage" element={<Uploadpage/>}/>
         <Route path="Reset" element={<ForgotPassword/>}/>
         <Route path="Selections" element={<Selections/>}/>
         <Route path="Selection" element={<Selection/>}/>
+        <Route path="Areadata" element={<Areadata/>}/>
+        <Route path="Dragarea" element={<Dragarea/>}/>
       </Routes> 
     </div>
   );
