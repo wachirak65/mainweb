@@ -43,12 +43,12 @@ function Dragarea() {
             <div className='pencil'><a href="#"><img width={"10%"} src='https://png.pngtree.com/png-clipart/20210120/ourlarge/pngtree-illustration-thick-pencil-clipart-black-and-white-png-image_2747230.jpg'/>ดินสอ</a></div>
             <div className='eraser'><a href="#"><img width={"10%"} src='https://png.pngtree.com/element_our/png/20181226/rubber-line-black-icon-png_281637.jpg'/>ยางลบ</a></div>
             <div className='bin'><a href="#"><img width={"10%"} src='https://e7.pngegg.com/pngimages/138/884/png-clipart-rubbish-bins-waste-paper-baskets-computer-icons-encapsulated-postscript-others-miscellaneous-cdr.png'/>ลบทั้งหมด</a></div>
-            <button style={{marginTop:"7rem"}} type="button" className="btn btn-s btn-white arrow-1"><a href='Dragarea' style={{textDecoration:"None",color:"black"}} ><img width={"50%"} src='https://i.pinimg.com/736x/3d/22/7b/3d227b9dcead5eae5402744053822072.jpg'/></a></button>
-            <button style={{marginTop:"7rem"}} type="button" className="btn btn-s btn-white arrow-2"><a href='Uploading' style={{textDecoration:"None",color:"black"}}><img width={"50%"} src='https://png.pngtree.com/png-vector/20190411/ourlarge/pngtree-vector-right-arrow-icon-png-image_925724.jpg'/></a></button>
+            <button style={{marginTop:"10rem"}} type="button" className="btn btn-s btn-white arrow-1"><a href='Dragarea' style={{textDecoration:"None",color:"black"}} ><img width={"50%"} src='https://i.pinimg.com/736x/3d/22/7b/3d227b9dcead5eae5402744053822072.jpg'/></a></button>
+            <button style={{marginTop:"10rem"}} type="button" className="btn btn-s btn-white arrow-2"><a href='Uploading' style={{textDecoration:"None",color:"black"}}><img width={"50%"} src='https://png.pngtree.com/png-vector/20190411/ourlarge/pngtree-vector-right-arrow-icon-png-image_925724.jpg'/></a></button>
             <br/>
-            <button style={{marginTop:"3rem"}} type="button" className="w-10 btn btn-m btn-white"><a href='Areadata' style={{textDecoration:"None",color:"black"}}>ยืนยัน</a></button>
+            <button style={{marginTop:"3rem"}} type="button" className="w-10 btn btn-m btn-white w-1"><a href='Areadata' style={{textDecoration:"None",color:"black"}}>ยืนยัน</a></button>
             <br/>
-            <button style={{marginTop:"1rem"}} type="button" className="w-10 btn btn-m btn-white"><a href='Uploadpage' style={{textDecoration:"None",color:"black"}}>ย้อนกลับ</a></button>
+            <button style={{marginTop:"1rem"}} type="button" className="w-10 btn btn-m btn-white w-2"><a href='Uploadpage' style={{textDecoration:"None",color:"black"}}>ย้อนกลับ</a></button>
         </div>
     </div>
     )
