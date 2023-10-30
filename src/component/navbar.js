@@ -3,6 +3,7 @@ import React from 'react';
 import logo_untired from '../assets/logo_untired.PNG';
 import person_icon from '../assets/icons/person_icon.svg'
 import gear_icon from '../assets/icons/gear_icon.svg'
+import './navbar.css'
 
 function Navbar() {
     return (

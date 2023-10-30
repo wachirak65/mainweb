@@ -1,6 +1,6 @@
 import {Routes,Route} from "react-router-dom"
 import Login from "./pages/Loginpage";
-import Profile from "./pages/WelcomePage";
+import WelcomePage from "./pages/WelcomePage";
 import Launchweb from "./pages/Launchwebpage";
 import Register from "./pages/Registerpage";
 import Homepage from "./Homepage";
@@ -13,14 +13,15 @@ import Uploadpage from "./Uploadpage";
 import Areadata from "./Areadata";
 import Dragarea from "./Dragarea";
 import Locate from "./pages/LocatePage"
+import ChoosePage from "./pages/ChoosePage";
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Login/>}/>
-        <Route path="Profile" element={<Profile/>}/>
-        <Route path="Launchweb" element={<Launchweb/>}/>
+        <Route path="/" element={<Launchweb/>}/>
+        <Route path="Login" element={<Login/>}/>
+        <Route path="WelcomePage" element={<WelcomePage/>}/>
         <Route path="Register" element={<Register/>}/>
         <Route path="Homepage" element={<Homepage/>}/>
         <Route path="Mainpage" element={<Mainpage/>}/>
@@ -33,9 +34,8 @@ function App() {
         <Route path="Dragarea" element={<Dragarea/>}/>
         <Route path="Dragarea" element={<Dragarea/>}/>
         <Route path="Locate" element={<Locate/>}/>
+        <Route path="ChoosePage" element={<ChoosePage/>}/>
 
-
-        
       </Routes> 
     </div>
   );

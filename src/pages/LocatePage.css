@@ -5,7 +5,7 @@
     margin-top: -799px;
     height: 50rem;
     box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
-    border-radius: 10px;
+    border-radius: 20px;
 }
 .left-card{
     
@@ -16,8 +16,9 @@
     
 }
 .Map{
-    margin-left: 50%;
-    padding-top: 25%;
+    width: 100%;
+    height: 48vw;
+    border-radius: 20px;
 }
 .inputLocate{
     width: 15rem;
@@ -42,13 +43,22 @@
     position: relative;
     left: 5px;
 }
-p{
+.LocationShow p{
     font-size: 20px;
     margin-left: 3rem;
     font-weight: 100;
     color: #141414cd;
     padding-top: 30px;
 }
+.LocationSearch p{
+    font-size: 20px;
+    margin-left: 3rem;
+    font-weight: 100;
+    color: #141414cd;
+    padding-top: 30px;
+}
+
+
 .locateShowInside{
     margin-top: 9rem;
 }
@@ -71,6 +81,18 @@ textarea:focus, input:focus{
     border-top: 2px solid #000000c9;
 
 }
+.icon-geo1{
+    color: rgb(179, 179, 179);
+    margin-left: 12rem;
+    position: relative;
+    bottom: 2.7rem;
+}
+.icon-geo2{
+    color:rgb(67, 141, 91);
+    margin-left: 1rem;
+    position: relative;
+    bottom: 2.8rem;
+}
 
 
 @media only screen and (max-height:709px) {
@@ -87,9 +109,13 @@ textarea:focus, input:focus{
         height: 1.8rem;
         margin-top: 1.5rem;
     }
-    p{
+    .LocationSearch p{
         font-size: 16px;
         margin-left: 3rem;
+    }
+    .LocationShow p{
+        font-size: 16px;
+        margin-left: 3rem; 
     }
     .locateShowInside{
         margin-top: 6rem;
@@ -108,6 +134,20 @@ textarea:focus, input:focus{
         margin-left: 2.4rem;
         position: relative;
         top: 7.8rem;
+    }
+    .icon-geo1{
+        margin-left: 10rem;
+        position: relative;
+        bottom: 2.7rem;
+    }
+    .icon-geo2{
+        position: relative;
+        bottom: 2.7rem;
+    }
+    .Map{
+        width: 100%;
+        height: 39vw;
+        border-radius: 20px;
     }
 }
 

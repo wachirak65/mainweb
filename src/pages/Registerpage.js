@@ -7,7 +7,9 @@ import "../pages/LoginRegisterpage.css"
 import {auth,provider } from "../until/App2"
 import { signInWithPopup } from "firebase/auth";
 import Navbar from "../component/navbar";
-
+import Arrow from '../assets/icons/arrow_auth.svg'
+import google_icon from '../assets/icons/google_icon.svg'
+import people_icon from '../assets/icons/register_logo.svg'
 
 function Register () {
     const navigate = useNavigate()
@@ -72,68 +74,41 @@ function Register () {
     
     return (
     <div>
-            <Navbar/>
-        <br/>
-        <div id = "form-area" class="form-floating my-2">
-            <main class="form-signin w-100 m-auto">
-                <form id='registerForm' onSubmit={handleSubmit}>
-                    <h1 style={{textAlign:"center"}}>สมัครสมาชิก</h1>
-                    <p style={{textAlign:"center"}}>Or</p>
-                    <div className='google-2'>
-                        <button style={{borderRadius:"40px" ,margin:"10px"}} onClick={signInWithGoogle} className="mx-auto border-1 bg-white-500 text-black rounded-full px-2 py-1"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width={"5%"} height={"5%"}/> สมัครสมาชิกด้วยบัญชี Google</button>
-                        
+        <Navbar/>
+        
+        <div class='authen-center'>
+            <div class='authen-form register-from'>
+                <div class='header-authen'>
+                    <img src={people_icon} alt="arrow-auth-icon" width='40' height='40'/>
+                    <h2>สมัครสมาชิก</h2>
+                    <br />
+                    <div class="big-button"><img src={google_icon} alt="google-icon" width='20' height='20'/><p>เข้าสู่ระบบด้วยบัญชี Google</p></div>
+                    <div class='or-line'><p>OR</p></div>
+                </div>
+                
+                <form action="">
+                <div class="mb-3">
+                        <label for="text-input" class="form-label">ชื่อบัญชี</label>
+                        <input type="text" class="form-control" id="text-input" aria-describedby="textHelp" placeholder='Enter your name'/>
                     </div>
-
-                    <label>ชื่อบัญชี
-                    <br/>
-                    <input 
-                        className='form-control'
-                        type="text" 
-                        name="username" 
-                        minLength={5}
-                        maxLength={20}
-                        value={inputs.username || ""} 
-                        onChange={handleChange}
-                        placeholder='Enter your name'
-                    />
-                    </label>
-                    <label>อีเมล
-                    <br/>
-                    <input 
-                        className='form-control'
-                        type="email" 
-                        name="email"
-                        value={inputs.email || ""} 
-                        onChange={handleChange}
-                        placeholder='username@gmail.com'
-                    />
-                    </label>
-                    <label>รหัสผ่าน (ความยาวอย่างน้อย จํานวน 6-16 ตัวอักษร)
-                    <br/>
-                        <input 
-                            className='form-control'
-                            type="password" 
-                            name="password" 
-                            minLength={6}
-                            maxLength={20}
-                            value={inputs.password || ""} 
-                            onChange={handleChange}
-                            placeholder='Enter your password'
-                    />
-                    </label>
-                    <br/>
-                        <button 
-                            class="w-100 btn btn-l btn"
-                            type="submit" style={{backgroundColor:"purple"}}>
-                            <a class="w-100 btn btn-l btn" style={{backgroundColor:'purple', color:"white"}}>สมัครสมาชิก</a>
-                    </button>
-                    <p class="mt-5 mb-3 text-muted">มีบัญชีสมาชิกแล้ว?<a href="Login" style={{textDecoration:"none"}}>เข้าสู่ระบบ</a></p> 
+                    <div class="mb-3">
+                        <label for="email-input" class="form-label">อีเมล</label>
+                        <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" placeholder='username@gmail.com'/>
+                    </div>
+                    <div class="mb-3">
+                        <div class='label-content'>
+                            <label for="password-input" class="form-label" >รหัสผ่าน <p>(ความยาวอย่างน้อย จํานวน6-16 ตัวอักษร)</p></label>
+                        </div>
+                        <input type="password" class="form-control" id="password-input" placeholder='Enter your password'/>
+                    </div>
+                    <div class='big-button-login register-btn'>สมัครสมาชิก</div>
                 </form>
-            </main>
+                
+            </div>
+            <p class='end-authen'>มีบัญชีอยู่แล้ว ? <a href="/">เข้าสู่ระบบ</a></p>
         </div>
     </div>
     )
 }
 export default  Register
-
 

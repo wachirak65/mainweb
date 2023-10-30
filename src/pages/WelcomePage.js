@@ -1,20 +1,19 @@
 import React from 'react'
 import "./WelcomePage.css"
 import Navbar from '../component/navbar'
+import Slide from '../assets/icons/slide_icon.svg'
 
-function Profile() {
+function WelcomePage() {
     return (
         <div>
         <Navbar/>
         
-        <div className='main-containers' >
+        <div className='main-containers'>
             <h5>UNTIRED</h5>
             <h1>ยินดีต้อนรับเข้าสู่เว็บไซต์</h1>
             <p>“ท่านไม่ต้องเสียเวลาและทรัพยากรในการทดลองผิดพลาดและทำลายพืชอีกต่อไป ให้โดรนบินสำรวจของเราช่วยเสริมสร้างฐานข้อมูลเพื่อการตัดสินใจที่แม่นยำและปลอดภัย เริ่มเพิ่มประสิทธิภาพในการเกษตรของคุณด้วยโดรนบินสำรวจเราวันนี้ ”</p>
         <div className='symbol'>
-            <img width={"20"} src='https://e1.pngegg.com/pngimages/383/600/png-clipart-icone-de-fleche-icone-inferieure-icone-vers-le-bas-icone-vers-le-bas-icone-de-navigation-ligne-main.png'/>
-            <br/>
-            <img width={"15"} src='https://e1.pngegg.com/pngimages/383/600/png-clipart-icone-de-fleche-icone-inferieure-icone-vers-le-bas-icone-vers-le-bas-icone-de-navigation-ligne-main.png'/>
+            <img width="65" height="77" src={Slide}/>
         </div>
         </div>
         
@@ -73,4 +72,4 @@ function Profile() {
     )
 }
 
-export default Profile
+export default WelcomePage
