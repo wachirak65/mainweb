@@ -1,0 +1,40 @@
+
+.right-card{
+    width: 80%;
+    margin-left: 19%;
+    margin-top: -805px;
+    height: 50rem;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+.left-card{
+    
+    width: 18%;
+    height: 51rem;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    border-radius: 1px;
+    
+}
+.Map{
+    margin-left: 50%;
+    padding-top: 25%;
+}
+.inputLocate{
+    position: relative;
+    top : 7rem;
+    right: -0.7rem;
+    width: 18rem;
+    height: 2rem;
+}
+@media only screen and (max-height:709px) {
+    .left-card{
+        height: 37rem;
+    }
+    .right-card{
+        margin-top: -583px;
+        height: 36rem;
+    }
+    .inputLocate{
+        width: 14rem;
+    }
+}

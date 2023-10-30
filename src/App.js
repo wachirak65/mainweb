@@ -12,7 +12,7 @@ import Selections from "./Selections";
 import Uploadpage from "./Uploadpage";
 import Areadata from "./Areadata";
 import Dragarea from "./Dragarea";
-
+import Locate from "./LocatePage";
 
 function App() {
   return (
@@ -31,6 +31,10 @@ function App() {
         <Route path="Selection" element={<Selection/>}/>
         <Route path="Areadata" element={<Areadata/>}/>
         <Route path="Dragarea" element={<Dragarea/>}/>
+        <Route path="Dragarea" element={<Dragarea/>}/>
+        <Route path="Locate" element={<Locate/>}/>
+
+        
       </Routes> 
     </div>
   );
