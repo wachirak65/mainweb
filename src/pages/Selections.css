@@ -1,0 +1,63 @@
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+.medium-container{
+    text-align: center;
+    margin: 6rem auto;
+    width: 600px;
+    padding: 50px;
+    box-shadow: 5px 5px 8px 0px #888;
+}
+.box{
+    display:flex;
+    flex-direction: row;
+    padding-left: 40px;
+    justify-content: center;
+    margin:40px;
+}
+.box-1{
+    width:40px;
+    padding: 0px 75px 0px 0px;
+}
+.box-2{
+    width:40px;
+    padding: 0px 75px 0px 0px;
+}
+.box-3{
+    width:40px;
+    padding: 0px 75px 0px 0px;
+}
+.box-4{
+    width:40px;
+    padding: 0px 75px 0px 0px;
+}
+.box-5{
+    width:40px;
+    padding: 0px 75px 0px 0px;
+}
+.box-6{
+    width:40px;
+    padding: 0px 75px 0px 0px;
+}
+.box-1 input{
+    width:40px;
+}
+
+.box-2 input{
+    width:40px;
+}
+
+.box-3 input{
+    width:40px;
+}
+.box-4 input{
+    width:40px;
+}
+.box-5 input{
+    width:40px;
+}
+.box-6 input{
+    width:40px;
+}
