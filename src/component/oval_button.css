@@ -1,0 +1,16 @@
+.oval-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 196px;
+    height: 52px;
+    border-radius: 24px;
+    margin-top: 100px;
+}
+
+.oval-btn p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #5A5D64;
+    margin: 0;
+}

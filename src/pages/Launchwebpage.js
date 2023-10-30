@@ -1,20 +1,24 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import "./Launchwebpage.css"
+import OvalButton from '../component/oval_button'
 
-function launchweb() {
+function Launchweb() {
+    const navigate = useNavigate();
+
     return (
-    <div>
+    <div class='background-div'>
         <div className='main-container' >
             <h5>UNTIRED</h5>
             <h1>ยินดีต้อนรับเข้าสู่เว็บไซต์</h1>
             <p>“ท่านไม่ต้องเสียเวลาและทรัพยากรในการทดลองผิดพลาดและทำลายพืชอีกต่อไป ให้โดรนบินสำรวจของเราช่วยเสริมสร้างฐานข้อมูลเพื่อการตัดสินใจที่แม่นยำและปลอดภัย เริ่มเพิ่มประสิทธิภาพในการเกษตรของคุณด้วยโดรนบินสำรวจเราวันนี้ ”</p>
             <hr/>
             <div className="last-container">
-                <button type="submit" class="w-30 btn btn-m btn-success" ><a class="w-100 btn btn-m btn-success" href="Profile">เข้าสู่เว็บไซต์</a></button>
+                <OvalButton title="เข้าสู่เว็บไซต์" color="#BEEFC3" next_route={()=>navigate('Login')}/>
             </div>
         </div>
     </div>
-    )
+    );
 }
 
-export default launchweb
+export default Launchweb;

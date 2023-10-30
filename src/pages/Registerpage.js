@@ -77,7 +77,7 @@ function Register () {
         <Navbar/>
         
         <div class='authen-center'>
-            <div class='authen-form'>
+            <div class='authen-form register-from'>
                 <div class='header-authen'>
                     <img src={people_icon} alt="arrow-auth-icon" width='40' height='40'/>
                     <h2>สมัครสมาชิก</h2>
