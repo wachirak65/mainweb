@@ -7,12 +7,12 @@ import Homepage from "./Homepage";
 import Mainpage from "./Mainpage";
 import Uploading from "./Uploading";
 import ForgotPassword from "./ForgotPassword";
-import Selection from "./Selection";
-import Selections from "./Selections";
+import Selection from "./pages/Selection";
+import Selections from "./pages/Selections";
 import Uploadpage from "./Uploadpage";
 import Areadata from "./Areadata";
 import Dragarea from "./Dragarea";
-import Locate from "./LocatePage";
+import Locate from "./pages/LocatePage"
 
 function App() {
   return (
@@ -33,6 +33,7 @@ function App() {
         <Route path="Dragarea" element={<Dragarea/>}/>
         <Route path="Dragarea" element={<Dragarea/>}/>
         <Route path="Locate" element={<Locate/>}/>
+
 
         
       </Routes> 
