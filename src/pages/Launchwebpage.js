@@ -14,7 +14,7 @@ function Launchweb() {
             <p>“ท่านไม่ต้องเสียเวลาและทรัพยากรในการทดลองผิดพลาดและทำลายพืชอีกต่อไป ให้โดรนบินสำรวจของเราช่วยเสริมสร้างฐานข้อมูลเพื่อการตัดสินใจที่แม่นยำและปลอดภัย เริ่มเพิ่มประสิทธิภาพในการเกษตรของคุณด้วยโดรนบินสำรวจเราวันนี้ ”</p>
             <hr/>
             <div className="last-container">
-                <OvalButton title="เข้าสู่เว็บไซต์" color="#BEEFC3" next_route={()=>navigate('Login')}/>
+                <OvalButton title="เข้าสู่เว็บไซต์" color="#BEEFC3" next_route={()=>navigate('Welcome')}/>
             </div>
         </div>
     </div>

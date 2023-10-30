@@ -105,7 +105,7 @@ function Register () {
                 </form>
                 
             </div>
-            <p class='end-authen'>มีบัญชีอยู่แล้ว ? <a href="/">เข้าสู่ระบบ</a></p>
+            <p class='end-authen'>มีบัญชีอยู่แล้ว ? <a href="/Login">เข้าสู่ระบบ</a></p>
         </div>
     </div>
     )

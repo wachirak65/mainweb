@@ -1,73 +1,57 @@
 import React from 'react'
 import "./WelcomePage.css"
+import { useNavigate } from "react-router-dom";
 import Navbar from '../component/navbar'
 import Slide from '../assets/icons/slide_icon.svg'
+import OvalButton from '../component/oval_button'
 
 function WelcomePage() {
+    const navigate = useNavigate();
+
     return (
         <div>
-        <Navbar/>
-        
-        <div className='main-containers'>
-            <h5>UNTIRED</h5>
-            <h1>ยินดีต้อนรับเข้าสู่เว็บไซต์</h1>
-            <p>“ท่านไม่ต้องเสียเวลาและทรัพยากรในการทดลองผิดพลาดและทำลายพืชอีกต่อไป ให้โดรนบินสำรวจของเราช่วยเสริมสร้างฐานข้อมูลเพื่อการตัดสินใจที่แม่นยำและปลอดภัย เริ่มเพิ่มประสิทธิภาพในการเกษตรของคุณด้วยโดรนบินสำรวจเราวันนี้ ”</p>
-        <div className='symbol'>
-            <img width="65" height="77" src={Slide}/>
-        </div>
-        </div>
-        
-        <article className='left-container'>
-            <h2>คำอธิบายต่างๆ Interface</h2>
-            {/* <img src="3.jpg"/> */}
-        </article>
-            <section className='right-container'>
-                <h2>บริการของพวกเรา ?</h2>
-                <p>ท่านสามารถเพิ่มประสิทธิภาพการเกษตรของคุณได้ด้วยเทคโนโลยีของเรา 
-                    โดรนบินสำรวจของเราจะช่วยท่านทำนายพื้นที่ที่เหมาะสมในการปลูกพืชและพืชที่ควรปลูกอย่างไรให้เหมาะกับสภาพแวดล้อม 
-                    ด้วยการสแกนและวิเคราะห์ข้อมูลที่รวบรวมจากโดรนบินสำรวจเรา ท่านจะได้รับข้อมูลที่แม่นยำเกี่ยวกับปริมาณน้ำ, สภาพดิน, 
-                    และสภาพอากาศที่ช่วยให้การเกษตรของท่านประสบความสำเร็จ</p>
-                <div className="btn-1">
-                    <button 
-                            class="w-30 btn btn-lg btn-success" 
-                            type="submit">
-                            <a class="w-100 btn btn-s btn-success" href="Login">เข้าสู่ระบบ</a>
-                    </button> 
-                </div> 
-                <div className="btn-2">
-                    <button 
-                            class="w-30 btn btn-lg btn-primary"
-                            type="submit">
-                            <a class="w-100 btn btn-s btn-primary" href="Register">สมัครสมาชิก</a>
-                    </button>
+            <Navbar/>
+            <div class="welcome-content">
+                <div className='main-container' >
+                    <h5>UNTIRED</h5>
+                    <h1>ยินดีต้อนรับเข้าสู่เว็บไซต์</h1>
+                    <p>“ท่านไม่ต้องเสียเวลาและทรัพยากรในการทดลองผิดพลาดและทำลายพืชอีกต่อไป ให้โดรนบินสำรวจของเราช่วยเสริมสร้างฐานข้อมูลเพื่อการตัดสินใจที่แม่นยำและปลอดภัย เริ่มเพิ่มประสิทธิภาพในการเกษตรของคุณด้วยโดรนบินสำรวจเราวันนี้ ”</p>
+                    <img src={Slide} alt="slide-icon" width="65" height="77"/>
                 </div>
-            </section>
-        
-        <footer className="foot-container"> 
-            <img width={"15"} src='https://e1.pngegg.com/pngimages/383/600/png-clipart-icone-de-fleche-icone-inferieure-icone-vers-le-bas-icone-vers-le-bas-icone-de-navigation-ligne-main.png'/>
-            <p >our Services</p>
-            <h3>แพ็คเกจทั้งหมด</h3>
-            <div className='service' >
-                <div className='pack-1'>
-                    <img width={"26%"} src='https://cdn.iconscout.com/icon/free/png-256/free-magic-wand-tool-1574983-1331321.png?f=webp'></img>
-                    <h4>แพ็คเกจ 1</h4>
-                    <p>คำอธิบายต่างๆ</p>
-                    <br/>
+                <div class='space-row'></div>
+                <div className='main-container-hidden'>
+                    <div class="image-slider">
+                        <div class="slider-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                        </div>
+                        <div class="image-content">
+                            <div class="scene-slider"></div>
+                        </div>
+                        <div class="slider-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                        </div>
+                    </div>
+                    <div class='space-center'></div>
+                    <div class="text-content">
+                        <h1>บริการของพวกเรา ?</h1>
+                        <p>ท่านสามารถเพิ่มประสิทธิภาพการเกษตรของคุณได้ด้วยเทคโนโลยีของเรา โดรนบินสำรวจของเราจะช่วยท่านทำนายพื้นที่ที่เหมาะสมในการปลูกพืชและพืชที่ควรปลูกอย่างไรให้เหมาะกับสภาพแวดล้อม ด้วยการสแกนและวิเคราะห์ข้อมูลที่รวบรวมจากโดรนบินสำรวจเรา ท่านจะได้รับข้อมูลที่แม่นยำเกี่ยวกับปริมาณน้ำ, สภาพดิน, และสภาพอากาศที่ช่วยให้การเกษตรของท่านประสบความสำเร็จ</p>
+                        <div class='btn-groub'>
+                            <OvalButton title="เข้าสู่ระบบ" color="#BEEFC3" next_route={()=>navigate('/Login')}/>
+                            <div class='space-center'></div>
+                            <OvalButton title="สมัครสมาชิก" color="#82CEDE" next_route={()=>navigate('/Register')}/>
+                        </div>
+                    </div>
                 </div>
-                <div className='pack-2'>
-                    <img width={"30%"}  src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKraNHQ7NGjAztYflmQjzr4QCRJfiM4gkhtg&usqp=CAU'></img>
-                    <h4>แพ็คเกจ 2</h4>
-                    <p>คำอธิบายต่างๆ</p>
-                    <br/>
-                </div>
-                <div className='pack-3'>
-                    <img width={"30%"} height={"30%"} src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAP1BMVEX///8AAAC9vb3w8PCtra3r6+vNzc2goKBnZ2dgYGD39/fZ2dnQ0NCKioosLCx2dnY6OjomJiYgICC7u7vHx8cF5jc1AAAEBklEQVR4nO2d2ZIjIQwE2fWcnvv4/2/d95UjGqgUMo7K526bDo+zDBJMa8YYY4wxxhhjjDHGGGOMMcYYY4wxxhhjjDE3wSlwrh4Sy8OfwGP1mFje4hPeV4+J5Ss84Ff1kFju40f4Vj0mlrv4hA/VY2J5jk9YPSSY+IDP1UNiuZAVd9VjYnFWbI+zYn+cFdvjrNif7/CA39VDYtkjK/4GfrrvPc6Kn/jy8PhnBvnbffNxVvyWq+gljmBgkSXeHLLiMV7zQj7AEef4/k/9d3dlxVO8aOVS3Gd49/eBu/uy4j1c9ImN/5CPOMTTwO1984pTfJMP6gGOuGCZ14Hbe7PiNV63yDaaZQbmFVW20SzTRuYVRbbRLNOG5hUlthEtMzavqLCNaJk2OK9YbxvVMm10DWq1bWTLjM8rFttGtszEGtRS28iWaRNrUCtto1umzaxBrbMNYJm5NahVtgEs0ybXoBbZBrBMm61XLLENYZnpNagVtkEsM1+vyLcNYpkm1CuybcNYpin1imTbMJbR6hWptmEs07R6RaZtIMs0sbadZxvKMnK9Iss2mGX02naSbSjLNKC2nWIbzDINqG1n2IazDFLb5m3DWaYxtW3aNqBlGlTbhm0DWgarbaO2IS2D9UGRtiEt07g+KM42qGUa2AdF2Ya1DNoHBdkGtUxj+6AQ27CWaWzPLGEb2DJ0H5RuG9oyeM+sahvaMo3vmRVtQ1umJfTMSrbBLZPRM6vYBrdMS+mZnbfNhS+hvqiVsb/iwp9a51cx4TPM6JlVEoP/Hibsr9BSH3dpwv4K7Zcbnofx9dT9Feqvb/g3DZ8V+gyKtQ2eFcQsGLUNnRXMSgZoGzwrmNWoK6pX/A+1osjZBs4KblUYs018HSUryJV9yDZsVrDVGcY2bFawFTbGNuhePLpKStgGzQq+0g3YhsyKjG4F3TZgVuR0nKzcX3FETteQapvrq1cERNtwWZHXvafZBptXZHZgKrbBsiK3i1awDZYVuZ3Qgm2orMjuZp+3TbxxKivydyTM2gbKihW7SiZtw2TFmp1Bc7ZhsmLN7q4p2zBZsWqH3oxtkKxYt8tywjZEVqzcKTtum3jDcFas3e08ahsiK9buWB+1DZAVq08dGLSNnhXrT44Yso2eFRWnf4zYRs6KmhNcBmxznfsrDhmwTbxyLCuqTlLqto2aFXWnYfXaRsyKujOGum2jZUXlOVGdthGzovSsrz7baFlRfF5bl22krKg+c6/r3MR4RX9W1J+b2HH2pZQVV3D25TE+Z3Z79jhnVsFnku+PkhVb4DPJ98f/v2J7nBX746zYHmfF9tx+VlxYZLmxrDjHfzFaPSRjjDHGGGOMMcYYY4wxxhhjjDHGGGOMMcYYhn/5Iy4SVVQtEQAAAABJRU5ErkJggg=='></img>
-                    <h4>แพ็คเกจ 3</h4>
-                    <p>คำอธิบายต่างๆ</p>
-                    <br/>
+                <div class='space-row'></div>
+                <div className="main-container-tail">
+                    <p>Our Services</p>
+                    <h1>แพ็คเกจทั้งหมด</h1>
                 </div>
             </div>
-        </footer>
         </div>
     )
 }

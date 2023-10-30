@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Launchweb/>}/>
         <Route path="Login" element={<Login/>}/>
-        <Route path="WelcomePage" element={<WelcomePage/>}/>
+        <Route path="Welcome" element={<WelcomePage/>}/>
         <Route path="Register" element={<Register/>}/>
         <Route path="Homepage" element={<Homepage/>}/>
         <Route path="Mainpage" element={<Mainpage/>}/>

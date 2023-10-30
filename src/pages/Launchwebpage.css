@@ -37,7 +37,7 @@
     margin-bottom: 25px;
 }
 
-.main-container p {
+.main-container > p {
     font-size: 24px;
     font-weight: 500;
     color: rgba(124, 124, 124, 1);
@@ -49,4 +49,5 @@
 
 .last-container{
     padding: 40px 0px;
+    margin-top: 100px;
 }
