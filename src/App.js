@@ -8,7 +8,7 @@ import Mainpage from "./Mainpage";
 import Uploading from "./Uploading";
 import ForgotPassword from "./ForgotPassword";
 import Selection from "./pages/Selection";
-import Selections from "./pages/Selections";
+import JoinProjectPage from "./pages/JoinProjectPage";
 import Uploadpage from "./Uploadpage";
 import Areadata from "./Areadata";
 import Dragarea from "./Dragarea";
@@ -28,7 +28,7 @@ function App() {
         <Route path="Uploading" element={<Uploading/>}/>
         <Route path="Uploadpage" element={<Uploadpage/>}/>
         <Route path="Reset" element={<ForgotPassword/>}/>
-        <Route path="Selections" element={<Selections/>}/>
+        <Route path="JoinProject" element={<JoinProjectPage/>}/>
         <Route path="Selection" element={<Selection/>}/>
         <Route path="Areadata" element={<Areadata/>}/>
         <Route path="Dragarea" element={<Dragarea/>}/>
