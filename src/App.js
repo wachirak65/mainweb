@@ -12,7 +12,8 @@ import Selections from "./pages/Selections";
 import Uploadpage from "./Uploadpage";
 import Areadata from "./Areadata";
 import Dragarea from "./Dragarea";
-
+import Locate from "./pages/LocatePage"
+import ChoosePage from "./pages/ChoosePage";
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
         <Route path="Selection" element={<Selection/>}/>
         <Route path="Areadata" element={<Areadata/>}/>
         <Route path="Dragarea" element={<Dragarea/>}/>
+        <Route path="Dragarea" element={<Dragarea/>}/>
+        <Route path="Locate" element={<Locate/>}/>
+        <Route path="ChoosePage" element={<ChoosePage/>}/>
+
       </Routes> 
     </div>
   );

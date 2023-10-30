@@ -1,8 +1,11 @@
 import React from 'react'
 import "./Uploadpage.css"
+import Navbar from './component/navbar'
+
 
 function Uploadpage() {
     return (
+        
         <div>
             <div class="container">
                 <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
