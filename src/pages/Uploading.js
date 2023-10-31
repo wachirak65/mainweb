@@ -68,7 +68,7 @@ function Uploading() {
             {progress.started && <progress style={{color:"green",textAlign:"center",position:"relative",left:"44%"}} min={0} max={100} value={progress.pc}></progress>}
             <br/>
             <div className="last-container-1">
-                <OvalButton title="เข้าสู่เว็บไซต์" color="#BEEFC3" next_route={()=>navigate('Login')}/>
+                <OvalButton onClick={handleUploading} title="อัพโหลดและสร้างโปรเจ็ค" color="#BEEFC3" next_route={()=>navigate('Login')}/>
             </div>
             </div>
         <footer className='f-1'>

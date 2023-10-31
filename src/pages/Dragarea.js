@@ -97,7 +97,7 @@ function Dragarea() {
                         console.log("confirm")}/>
                 </div>
             </div>
-            <div class='black-btn-div-1'>
+            <div class='black-btn-div-2'>
                 <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
                         console.log("back")}/>
             </div>
