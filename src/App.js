@@ -5,13 +5,13 @@ import Launchweb from "./pages/Launchwebpage";
 import Register from "./pages/Registerpage";
 import Homepage from "./Homepage";
 import Mainpage from "./Mainpage";
-import Uploading from "./Uploading";
+import Uploading from "./pages/Uploading";
 import ForgotPassword from "./ForgotPassword";
 import Selection from "./pages/Selection";
 import JoinProjectPage from "./pages/JoinProjectPage";
 import Uploadpage from "./Uploadpage";
 import Areadata from "./Areadata";
-import Dragarea from "./Dragarea";
+import Dragarea from "./pages/Dragarea";
 import Locate from "./pages/LocatePage"
 import ChoosePage from "./pages/ChoosePage";
 

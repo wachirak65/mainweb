@@ -1,0 +1,157 @@
+.lander{
+    margin: 0;
+    width: 1073px;
+    margin-left: 5rem;
+    height: 500px;
+    box-shadow: 5px 5px 8px 0px #888;
+    border-radius: 40px;
+}
+.Lander{
+    width: 1073px;
+    margin-left: 5rem;
+}
+.Lander-2{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 350px;
+    left: 600px;
+    
+}
+.narrow-land{
+    width: 250px;
+    position: absolute;
+    right: 1%;
+    top: 14%;
+    text-align: center;
+}
+.bin-0{
+    margin-top: 2rem;
+}
+.pencil-0{
+    margin-top: 2rem;
+}
+.eraser-0{
+    margin-top:1rem;
+}
+.pencil{
+    padding:20px 0px 20px 0px;
+}
+.eraser{
+    padding:20px 0px 20px 0px;
+}
+.bin{
+    padding:20px 0px 20px 0px;
+}
+.pencil a{
+    text-decoration: none;
+    color: black;
+}
+.eraser a{
+    text-decoration: none;
+    color: black;
+}
+.bin a{
+    text-decoration: none;
+    color: black;
+}
+.bin-1 svg{
+    transform: translateY(30%);
+}
+.eraser-1 svg{
+    transform: translateY(30%);
+}
+.pencil-1 svg{
+    transform: translateY(30%);
+}
+.bin-1{
+    right: 80%;
+    position: absolute;
+    border-radius: 100px;
+    box-shadow: 5px 5px 8px 0px #888;
+    width: 15%;
+    height: 8.5%;
+    transform: translateY(-20%);
+    background-color: #B6EBBB;
+}
+.text-pencil{
+    text-align: center;
+    font-size: smaller;
+    margin-top: 1rem;
+    right: 10%;
+    position:relative;
+}
+.eraser-1{
+    right: 80%;
+    position: absolute;
+    border-radius: 100px;
+    box-shadow: 5px 5px 8px 0px #888;
+    width: 15%;
+    height: 8.5%;
+    transform: translateY(-20%);
+    background-color: #BAD5E8;
+}
+.pencil-1{
+    right: 80%;
+    position: absolute;
+    border-radius: 100px;
+    box-shadow: 5px 5px 8px 0px #888;
+    width: 15%;
+    height: 8.5%;
+    transform: translateY(-20%);
+    background-color: #E8BABA;
+}
+.pencil-2{
+    right: 5%;
+    position: absolute;
+    transform: translateY(-100%);
+}
+.bin-2{
+    right: 5%;
+    transform: translateY(-100%);
+    position: absolute;
+}
+.eraser-2{
+    right: 5%;
+    transform: translateY(-100%);
+    position: absolute;
+}
+.Arrow-left button{
+    border-radius: 100px;
+    box-shadow: 5px 5px 8px 0px #888;
+    width: 15%;
+    transform: translateY(100%);
+    left: -14%;
+    right:5%; 
+    
+}
+.Arrow-right button{
+    border-radius: 100px;
+    box-shadow: 5px 5px 8px 0px #888;
+    width: 15%;
+    transform: translateY(40%);
+    transform: translateX(100%);
+    right:5%; 
+    
+}
+.button-state-1{
+    box-shadow: -1px 15px 8px -10px #888;
+    position: absolute;
+    margin-left:3.8rem ;
+    border-radius: 20px;
+    transform: translateY(50%);
+}
+
+.black-btn-div-1{
+    margin-left:77.5rem ;
+    position: absolute;
+    box-shadow: -1px 15px 8px -10px #888;
+    transform: translateY(-80%);
+}
+.w-1{
+    left: 5%;
+}
+.w-2{
+    left: 5%;
+}
