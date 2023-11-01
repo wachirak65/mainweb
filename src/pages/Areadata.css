@@ -1,0 +1,107 @@
+.first-container{
+    margin-left: 4em;
+    margin-top:2rem;
+}
+.FCL-1{
+    position: relative;
+    left: 50%;
+    transform: translateY(-78%);
+}
+.FCL-2{
+    position: relative;
+    left: 50%;
+    transform: translateY(-78%);
+}
+.FCL-3{
+    position: relative;
+    left: 70%;
+    transform: translateY(-78%);
+
+}
+.FCL-4{
+    position: relative;
+    left: 50%;
+    transform: translateY(-78%);
+}
+.FCL-5{
+    position: relative;
+    left: 80%;
+    transform: translateY(-78%);
+}
+.FCL-6{
+    position: relative;
+    left: 90%;
+    transform: translateY(-78%);
+}
+.nothing-1{
+    position: relative;
+    right: -200%;
+    transform: translateY(-177%);
+    box-shadow: 0px 7px 8px -2px #888;
+}
+
+.nothing-2{
+    position: relative;
+    right: -200%;
+    transform: translateY(-177%);
+    box-shadow: 0px 7px 8px -2px #888;
+}
+
+
+.day{
+    position: relative;
+    right: -200%;
+    transform: translateY(-177%);
+    box-shadow: 0px 7px 8px -2px #888;
+}
+
+.month{
+    position: relative;
+    right: -200%;
+    transform: translateY(-177%);
+    box-shadow: 0px 7px 8px -2px #888;
+}
+
+.year{
+    position: relative;
+    right: -200%;
+    transform: translateY(-177%);
+    box-shadow: 0px 7px 8px -2px #888;
+}
+
+
+.top-background-3 {
+    width: 100vw;
+    height: 50px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.top-background-3 h4{
+    margin: 2rem;
+}
+.black-btn-div-4{
+    box-shadow: 0px 8px 10px -0px #888;
+    position: absolute;
+    right: 14%;
+    transform: translateY(-150%);
+    border-radius: 20px;
+}
+.button-state-4{
+    box-shadow: 0px 8px 10px -0px #888;
+    position: absolute;
+    right: 5%;
+    transform: translateY(-150%);
+    border-radius: 20px;
+}   
+.SSS-1{
+    margin-right: .5rem;
+    
+}
+.SSS-2{
+    margin-right: -1rem;
+    transform: translateY(-100%);
+}
+
+.SSS-3{
+    margin-right: -3rem;
+    transform: translateY(-200%);
+}

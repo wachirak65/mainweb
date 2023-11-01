@@ -1,6 +1,9 @@
 import React from 'react';
 import  {  useState } from 'react';
 import "./Areadata.css"
+import Navbar from '../component/navbar';
+import BackBtn from '../component/back_btn';
+import ConfirmBtn from '../component/confirm_btn';
 
 function Areadata() {
     const [inputs, setInputs] = useState("");
@@ -12,29 +15,15 @@ function Areadata() {
     }
 
     return (
-        <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <a  class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <img style={{borderRadius: "50%"}} src="https://www.zarla.com/images/zarla-k-1x1-2400x2400-20211119-y8r6jygpdqy7qwr4bhcp.png?crop=1:1,smart&width=250&dpr=2" width="20%" height="20%"/> 
-                <h2>LOGO</h2>
-            </a>
-
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 link-secondary">หน้าหลัก</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">เกี่ยวกับเรา</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">เทคโนโลยี AI</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">บริการ</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark">ติดต่อเรา</a></li>
-            </ul>
-            <select name="cars" id="cars">
-                <option value="Guest" selected>Guest</option>
-                <option value="volvo">โหมดผู้ใช้ทั่วไป</option>
-                <option value="saab">สมัครสมาชิก</option>
-            </select>
-        </header>
-        <div className='first-container'>
+        <div >
+        <Navbar/>  
+        <div class='top-background-3'>
             <h4>กรอกข้อมูลพื้นฐานของคุณ</h4>
+        </div>      
+        <div className='first-container'>
+            
             <label>ชื่อโปรเจกต์:
+                <div className='FCL-1'>
                 <input 
                         className='form-control'
                         type="text" 
@@ -45,9 +34,11 @@ function Areadata() {
                         placeholder='ความยาวไม่เกิน 16 ตัวอักษร '
                         required
                     />
+                    </div>
             </label>
             <br/>
             <label>ต้นทุนต่อรอบ:
+                <div className='FCL-2'>
                 <input 
                         className='form-control'
                         type="text" 
@@ -56,10 +47,11 @@ function Areadata() {
                         onChange={handleChange}
                         placeholder='แสดงยอดตัวเลขต้นทุนต่อรอบ'
                         required
-                    /><p style={{position:"relative", right:"-200%",transform:"translateY(-360%)"}}>บาท</p>
+                    /></div><p style={{position:"relative", right:"-170%",transform:"translateY(-250%)"}}>บาท</p>
             </label>
             <br/>
-            <label>พืชที่ปลูกในปัจจุบัน:
+            <label style={{marginTop:"-2rem"}}>พืชที่ปลูกในปัจจุบัน:
+                <div className='FCL-3'>
                 <input 
                         className='form-control'
                         type="text" 
@@ -68,11 +60,12 @@ function Areadata() {
                         onChange={handleChange}
                         placeholder='เลือกชนิดของพืช'
                         required
-                    />
-                    <button type='submit' class="w-20 btn btn-m btn-white">ไม่มี</button>
+                    /></div>
+                    <button type='submit' class="w-20 btn btn-m btn-white nothing-1">ไม่มี</button>
             </label>
             <br/>
-            <label>พืชที่เคยปลูก:
+            <label style={{marginTop:"-2rem"}}>พืชที่เคยปลูก:
+            <div className='FCL-4'>
                 <input 
                         className='form-control'
                         type="text" 
@@ -81,11 +74,12 @@ function Areadata() {
                         onChange={handleChange}
                         placeholder='เลือกชนิดของพืช'
                         required
-                    />
-                    <button type='submit' class="w-20 btn btn-m btn-white">ไม่มี</button>
+                    /></div>
+                    <button type='submit' class="w-20 btn btn-m btn-white nothing-2">ไม่มี</button>
             </label>
             <br/>
-            <label>กำลังคนที่มีในการดูแล :
+            <label style={{marginTop:"-2rem"}}>กำลังคนที่มีในการดูแล :
+                <div className='FCL-5'>
                 <input 
                         className='form-control'
                         type="text" 
@@ -94,10 +88,11 @@ function Areadata() {
                         onChange={handleChange}
                         placeholder='กรอกเป็นตัวเลข'
                         required
-                    /><p style={{position:"relative", right:"-200%",transform:"translateY(-360%)"}}>คน</p>
+                    /></div><p style={{position:"relative", right:"-190%",transform:"translateY(-260%)"}}>คน</p>
             </label>
             <br/>
-            <label>ระยะเวลาที่สามารถรอได้ :
+            <label style={{marginTop:"-2rem"}}>ระยะเวลาที่สามารถรอได้ :
+            <div className='FCL-6'>
                 <input 
                         className='form-control'
                         type="text" 
@@ -106,14 +101,22 @@ function Areadata() {
                         onChange={handleChange}
                         placeholder='กรอกเป็นตัวเลข'
                         required
-                    />
-                <button type='submit' class="w-20 btn btn-m btn-white" maxLength={31} >วัน</button>
-                <button type='submit' class="w-20 btn btn-m btn-white" maxLength={12}>เดือน</button>
-                <button type='submit' class="w-20 btn btn-m btn-white">ปี</button>
+                    /></div>
+                <div className='SSS-1'>
+                    <button type='submit' class="w-20 btn btn-m btn-white day" maxLength={31} >วัน</button> </div>
+                    <div className='SSS-2'>
+                    <button type='submit' class="w-20 btn btn-m btn-white month" maxLength={12}>เดือน</button></div>
+                    <div className='SSS-3'><button type='submit' class="w-20 btn btn-m btn-white year">ปี</button></div>
             </label>
             <footer class="down-container">
-                <button style={{marginTop:"5rem",left:"5%"}} type="button" className="w-10 btn btn-m btn-white"><a href='Dragarea' style={{textDecoration:"None",color:"black"}}>ย้อนกลับ</a></button>
-                <button style={{marginTop:"5rem",left:"5%"}} type="button" className="w-10 btn btn-m btn-white"><a href='' style={{textDecoration:"None",color:"black"}}>เริ่มประมวลผลพื้นที่</a></button>
+                <div class='black-btn-div-4'>
+                    <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
+                            console.log("back")}/>
+                </div>
+                <div class='button-state-4'>
+                    <ConfirmBtn  bg_color='#E4E4E4' title='เริ่มประมวลพื้นที่' onClick={()=>
+                        console.log("confirm")}/>
+                </div>
             </footer>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
