@@ -110,6 +110,7 @@
 
 .main-container-tail {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -120,6 +121,24 @@
     padding: 38px 100px 38px;
 }
 
+.main-container-tail > p {
+    font-size: 24px;
+    font-weight: 500;
+    color: rgba(124, 124, 124, 1);
+}
+
+.main-container-tail > h1 {
+    font-size: 36px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+    margin-top: 20px;
+    margin-bottom: 72px;
+}
+
+.package-bar {
+    display: flex;
+}
+
 .space-center {
     margin-left: 18px;
 }
@@ -127,3 +146,4 @@
 .space-row {
     margin-top: 34px;
 }
+

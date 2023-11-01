@@ -1,0 +1,18 @@
+.confirm-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 118px;
+    text-align: center;
+    box-shadow: inset 0px 2px 0px rgba(255,255,255,0.08),
+    0px 1px 2px rgba(21,29,40,0.04);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.confirm-btn > p{
+    color: #3A3F45;
+    font-size: 16px;
+    margin: 0;
+}

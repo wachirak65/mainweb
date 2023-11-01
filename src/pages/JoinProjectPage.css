@@ -1,0 +1,79 @@
+.joinProject-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 524px;
+    height: 338px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    margin-top: 80px;
+    left: 50%; /* ขยับไปทางขวาครึ่งหนึ่งของความกว้างของ .content */
+    transform: translate(-50%, -50%); /* จัดให้อยู่กึ่งกลาง */
+    background-color: white;
+    z-index: 2;
+}
+
+.joinProject-card > h1 {
+    color: #3A3F45;
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.joinProject-card > hr {
+    width: 326px;
+    margin-bottom: 35px;
+    color: rgba(0, 0, 0, 0.64);
+}
+
+.otp-field {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 0 52px 0;
+}
+
+.otp-field > input {
+    right: 0%;
+    transform: translateY(0%);
+    width: 66px;
+    height: 64px;
+    border-radius: 6px;
+    border: 1px solid #dee4ed;
+    box-shadow: inset 0 2px 0 0 rgba(255, 255, 255, 0.08),
+                0 1px 2px 0 rgba(21, 29, 40, 0.04);
+    text-align: center;
+    outline: None;
+    transition: all 0.1s;
+}
+
+.otp-field > input:focus{
+    border: 2px solid #C1F5A9;
+}
+
+
+.button-state {
+    margin-top: 60px;
+}
+
+.black-btn-div {
+    position: absolute;
+    bottom: 5%;
+    left: 6%;
+    z-index: 1;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    margin-top: 26px;
+    margin-left: 141px;
+}
+
+.header-title p {
+    color: rgba(20, 20, 20, 0.72);
+    font-size: 24px;
+    font-weight: 200;
+    margin: 0;
+    margin-right: 10px;
+}
+

@@ -5,15 +5,16 @@ import Launchweb from "./pages/Launchwebpage";
 import Register from "./pages/Registerpage";
 import Homepage from "./Homepage";
 import Mainpage from "./Mainpage";
-import Uploading from "./Uploading";
-import ForgotPassword from "./ForgotPassword";
+import Uploading from "./pages/Uploading";
+import ForgotPassword from "./pages/ForgotPassword";
 import Selection from "./pages/Selection";
-import Selections from "./pages/Selections";
+import JoinProjectPage from "./pages/JoinProjectPage";
 import Uploadpage from "./Uploadpage";
-import Areadata from "./Areadata";
-import Dragarea from "./Dragarea";
+import Areadata from "./pages/Areadata";
+import Dragarea from "./pages/Dragarea";
 import Locate from "./pages/LocatePage"
 import ChoosePage from "./pages/ChoosePage";
+import Predictionland from "./pages/Predictionland";
 
 function App() {
   return (
@@ -28,14 +29,14 @@ function App() {
         <Route path="Uploading" element={<Uploading/>}/>
         <Route path="Uploadpage" element={<Uploadpage/>}/>
         <Route path="Reset" element={<ForgotPassword/>}/>
-        <Route path="Selections" element={<Selections/>}/>
+        <Route path="JoinProject" element={<JoinProjectPage/>}/>
         <Route path="Selection" element={<Selection/>}/>
         <Route path="Areadata" element={<Areadata/>}/>
         <Route path="Dragarea" element={<Dragarea/>}/>
         <Route path="Dragarea" element={<Dragarea/>}/>
         <Route path="Locate" element={<Locate/>}/>
         <Route path="ChoosePage" element={<ChoosePage/>}/>
-
+        <Route path="Predictionland" element={<Predictionland/>}/>
       </Routes> 
     </div>
   );
