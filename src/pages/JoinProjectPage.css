@@ -65,8 +65,8 @@
 .header-title {
     display: flex;
     align-items: center;
-    margin-top: 26px;
-    margin-left: 141px;
+    padding-top: 26px;
+    padding-left: 141px;
 }
 
 .header-title p {

@@ -9,74 +9,93 @@ import OvalButton from '../component/oval_button'
 import SelectButton from '../component/selection_button';
 
 function Uploading() {
-    const[ file,setFile ] = useState(null);
-    const [progress,setProgress]=useState({started:false,pc:0});
-    const [msg,setMsg] = useState(null);
-    const navigate = useNavigate()
+    // drag state
+    const [dragActive, setDragActive] = React.useState(false);
+    const inputRef = React.useRef(null);
 
-    function handleUploading(){
-        if(!file) {
-            console.log("ไม่มีไฟล์ให้อัปโหลด");
-            return;
+    // handle drag events
+    const handleDrag = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.type === "dragenter" || e.type === "dragover") {
+        setDragActive(true);
+        } else if (e.type === "dragleave") {
+        setDragActive(false);
         }
-        const finds = new FormData();
-        finds.append("file",file);
-        setMsg("ไฟล์ที่กำลังอัปโหลด...");
-        setProgress(prevState =>{
-            return {...prevState, started:true}
-        })
-        axios.post('http://httpbin.org/post',finds,{
-            onUploadProgress:(progressEvent)=>{
-                console.log(progressEvent.progress*100)},
-            headers:{
-                "Custom-Header":"value",
-            }
-        })
-        .then(result=>{
-            setMsg("ไฟล์ที่อัปโหลดเสร็จสิ้น");
-            navigate("./Homepage")
-            console.log(result.data);
-        })
-        .catch(err=>{
-            setMsg("ไฟล์ที่อัปโหลดล้มเหลว...");
-            console.error(err)
-        });
-    }
+    };
+
+    const handleDrop = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive(false);
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+          // at least one file has been dropped so do something
+          // handleFiles(e.dataTransfer.files);
+        }
+    };
+
+    const handleChange = function(e) {
+        e.preventDefault();
+        if (e.target.files && e.target.files[0]) {
+          // at least one file has been selected so do something
+          // handleFiles(e.target.files);
+        }
+    };
+
+    const onButtonClick = () => {
+        inputRef.current.click();
+    };
+    
+
     return (
         <div>
         <Navbar/>
-        <div className="contents">
-            <div class='top-background'>
-                <div class='SB-1'>
-                    <SelectButton title="สร้างโปรเจกต์" color='white' state="create"/>
+        <div className="content">
+            <div class='top-background' style={{backgroundColor:'#F8FDFF'}}>
+                <div className="header-title">
+                    <p>สร้างโปรเจกต์</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    
                 </div>
             </div>
-            <div class="container-2">
-            <svg width="69" height="60" viewBox="0 0 69 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M36.1366 14.7458L36.2288 14.7733L36.2328 14.7688C36.6705 14.8481 37.1047 14.586 37.2332 14.1519C38.4049 10.2152 42.096 7.46504 46.2084 7.46504C46.6953 7.46504 47.0901 7.07016 47.0901 6.5833C47.0901 6.09643 46.6952 5.70156 46.2084 5.70156C41.1542 5.70156 36.9071 9.06665 35.5433 13.6493C35.4042 14.1162 35.6701 14.6067 36.1366 14.7458Z" fill="#088586" stroke="#F9FFF9" stroke-width="0.3"/>
-                <path d="M56.4523 42.4384H52.062C51.658 42.4384 51.3302 42.1107 51.3302 41.7067C51.3302 41.3027 51.6579 40.9749 52.062 40.9749H56.4523C62.5042 40.9749 67.4283 36.0509 67.4283 29.999C67.4283 23.9471 62.5042 19.023 56.4523 19.023H56.3467C56.1345 19.023 55.9328 18.9311 55.7937 18.7706C55.6547 18.6101 55.592 18.3974 55.6223 18.1873C55.6877 17.7315 55.7206 17.2737 55.7206 16.8279C55.7206 11.5829 51.4529 7.31531 46.208 7.31531C44.1675 7.31531 42.2216 7.95296 40.5804 9.15978C40.2198 9.42478 39.7076 9.30718 39.499 8.91047C34.851 0.0596993 22.7108 -1.12887 16.4168 6.57053C13.7653 9.81417 12.7236 14.0336 13.5583 18.146C13.6503 18.6002 13.3028 19.0236 12.8412 19.0236H12.548C6.49615 19.0236 1.57208 23.9477 1.57208 29.9996C1.57208 36.0514 6.49615 40.9755 12.548 40.9755H16.9384C17.3424 40.9755 17.6701 41.3032 17.6701 41.7072C17.6701 42.1113 17.3424 42.439 16.9384 42.439H12.548C5.68905 42.439 0.108551 36.8585 0.108551 29.9995C0.108551 23.3329 5.3801 17.8742 11.9736 17.5731C11.3543 13.3066 12.5386 9.00295 15.2836 5.64437C22.0223 -2.5996 34.9365 -1.67556 40.3957 7.51707C42.1372 6.42522 44.1301 5.85244 46.2078 5.85244C52.5623 5.85244 57.5977 11.261 57.1571 17.58C63.6899 17.9463 68.8915 23.3763 68.8915 29.999C68.8915 36.8585 63.311 42.4384 56.452 42.4384L56.4523 42.4384Z" fill="#088586"/>
-                <path d="M15.9586 41.2935C15.9586 51.4634 24.2322 59.737 34.402 59.737C44.572 59.737 52.8455 51.4633 52.8455 41.2935C52.8455 31.1235 44.572 22.85 34.402 22.85C24.2321 22.85 15.9586 31.1237 15.9586 41.2935ZM17.7224 41.2935C17.7224 32.0966 25.205 24.6138 34.402 24.6138C43.5989 24.6138 51.0817 32.0964 51.0817 41.2935C51.0817 50.4904 43.5989 57.9732 34.402 57.9732C25.2051 57.9732 17.7224 50.4905 17.7224 41.2935Z" fill="#088586" stroke="#F9FFF9" stroke-width="0.3"/>
-                <path d="M34.0513 48.6577C34.0513 49.0363 34.3584 49.3434 34.737 49.3434C35.1156 49.3434 35.4227 49.0367 35.4227 48.6577V34.7291C35.4227 34.3504 35.1157 34.0434 34.737 34.0434C34.3584 34.0434 34.0513 34.3504 34.0513 34.7291V48.6577Z" fill="#088586" stroke="#483EA8" stroke-width="0.3"/>
-                <path d="M34.7367 35.7004L30.936 39.5011L34.7367 35.7004ZM34.7367 35.7004L38.5374 39.5012C38.6711 39.6349 38.8472 39.702 39.0223 39.702L34.7367 35.7004ZM29.9661 39.5012C30.2339 39.769 30.6683 39.7691 30.9359 39.5012L39.0223 39.702C39.1971 39.702 39.3733 39.6355 39.5072 39.5011C39.7751 39.2332 39.775 38.7992 39.5072 38.5314L35.2215 34.2457C34.9537 33.9779 34.5193 33.9778 34.2517 34.2457C34.2517 34.2458 34.2517 34.2458 34.2517 34.2458L29.9661 38.5314C29.6982 38.7993 29.6982 39.2333 29.9661 39.5012Z" fill="#088586" stroke="#483EA8" stroke-width="0.3"/>
-            </svg>
-                <h4 style={{position:"relative",left:"7%"}}>ลาก & วางไฟล์ของคุณ or <input className='choose-1' style={{color:"green",fontSize:"24px"}} onChange={(e)=>{setFile(e.target.files[0])}} type='file'></input></h4>
-                <p>อัพโหลดข้อมูลรูปภาพ สภาพแวดล้อมต่างๆ เพื่อให้ AI ใช้ในการวิเคราะห์ </p>
-                <hr />
-            </div>
-            <p style={{paddingLeft:"50px" ,textAlign:'center',transform:"translateY(-350%)"}}>ประเภทไฟล์ที่รองรับ JPG , PNG ขนาดสูงสุดครั้งละ 800 MB</p>
-            {msg && <div style={{textAlign:"center",position:"relative",left:"-1%"}}>{msg}</div>}
-            {progress.started && <progress style={{color:"green",textAlign:"center",position:"relative",left:"44%"}} min={0} max={100} value={progress.pc}></progress>}
-            <br/>
-            <div className="last-container-1">
-                <OvalButton onClick={handleUploading} title="อัพโหลดและสร้างโปรเจ็ค" color="#BEEFC3" next_route={()=>navigate('Login')}/>
-            </div>
-            </div>
-        <footer className='f-1'>
-            <div class='black-btn-div-1'>
-                <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
-                        console.log("back")}/>
-            </div>
-        </footer>
+            
+            <form className={ dragActive ? 'upload-card-active': 'upload-card'} action="" onDragEnter={handleDrag} onSubmit={(e) => e.preventDefault()}>
+                <input ref={inputRef} type="file" className='input-upload-img' onChange={handleChange}/>
+                <label id="label-file-upload" htmlFor="input-upload-img">
+                    <div className='label-div'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" class="bi bi-cloud-upload" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
+                            <path fill-rule="evenodd" d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                        </svg>
+                        <h5>ลาก & วางไฟล์ของคุณ or <p onClick={onButtonClick}>เปิดโฟลเดอร์</p> เพิ่มเติม</h5>
+                        <p>อัพโหลดข้อมูลรูปภาพ สภาพแวดล้อมต่างๆ เพื่อให้ AI ใช้ในการวิเคราะห์ </p>
+                    </div> 
+                </label>
+                <div className={ dragActive ? "drag-element-active":"drag-element"}>
+                    <p>ประเภทไฟล์ที่รองรับ JPG , PNG ขนาดสูงสุง 800 MB</p>
+                    { dragActive && 
+                    <div className="drag-file-element" onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}>
+                        <p>ไฟล์ที่กำลังอัพโหลด...</p>
+                        <div className="construction-area"></div>
+                        <div className="button-element">
+
+                            <div className="commit-button">
+                                <p>อัพโหลดและสร้างโปรเจ็ค</p>
+                            </div>
+                        </div>
+                    </div> 
+                    }
+                    
+                </div>
+            </form>
+
+        </div>
+        <div class='black-btn-div'>
+            <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
+                    console.log("back")}/>
+        </div>
         </div>
     )
 }

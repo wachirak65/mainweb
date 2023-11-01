@@ -6,7 +6,7 @@ import BackBtn from '../component/back_btn'
 
 function JoinProjectPage() {
     return (
-        <div>
+        <div class='background'>
             <Navbar/>
             <div class='content'>
                 <div class='top-background'>
