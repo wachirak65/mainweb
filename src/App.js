@@ -4,7 +4,7 @@ import WelcomePage from "./pages/WelcomePage";
 import Launchweb from "./pages/Launchwebpage";
 import Register from "./pages/Registerpage";
 import Homepage from "./Homepage";
-import Mainpage from "./Mainpage";
+// import Mainpage from "./pages/Mainpage";
 import Uploading from "./pages/Uploading";
 import ForgotPassword from "./pages/ForgotPassword";
 import Selection from "./pages/Selection";
@@ -14,7 +14,8 @@ import Areadata from "./pages/Areadata";
 import Dragarea from "./pages/Dragarea";
 import Locate from "./pages/LocatePage"
 import ChoosePage from "./pages/ChoosePage";
-import Predictionland from "./pages/Predictionland";
+import PublicProjectPage from "./pages/PublicProjectPage";
+import WeatherAnalysisPage from "./pages/WeatherAnalysisPage";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         <Route path="Welcome" element={<WelcomePage/>}/>
         <Route path="Register" element={<Register/>}/>
         <Route path="Homepage" element={<Homepage/>}/>
-        <Route path="Mainpage" element={<Mainpage/>}/>
+        {/* <Route path="Mainpage" element={<Mainpage/>}/> */}
         <Route path="Uploading" element={<Uploading/>}/>
         <Route path="Uploadpage" element={<Uploadpage/>}/>
         <Route path="Reset" element={<ForgotPassword/>}/>
@@ -36,7 +37,8 @@ function App() {
         <Route path="Dragarea" element={<Dragarea/>}/>
         <Route path="Locate" element={<Locate/>}/>
         <Route path="ChoosePage" element={<ChoosePage/>}/>
-        <Route path="Predictionland" element={<Predictionland/>}/>
+        <Route path="PublicProject" element={<PublicProjectPage/>}/>
+        <Route path="WeatherAnalysis" element={<WeatherAnalysisPage/>}/>
       </Routes> 
     </div>
   );

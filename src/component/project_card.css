@@ -1,0 +1,67 @@
+
+.public-project-card {
+    width: 279px;
+    height: 237px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    margin-left: 50px;
+    margin-bottom: 52px;
+    margin-top: 27px;
+}
+
+.img-content {
+    width: 278px;
+    height: 148px;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.img-content:hover {
+    box-shadow: 6px 7px 4px 0 rgba(0, 0, 0, 0.28);
+}
+
+.img-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ปรับขนาดรูปภาพให้เต็มพื้นที่ที่โค้ง */
+}
+
+.title-content {
+    margin: 16px 16px 4px;
+}
+
+.title-content h5 {
+    font-size: 14px;
+    font-weight: 300;
+    color: #181E25;
+    margin-bottom: 15px;
+}
+
+.title-subcontent {
+    display: flex;
+    align-items:flex-end;
+    justify-content: space-between;
+}
+
+.head-subcontent > p {
+    font-size: 10px;
+    font-weight: 300;
+    color: #181E25;
+    margin: 0;
+}
+
+
+.tail-subcontent {
+    display: flex;
+}
+
+.tail-subcontent > svg {
+    color: rgba(168, 50, 50, 0.88);
+}
+
+.tail-subcontent > p {
+    font-size: 10px;
+    font-weight: 300;
+    color: #181E25;
+    margin: 0;
+    margin-left: 4px;
+}
