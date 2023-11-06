@@ -1,0 +1,113 @@
+
+.Sidemain {
+    width:1050px ;
+    height: 570px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 15px;
+    margin-top: 2%;
+    margin-left: 7%;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.151);
+}
+.text-1{
+    margin-top: 40px;
+}
+.Container-all{
+    display: flex;
+}
+.Side-Right{
+    margin-left: 10%;
+    margin-top: 3%;
+    width: 18%;
+}
+.Zonebutton {
+    text-align: center;
+}
+
+.Zonebutton {
+    text-align: center;
+    position: relative;
+}
+
+.Zonebutton {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+}
+
+.dp-button {
+    background-color: #F8F8FF;
+    color: #615E83;
+    height: 60px;
+    width: 150px;
+    padding: 10px 20px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.123);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.text-1 hr{
+    width: 90px;
+}
+
+.text-2 button{
+    background-color: #B9FFBB;
+    color: #615E83;
+    padding: 2px 10px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.185);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 50%;
+    position: relative;
+    top: 40px;
+}
+.SideLine button{
+    background-color: #B9FFBB;
+    color: #615E83;
+    width: 45px;
+    height: 45px;
+    padding: 2px 10px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.185);
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+   
+}
+
+.dp-button:hover + .dp-content,
+.dp-content:hover {
+    display: block;
+}
+
+.dp-content {
+    display: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    width: 100%; 
+}
+
+.dp-content a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 5px 0;
+}
+
+.dp-content a:hover {
+    background-color: #ddd;
+}
+.SideLine{
+    margin-top: 18rem;
+}
+.SideLine hr{
+    width: 90%;
+}
+.Sidemain p{
+    text-align: center;
+    position: relative;
+    top: 50%;
+}

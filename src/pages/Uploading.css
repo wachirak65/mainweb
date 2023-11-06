@@ -1,0 +1,176 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.header-title > svg{
+    color: #6C6C6C;
+}
+
+.upload-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 445px;
+    height: 202px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 80px;
+    left: 50%; /* ขยับไปทางขวาครึ่งหนึ่งของความกว้างของ .content */
+    transform: translate(-50%, -80%); /* จัดให้อยู่กึ่งกลาง */
+    background-color: #F8FDFF;
+    z-index: 2;
+    border: 1px dashed rgba(8, 133, 134, 0.30);
+    border-radius: 4px;
+
+    max-width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.upload-card-active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 445px;
+    height: 202px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 80px;
+    left: 50%; /* ขยับไปทางขวาครึ่งหนึ่งของความกว้างของ .content */
+    transform: translate(-50%, -130%); /* จัดให้อยู่กึ่งกลาง */
+    background-color: #F8FDFF;
+    z-index: 2;
+    border: 1px dashed rgba(8, 133, 134, 0.30);
+    border-radius: 4px;
+
+    max-width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.input-upload-img {
+    display: none;
+}
+
+.label-div > svg {
+    color: #088586;
+}
+
+.label-div > h5 {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #454545;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.label-div > h5 > p {
+    text-decoration-line: underline;
+    color: #088586;
+    margin: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.label-div > p {
+    color: #676767;
+    font-size: 12px;
+
+}
+
+
+
+.drag-element {
+    position: absolute;
+    width: 100%;
+    bottom: -25%;
+}
+
+.drag-element-active {
+    position: absolute;
+    width: 100%;
+    bottom: -110%;
+}
+
+.drag-element > p {
+    color: #676767;
+    font-size: 12px;
+}
+
+
+.drag-element-active > p {
+    color: #676767;
+    font-size: 12px;
+}
+
+.drag-file-element {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.drag-file-element > p{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.67);
+}
+
+
+.construction-area {
+    width: 100%;
+    height: 43px;
+    background-color: #6C6C6C;
+}
+
+.button-element {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.commit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 156px;
+    height: 26px;
+    border-radius: 7px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 64px;
+}
+
+.commit-button  > p {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+}
+
+@media only screen and (max-width :880px ) {
+    .Body-Uploading{
+        display: none;
+    }
+}
+@media only screen and (max-width :1024px) {
+    .commit-button  > p {
+        font-size: 11px;
+    }
+    .drag-file-element > p{
+        font-size: 11px;
+    }
+    .drag-element > p {
+        font-size: 11px;
+    }
+    .label-div > p {
+        font-size: 11px;
+    
+    }
+    .header-title p{
+        font-size: medium;
+    }
+    
+
+}

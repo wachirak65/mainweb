@@ -1,0 +1,127 @@
+body{
+    margin : 0px;
+    padding: 0px;
+    text-align: center;
+
+}
+
+.background {
+    background-color: #F8FDFF;
+    height: 100vh;
+}
+
+
+.top-background {
+    width: 100vw;
+    height: 35vh;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background-color: white;
+}
+
+.selection-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 30%;
+    height: 62vh;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    margin-top: 50px;
+    left: 50%; /* ขยับไปทางขวาครึ่งหนึ่งของความกว้างของ .content */
+    transform: translate(-50%, -50%); /* จัดให้อยู่กึ่งกลาง */
+    background-color: white;
+    z-index: 2;
+}
+
+.selection-card h1 {
+    font-size: 24px;
+    color: rgba(20, 20, 20, 0.72);
+    font-weight: 200;
+    margin-top: 30px;
+    margin-bottom: 55px;
+}
+
+.selection-card p {
+    font-size: 12px;
+    color: #676767;
+    padding-top: 5px;
+}
+
+.selection-card hr {
+    width: 326px;
+    color: rgba(0, 0, 0, 0.44);
+}
+.discription{
+    margin-top: 12px;
+}
+@media only screen and (max-width :1195px) {
+   
+    .selection-card {
+        width: 85vw;
+        margin-top: 60px;
+
+    }
+}
+
+@media only screen and (min-height :800px) and (max-width :450px) {
+    #discription-1 , .Create-pj{
+        display: none;
+    }
+    .selection-card {
+        width: 85vw;
+        margin-top: 60px;
+
+        }
+}
+@media only screen and (min-height :1100px) and (max-width :900px) {
+    #discription-1, .Create-pj {
+        display: none;
+    }
+    .selection-card {
+        width: 85vw;
+        margin-top: 60px;
+
+    }
+
+}
+@media only screen and (min-height :1024px) and (max-width :768px) {
+    #discription-1, .Create-pj {
+        display: none;
+    }
+    .selection-card {
+        width: 85vw;
+        margin-top: 60px;
+
+    }
+
+}
+@media only screen and (max-height :680px) and (max-width :400px ) {
+    #discription-1, .Create-pj {
+        display: none;
+    }
+    .selection-card {
+        width: 85vw;
+        margin-top: 60px;
+
+    }
+}
+@media only screen and (max-height :600px) and (max-width :1030px ) {
+    
+    .selection-card {
+        height: 67vh;
+    }
+    .selection-card {
+        margin-top: 40px;
+
+    }
+}
+@media only screen and (max-width :880px ) {
+    #discription-1, .Create-pj {
+        display: none;
+    }
+    .selection-card {
+        width: 85vw;
+        margin-top: 60px;
+
+    }
+}

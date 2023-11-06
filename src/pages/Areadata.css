@@ -1,0 +1,161 @@
+*
+{
+    font-size: calc(60% + 0.8vmin);
+    
+}
+.all-AreaData{
+    overflow-x: hidden;
+}
+.first-container{
+    margin-left: 4em;
+    margin-top:2rem;
+}
+.FCL-1{
+    position: relative;
+    left: 50%;
+    transform: translateY(-78%);
+}
+.FCL-2{
+    position: relative;
+    left: 50%;
+    transform: translateY(-78%);
+}
+.FCL-3{
+    position: relative;
+    left: 70%;
+    transform: translateY(-78%);
+
+}
+.FCL-4{
+    position: relative;
+    left: 50%;
+    transform: translateY(-78%);
+}
+.FCL-5{
+    position: relative;
+    left: 80%;
+    transform: translateY(-78%);
+}
+.FCL-6{
+    position: relative;
+    left: 90%;
+    transform: translateY(-78%);
+}
+.nothing-1{
+    position: relative;
+    right: -200%;
+    transform: translateY(-177%);
+    box-shadow: 0px 7px 8px -2px #888;
+}
+
+.nothing-2{
+    position: relative;
+    right: -200%;
+    transform: translateY(-177%);
+    box-shadow: 0px 7px 8px -2px #888;
+}
+
+
+.day{
+    position: relative;
+    right: -200%;
+    transform: translateY(-177%);
+    box-shadow: 0px 7px 8px -2px #888;
+}
+
+.month{
+    position: relative;
+    right: -200%;
+    transform: translateY(-177%);
+    box-shadow: 0px 7px 8px -2px #888;
+}
+
+.year{
+    position: relative;
+    right: -200%;
+    transform: translateY(-177%);
+    box-shadow: 0px 7px 8px -2px #888;
+}
+
+
+.top-background-3 {
+    width: 100vw;
+    height: 50px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.top-background-3 h4{
+    margin: 2rem;
+}
+.black-btn-div-4{
+    box-shadow: 0px 8px 10px -0px #888;
+    border-radius: 20px;
+    margin-left: 77vw;
+}
+.button-state-4{
+    box-shadow: 0px 8px 10px -0px #888;
+    border-radius: 20px;
+    margin-left: 1vw;
+    margin-right: 30vw;
+}   
+.SSS-1{
+    margin-right: .5rem;
+    
+}
+.SSS-2{
+    margin-right: -1rem;
+    transform: translateY(-100%);
+}
+
+.SSS-3{
+    margin-right: -3rem;
+    transform: translateY(-200%);
+}
+.down-container{
+    display: flex;
+    width: 20vw;
+    margin-bottom: 20px;
+    margin-right: 30px;
+}
+@media only screen and (max-width :880px ) {
+    .all-AreaData{
+        display: none;
+    }
+}
+@media only screen and (max-width :1440px ) {
+    .down-container{
+        position: relative;
+        right: 3vw;
+    }
+    
+}
+@media only screen and (max-width :1280px ) {
+    .down-container{
+        position: relative;
+        right: 6vw;
+        bottom: 7vh;
+    }
+}
+@media only screen and (max-width :1024px ) {
+    .down-container{
+        right: 10vw;
+        bottom: 10vh;
+    }
+}
+@media only screen and (max-width :1150px ) {
+    .down-container{
+        right: 6vw;
+        bottom: 15vh;
+    }
+}
+@media only screen and (max-width :895px ) {
+    .down-container{
+        right: 12vw;
+        bottom: 29vh;
+    }
+}
+@media only screen and (max-width :1020px ) {
+    .down-container{
+        right: 12vw;
+        bottom: 29vh;
+    }
+}

@@ -1,0 +1,53 @@
+.Land{
+    margin: 2rem;
+}
+.fifth{
+    position: 'relative';
+    text-align: left;
+    transform: translateY(-100%);
+    padding: 0rem 20rem ;
+}
+.C-3 img{
+    border-radius: 20px;
+    height: 164px;
+}
+.manage {
+    position: absolute;
+    transform: translateY(-270%);
+    left: 70%;
+}
+
+.top-background-2 {
+    width: 85vw;
+    height: 50px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.mix-1{
+    transform: translateY(-70%);
+    margin-bottom: -1.5rem;
+}
+.boxs-1{
+    box-shadow: 3px 3px 8px 0px #888;
+    width: 22%;
+    background-color: lightgreen;
+    transform: translateY(180%);
+}
+.boxs-2{
+    box-shadow: 3px 3px 8px 0px #888;
+    width: 100%;
+}
+.cf-2{
+    margin-top: 2rem;
+    width: 80vw;
+    height: 200px;
+}
+.hamburger-1{
+    width: 100px;
+    height: 85vh;
+    position: absolute;
+    right: -0%;
+    top: 15%;
+}
+.hamburger-2{
+    text-align: center;
+}

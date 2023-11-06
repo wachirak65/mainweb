@@ -1,0 +1,24 @@
+.card-pack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 348px;
+    height: 475px;
+    padding: 62px 22px 43px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.33);
+}
+
+.card-pack > h2 {
+    color: black;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 38px;
+    margin-bottom: 40px;
+}
+
+.card-pack > p {
+    color: rgba(124, 124, 124, 1);
+    font-size: 18px;
+    font-weight: 500;
+}
