@@ -15,7 +15,11 @@ function Areadata() {
     }
 
     return (
+<<<<<<< HEAD
         <div class = "all-AreaData" >
+=======
+        <div >
+>>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
         <Navbar/>  
         <div class='top-background-3'>
             <h4>กรอกข้อมูลพื้นฐานของคุณ</h4>
@@ -107,7 +111,12 @@ function Areadata() {
                     <div className='SSS-2'>
                     <button type='submit' class="w-20 btn btn-m btn-white month" maxLength={12}>เดือน</button></div>
                     <div className='SSS-3'><button type='submit' class="w-20 btn btn-m btn-white year">ปี</button></div>
+<<<<<<< HEAD
                     <footer class="down-container">
+=======
+            </label>
+            <footer class="down-container">
+>>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
                 <div class='black-btn-div-4'>
                     <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
                             console.log("back")}/>
@@ -117,8 +126,11 @@ function Areadata() {
                         console.log("confirm")}/>
                 </div>
             </footer>
+<<<<<<< HEAD
             </label>
             
+=======
+>>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </div>

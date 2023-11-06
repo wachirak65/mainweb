@@ -48,12 +48,20 @@ function Uploading() {
     
 
     return (
+<<<<<<< HEAD
         <div class = "Body-Uploading">
+=======
+        <div>
+>>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
         <Navbar/>
         <div className="content">
             <div class='top-background' style={{backgroundColor:'#F8FDFF'}}>
                 <div className="header-title">
+<<<<<<< HEAD
                     <p class = "Discription-Create">สร้างโปรเจกต์</p>
+=======
+                    <p>สร้างโปรเจกต์</p>
+>>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
                     <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                     </svg>

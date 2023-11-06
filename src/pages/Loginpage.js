@@ -71,7 +71,11 @@ function Login  () {
         navigate('/Reset');
     }
     return (
+<<<<<<< HEAD
         <div class='background'>
+=======
+        <div>
+>>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
             
         <Navbar/>
         <div class='authen-center'>
@@ -95,9 +99,14 @@ function Login  () {
                             <a href='#'>ลืมรหัสผ่าน ?</a>
                         </div>
                         <input type="password" class="form-control" id="password-input" placeholder='Enter your password'/>
+<<<<<<< HEAD
                         <div class='big-button-login'>เข้าสู่ระบบ</div>
 
                     </div>
+=======
+                    </div>
+                    <div class='big-button-login'>เข้าสู่ระบบ</div>
+>>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
                 </form>
                 
             </div>

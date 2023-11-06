@@ -1,8 +1,1 @@
-mainweb\node_modules
-mainweb\src\Homepage.js
-mainweb\src\index.css
-mainweb\src\logo.svg
-mainweb\src\Mainpage.js
-mainweb\src\reportWebVitals.js
-mainweb\src\Uploadpage.css
-mainweb\src\Uploadpage.js
+node_modules/
