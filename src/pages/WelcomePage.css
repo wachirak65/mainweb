@@ -1,14 +1,11 @@
 .welcome-content {
     width: 100vw;
     padding: 71px 64px 71px;
-<<<<<<< HEAD
     background-color: #F8FDFF;;
 }
 *{
     max-width: 100vw;
 
-=======
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
 }
 
 .main-container{
@@ -154,7 +151,6 @@
 .space-row {
     margin-top: 34px;
 }
-<<<<<<< HEAD
 .main-container img:hover{
     cursor: pointer;
 
@@ -162,6 +158,3 @@
 .btn-groub p:hover{
     cursor: pointer;
 }
-=======
-
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753

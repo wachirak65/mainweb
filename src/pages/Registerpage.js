@@ -73,11 +73,7 @@ function Register () {
     };
     
     return (
-<<<<<<< HEAD
     <div class='background'>
-=======
-    <div>
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
         <Navbar/>
         
         <div class='authen-center'>
@@ -101,7 +97,6 @@ function Register () {
                     </div>
                     <div class="mb-3">
                         <div class='label-content'>
-<<<<<<< HEAD
                             <label for="password-input" class="form-label" >รหัสผ่าน <p>(ความยาวอย่างน้อย จํานวน 6-16 ตัวอักษร)</p></label>
                         </div>
                         <input type="password" class="form-control" id="password-input" placeholder='Enter your password'/>
@@ -109,13 +104,6 @@ function Register () {
                     <div class = "btn-in">
                         <div class='big-button-login register-btn'>สมัครสมาชิก</div>
                     </div>
-=======
-                            <label for="password-input" class="form-label" >รหัสผ่าน <p>(ความยาวอย่างน้อย จํานวน6-16 ตัวอักษร)</p></label>
-                        </div>
-                        <input type="password" class="form-control" id="password-input" placeholder='Enter your password'/>
-                    </div>
-                    <div class='big-button-login register-btn'>สมัครสมาชิก</div>
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
                 </form>
                 
             </div>

@@ -25,10 +25,7 @@
     color: rgba(0, 0, 0, 0.64);
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
 .otp-field {
     display: flex;
     width: 100%;
@@ -80,7 +77,6 @@
     margin: 0;
     margin-right: 10px;
 }
-<<<<<<< HEAD
 @media only screen and (max-width :376px) {
     .black-btn-div {
         z-index: 20;
@@ -128,6 +124,3 @@
     }
 
 }
-=======
-
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753

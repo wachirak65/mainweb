@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *
 {
     font-size: calc(60% + 0.8vmin);
@@ -7,8 +6,6 @@
 .all-AreaData{
     overflow-x: hidden;
 }
-=======
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
 .first-container{
     margin-left: 4em;
     margin-top:2rem;
@@ -91,7 +88,6 @@
 }
 .black-btn-div-4{
     box-shadow: 0px 8px 10px -0px #888;
-<<<<<<< HEAD
     border-radius: 20px;
     margin-left: 77vw;
 }
@@ -100,19 +96,6 @@
     border-radius: 20px;
     margin-left: 1vw;
     margin-right: 30vw;
-=======
-    position: absolute;
-    right: 14%;
-    transform: translateY(-150%);
-    border-radius: 20px;
-}
-.button-state-4{
-    box-shadow: 0px 8px 10px -0px #888;
-    position: absolute;
-    right: 5%;
-    transform: translateY(-150%);
-    border-radius: 20px;
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
 }   
 .SSS-1{
     margin-right: .5rem;
@@ -127,7 +110,6 @@
     margin-right: -3rem;
     transform: translateY(-200%);
 }
-<<<<<<< HEAD
 .down-container{
     display: flex;
     width: 20vw;
@@ -177,5 +159,3 @@
         bottom: 29vh;
     }
 }
-=======
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753

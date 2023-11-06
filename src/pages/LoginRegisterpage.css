@@ -13,14 +13,11 @@ body {
     background-color: #f5f5f5;
 }
 
-<<<<<<< HEAD
 .background {
     background-color: #F8FDFF;
     height: 100vh;
 }
 
-=======
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
 .authen-center {
     display: flex;
     flex-direction: column;
@@ -34,10 +31,7 @@ body {
     padding: 41px;
     margin-top: 30px;
     border-radius: 6px;
-<<<<<<< HEAD
     background-color: white;
-=======
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
 }
 
 .header-authen {
@@ -87,10 +81,7 @@ body {
     margin-bottom: 0px;
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
 .main-authen {
     display: flex;
     flex-direction: column;
@@ -123,10 +114,7 @@ body {
 .form-label p {
     color: rgba(24,30,37,0.47);
     padding-left: 6px;
-<<<<<<< HEAD
 
-=======
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
 }
 
 .label-content a {
@@ -138,11 +126,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
     width: 100%;
-=======
-    width: 390px;
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
     height: 40px;
     border-radius: 6px;
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
@@ -166,11 +150,7 @@ body {
 }
 
 .form-signin {
-<<<<<<< HEAD
     max-width: 30vw;
-=======
-    max-width: 400px;
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
     padding: 30px;
 }
 
@@ -193,7 +173,6 @@ body {
 
 .register-from {
     padding-bottom: 24px;
-<<<<<<< HEAD
 }
 .background{
     overflow-x: hidden;
@@ -262,6 +241,4 @@ body {
         margin-right: 10px;
     }
 
-=======
->>>>>>> a37502186e677990060f7cfcd3315ecc1dc21753
 }
