@@ -99,6 +99,7 @@
 
 
 @media only screen and (max-width :1250px) {
+    
     #nav-burger-bar:hover{
         cursor: pointer;
     }
@@ -220,6 +221,12 @@
     #nav-burger-bar:hover{
         cursor: pointer;
     }
+    #nav-burger-bar{
+      position: fixed;
+    }
+    .mobile-menu{
+      position: fixed
+    }
     .Other-out a {
         font-size: 18px;
       }
@@ -243,6 +250,12 @@
 @media only screen and (max-width :400px) {
     .Other-out a {
         font-size: 14px;
+      }
+      #nav-burger-bar{
+        position: fixed;
+      }
+      .mobile-menu{
+        position: fixed
       }
       #All-project-nav{
         font-size: 16px;
@@ -278,7 +291,12 @@
 
 }
 @media only screen and (max-width :800px) {
-    
+    #nav-burger-bar{
+      position: fixed;
+    }
+    .mobile-menu{
+      position: fixed
+    }
       .other-discript {
         margin-top: 1.5vh;
       }

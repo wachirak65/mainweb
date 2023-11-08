@@ -213,11 +213,87 @@
     .Sidebar {
       display: none;
     }
+    .AlocateShow {
+      width: 100vw;
+      height: 40vh;
+      margin-left: 0;
+    }
+    .Data-1{
+      width: 100vw;
+      height: 35.04vh;
+      margin-left: 0;
+      position: relative;
+      top: 4vh;
+      box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.199);
+      background-color: #F8FDFF;
+      font-size: 60px;
+    }
+    .front {
+      padding-top: 8vw;
+    }
+    .Data-2{
+      width: 100vw;
+      height: 50vh;
+      margin-left: 0vw;
+      position: absolute;
+      top: 102vh;
+      font-size: 20px;
+      padding-left: 3vw;
+      background-color: #F8FDFF;
+    }
+    .Data-3{
+      width: 100vw;
+      margin-left: 0vw;
+      position: absolute;
+      top: 155vh;
+      padding-left: 3vw;
+      font-size: 18px;
+
+    }
+    .line-on-top{
+      margin-bottom: 0;
+      margin-top: 0;
+      display: none;
+    }
+    .button-line{
+    position: relative;
+    top: 4vh;
+    z-index: 90;
+    width: 100vw;
+    margin-left:10px;
+    font-size: 30px;
+  }
+  .btn-inline-1 ,.btn-inline-2 ,.btn-inline-3 {
+    margin-top: 3vh;
+    width: 80vw;
+    position: absolute;
+  }
+  .btn-inline-2 ,.btn-inline-3{
+    left: 30vw;
+  }
+  .front p {
+    padding-top: 3vh;
+  }
+  .btn-inline-3{
+    left:60vw;
+  }
+  .text-word{
+    width: 100vw;
+    padding-left: 3vw;
+    position: relative;
+    bottom: 2vh;
+  }
+  .Reload-Icon{
+    display:none;
+  }
+  
 }
 @media only screen and (min-width :1451px) {
   .btn-inline-1 , .btn-inline-2 , .btn-inline-3{
     font-size: 14.5px;
   }
+  
+  
   
 }
 @media only screen and (max-width :1450px) {
