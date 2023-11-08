@@ -1,5 +1,4 @@
-// Navbar.js
-import React, { useState } from 'react'; // Import useState from React
+import React, { useState } from 'react'; 
 import logo_untired from '../assets/logo_untired.PNG';
 import person_icon from '../assets/icons/person_icon.svg'
 import gear_icon from '../assets/icons/gear_icon.svg'
@@ -58,13 +57,14 @@ function Navbar() {
                     {showMobileMenu && (
                         <div className="mobile-menu">
                         <ul>
-                            <li><p>Project</p></li>
+                            <p id = "All-project-nav">โปรเจกต์ทั้งหมด</p>
                             <li><div class = 'Block-for-project'>
-                                
-                                Block for Project
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus corporis in qui velit deserunt ratione vitae dolores, perspiciatis quis asperiores, culpa tempore, nemo magnam nobis labore eos numquam accusamus repudiandae veniam! Voluptatibus aperiam fugit nam inventore exercitationem ipsa harum iusto dolores pariatur ad sapiente dolor molestias sequi, dolorem architecto facilis mollitia itaque laborum magnam. Mollitia expedita id ad, aut rerum itaque? Officiis alias sint maxime omnis quidem, vitae velit minima iusto doloribus eos tenetur obcaecati quasi. Itaque nulla consequatur veniam. Nemo consequatur aperiam earum unde. Ex ut itaque delectus eligendi odio odit laborum dolorem iure porro consequatur vitae, soluta iste architecto, excepturi expedita mollitia. Distinctio culpa saepe laudantium ab illo, omnis et autem exercitationem enim molestias non minima, veritatis laboriosam, commodi tempora. Sint laboriosam non possimus hic, tenetur rem molestias iure, officiis voluptatibus, qui ipsum rerum maxime accusantium quisquam! Tenetur iusto nam, necessitatibus iure explicabo animi ducimus, velit perferendis provident soluta saepe sunt minima? Earum, aspernatur? Ex, voluptate reiciendis dolores commodi culpa et nostrum earum fugiat expedita debitis nisi possimus voluptatem est porro vero! Dolorem quis nesciunt animi modi ipsum? Soluta dolorum ut hic sapiente eos tempora, nostrum corporis. Dicta architecto, inventore voluptatibus eligendi fugit deserunt ut cum beatae sequi.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit consequuntur, aspernatur enim quod natus eligendi, eum nostrum exercitationem quia autem doloremque recusandae fugiat eaque quasi sunt repudiandae temporibus dignissimos excepturi dolor sed necessitatibus. Deserunt quasi tenetur similique voluptate eum nostrum explicabo animi sunt facere totam voluptas molestias repellat, corrupti at velit accusamus ipsum, excepturi ullam quisquam mollitia? Alias enim nam iste error aspernatur, cumque dolores voluptates nemo expedita ullam sit, ut distinctio iusto necessitatibus adipisci eum repudiandae quis? Repellendus sint quia at nam nobis unde ipsum eligendi voluptates iure veritatis aut, pariatur facilis magni quod natus ratione dicta, assumenda expedita, tempora veniam corrupti repellat. Vel nisi dolorem amet quaerat quasi ut magnam sint quod odit voluptatem rem repudiandae sunt ad nam iusto eos animi eaque, quo, culpa rerum saepe quam vitae aspernatur! Repellendus, saepe magni soluta neque repellat quae! Fuga qui, hic nesciunt facilis incidunt aspernatur repudiandae non beatae voluptates ab ad vitae harum ullam! Iusto quas amet sunt quam quod, debitis asperiores fugit explicabo ut cupiditate. Accusamus quae cum molestiae accusantium quos. Cum ipsam, nobis beatae reprehenderit vero consequuntur quos nemo ipsa delectus illum porro dolor unde magnam asperiores, officia laudantium voluptates tenetur at earum. Doloribus obcaecati amet possimus error nam est. Architecto voluptatum ratione fugit at consequatur earum ipsa accusamus ut quasi sit illum, rerum atque optio reiciendis dolor fuga expedita pariatur suscipit delectus laborum similique. Quas quia, accusamus sapiente ducimus praesentium aut ullam quidem et, molestiae magni quisquam doloremque aliquid dolores ea soluta. Sapiente fugit corrupti consectetur atque cumque, sit at velit pariatur officiis architecto placeat aspernatur eveniet asperiores qui quod nostrum porro aliquid culpa distinctio aut eaque tenetur saepe. Est fuga eos fugiat natus repudiandae a magnam vero quos quae nobis voluptatibus doloremque, enim error tempore doloribus atque ipsam nisi? Excepturi molestiae recusandae ex. A?
                                 </div>
                             </li>
+                            <p className='other-discript'>ส่วนตัว</p>
+
+
                             <div class = "ground-setting-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/></svg>                                 
                                 <p>โปรไฟล์</p>
@@ -77,11 +77,16 @@ function Navbar() {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16"><path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/><path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/></svg>
                                 <p>การตั้งค่า</p>
                             </div>
-                            <p id='other-discript'>เพิ่มเติม</p>
-                            <li><a href="#">เกี่ยวกับเรา</a></li>
-                            <li><a href="#">เทคโนโลยี AI</a></li>
-                            <li><a href="#">บริการ</a></li>
-                            <li><a href="#">ติดต่อเรา</a></li>
+                            <hr />
+                            <p className='other-discript'>เพิ่มเติม</p>
+                            <div className='Other-out'>
+                                <li><a href="#">หน้าหลัก</a></li>
+                                <li><a href="#">เกี่ยวกับเรา</a></li>
+                                <li><a href="#">เทคโนโลยี AI</a></li>
+                                <li><a href="#">บริการ</a></li>
+                                <li><a href="#">ติดต่อเรา</a></li>
+                            </div>
+
                         </ul>
                         </div>
                     )}
