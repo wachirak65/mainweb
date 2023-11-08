@@ -99,6 +99,9 @@
 
 
 @media only screen and (max-width :1250px) {
+    #nav-burger-bar:hover{
+        cursor: pointer;
+    }
     .first-navbar {
         display: none;
     }
@@ -214,6 +217,9 @@
 }
  /*  678 480 เเละ 380 */
 @media only screen and (max-width :480px) {
+    #nav-burger-bar:hover{
+        cursor: pointer;
+    }
     .Other-out a {
         font-size: 18px;
       }

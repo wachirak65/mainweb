@@ -154,6 +154,7 @@
 .show-process {
   margin-top: 20%;
 }
+
 .Data-3 h4{
 	font-size: 17px;
   color: #000000ba;
@@ -191,6 +192,8 @@
 }
 .btn-inline-3 button{
   background-color: #B9FFBB;
+  max-height: 50px;
+
   color: #0000009e;
   padding: 2px 10px;
   margin-left: 3.5rem;
@@ -206,3 +209,25 @@
 
 }
 
+@media only screen and (max-width :1250px) {
+    .Sidebar {
+      display: none;
+    }
+}
+@media only screen and (min-width :1451px) {
+  .btn-inline-1 , .btn-inline-2 , .btn-inline-3{
+    font-size: 14.5px;
+  }
+  
+}
+@media only screen and (max-width :1450px) {
+  .btn-inline-1 , .btn-inline-2 , .btn-inline-3{
+    font-size: calc(31% + 0.8vmin);
+  }
+  
+}
+@media only screen and (max-width :991px) {}
+@media only screen and (max-width :768px) {}
+@media only screen and (max-width :678px) {}
+@media only screen and (max-width :480px) {}
+@media only screen and (max-width :380px) {}

@@ -9,18 +9,20 @@ function ShowAlocate() {
         <div class = "Allin">
             <header>
                 <Navbar/>
-                <Sidebar/>
+                <div className="Sidebar">
+                    <Sidebar/>
+                </div>
             </header>
             <div class="grid-container">
                 <div class="AlocateShow"><p>Image</p></div>
                     <div class = 'button-line'>
-                    <div class ="text-word"><p>พืชที่แนะนำ : มะละกอสุขกหก</p></div>
-                        <div class = 'btn-inline-1'>
+                    <div class ="text-word"><p>พืชที่แนะนำ : มะละกอ</p></div>
+                        <span class = 'btn-inline-1'>
                             <button>การจัดสรรพื้นที่</button>
-                        </div>                            
-                        <div class = 'btn-inline-2'>
+                        </span>                            
+                        <span class = 'btn-inline-2'>
                             <button>เปลี่ยนการวางแผนพื้นที่</button>
-                        </div>        
+                        </span>        
                         <div class = "Reload-Icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -28,9 +30,9 @@ function ShowAlocate() {
                                 </svg>
 
                             </div>
-                        <div class = 'btn-inline-3'>
+                        <span class = 'btn-inline-3'>
                         <button>พื้นที่ทั้งหมด</button>           
-                    </div>
+                    </span>
                     </div>
                 
                     <div class="Data-1">
