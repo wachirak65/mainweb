@@ -18,7 +18,8 @@ import PublicProjectPage from "./pages/PublicProjectPage";
 import WeatherAnalysisPage from "./pages/WeatherAnalysisPage";
 import ShowArea from "./pages/ShowArea";
 import ShowAlocate from "./pages/ShowAlocate"
-
+import GraphsoilPage from "./pages/GraphsoilPage";
+import Predictionland from "./pages/Predictionland";
 
 function App() {
   return (
@@ -40,7 +41,8 @@ function App() {
         <Route path="WeatherAnalysis" element={<WeatherAnalysisPage/>}/>
         <Route path="ShowArea" element={<ShowArea/>}/>
         <Route path="ShowAlocate" element={<ShowAlocate/>}/>
-
+        <Route path="GraphsoilPage" element={<GraphsoilPage/>}/>
+        <Route path="Predictionland" element={<Predictionland/>}/>
       </Routes> 
     </div>
   );
