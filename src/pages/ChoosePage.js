@@ -126,12 +126,16 @@ function ChoosePage() {
                     <div class = "buttom-line-1">
                        <hr /> 
                     </div>
-                    <div>
-                        <button>ยืนยัน</button>
+                    <div class = "btn-all-in">
+                    <div class='btn-cf-1'>
+                    <ConfirmBtn  bg_color='#E4E4E4' title='ยืนยัน' onClick={()=>
+                        console.log("confirm")}/>
                     </div>
-                    <div>
-                        <button>ย้อนกลับ</button>
+                    <div class='btn-back-1'>
+                        <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
+                                console.log("back")}/>
                     </div>
+                </div>
                 </div>
             </div>
             

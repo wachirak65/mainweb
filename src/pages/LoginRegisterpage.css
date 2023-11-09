@@ -182,9 +182,11 @@ body {
     .mb-3 label {
         font-size: 14px;
     }
+    
     .background{
         overflow-x: hidden;
     }
+    
     .header-authen h2 {
         font-size: 16px;
     }
@@ -216,6 +218,63 @@ body {
     
 
 }
+/* 1200 991 768 678 480 เเละ 380 ครับ */
+@media only screen and (min-width :1500px) {
+    .authen-form {
+        margin-top: 5%;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+    .header-authen h2 {
+        font-size: 20px;
+    }
+    .header-authen p {
+        font-size: 20px;
+
+    }
+    .or-line p{
+        font-size: 20px;
+
+    }
+    .end-authen {
+        font-size: 20px;
+
+    }
+    .end-authen a {
+        font-size: 20px;
+
+    }
+    .header-authen h2 {
+        font-size: 20px;
+    }
+    .header-authen p {
+        font-size: 18px;
+    }
+    .or-line p{
+        font-size: 18px;
+    }
+    
+    .end-authen {
+        font-size: 18px;
+    }
+    
+    .end-authen a {
+        font-size: 18px;
+    }
+    .btn-in{
+        font-size: 18px;
+    }
+    
+}
+@media only screen and (max-width :991px) {}
+@media only screen and (max-width :768px) {}
+@media only screen and (max-width :678px) {}
+@media only screen and (max-width :480px) {}
+@media only screen and (max-width :380px) {}
+
+
+
 @media only screen and (min-height :800px) and (max-width :450px) {
     .authen-form {
         margin-top: 15%;
