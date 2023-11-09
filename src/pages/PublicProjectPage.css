@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 70% 30%;
     width: 100vw;
-    height: 116px;
+    height: 11.6vh;
     background-color: white;
     padding: 30px 65px 18px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -26,13 +26,13 @@
 }
 
 .hearder-bar > hr {
-    margin-top: 8px;
-    margin-bottom: 14px;
+    margin-top: 0.8vh;
+    margin-bottom: 1.4vh;
     color: rgba(0, 0, 0, 0.44);
 }
 
 .hearder-bar > p {
-    margin-left: 30px;
+    margin-left: 1.563vw;
     color: rgba(20, 20, 20, 0.70);
     font-size: 16px;
     font-weight: 200;
@@ -40,35 +40,36 @@
 
 .tail-bar {
     display: flex;
-    margin-left: 74px;
+    margin-left: 3.854vw;
     margin-top: 18px;
 }
 
 .public-project-content {
     display: flex;
-    margin-top: 23px;
+    margin-top: 1.8vh;
     width: 100vw;
 }
 
 .public-project-view {
     display: flex;
     flex-wrap: wrap;
-    width: 1045px;
-    min-height: 568px;
-    margin-left: 138px;
-    background-color: white;
+    width: 78vw;
+    height: 100vh;
+    min-height: 56.8vh;
+    margin-left: 7.187vw;
+    background-color:#fcfcfc;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .space-row {
-    margin-left: 35px;
+    margin-left: 1.823vw;
 }
 
 .public-project-tool {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    margin-left: 46px;
+    margin-left: 2.396vw;
 }
 
 .tool {
@@ -78,15 +79,15 @@
 
 .tool > svg {
     color: rgba(34, 34, 34, 0.65);
-    margin-left: 20px;
+    margin-left: 1.042vw;
 }
 
 .dropdown2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 137px;
-    height: 40px;
+    width: 7.135vw;
+    height: 4vh;
     box-shadow: inset 0px 2px 0px rgba(255,255,255,0.08),
                 0px 1px 2px rgba(21,29,40,0.04);
                 
@@ -107,7 +108,7 @@
     margin: 0px;
     font-size: 16px;
     color: #3A3F45;
-    margin-left: 20px;
+    margin-left: 1.042vw;
 
 }
 
@@ -117,7 +118,7 @@
     background-color: #f9f9f9;
     min-width: 182px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    margin-top: 130px;
+    margin-top: 13vh;
     z-index: 1;
 }
 
@@ -131,3 +132,21 @@
 .dropdown2:hover .dropdown-content2 {
     display: block;
 }
+
+@media only screen and (max-width :1430px) {
+    .dropdown-title2{
+        font-size: 13px;
+    }
+    .select-btn p {
+        font-size: 13px;
+    }
+    .public-project-dis{
+        margin-top: 1vh;
+    }
+}
+@media only screen and (max-width :1280px) {
+    .public-project-dis{
+        margin-top: -1vh;
+    }
+}
+    

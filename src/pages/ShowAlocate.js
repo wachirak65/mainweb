@@ -14,7 +14,7 @@ function ShowAlocate() {
                 </div>
             </header>
             <div class="grid-container">
-                <div class="AlocateShow"><p>Image</p></div>
+                <div class="AlocateShow">img</div>
                     <div class = 'button-line'>
                     <div class ="text-word"><p>พืชที่แนะนำ : มะละกอ</p></div>
                         <span class = 'btn-inline-1'>

@@ -12,13 +12,12 @@ function Navbar() {
       setShowMobileMenu(!showMobileMenu);
     };
     return (
-        <nav class="navbar">
+         <nav class="navbar" id='nav-all'>
                     <div class="first-navbar">
                         <a class="navbar-logo" href="#">
                             <img src={logo_untired} alt="Logo" class="logo" />
                         </a> 
                     </div> 
-                    
                     <div class="last-navbar">
                         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                             <li><a href="#" class="nav-link px-2 link-dark">หน้าหลัก</a></li>

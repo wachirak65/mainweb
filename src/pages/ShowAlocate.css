@@ -120,10 +120,6 @@
 .checkbox-input{
   display: none;
 }
-.AlocateShow p{
-  margin-left: 50%;
-  padding-top: 40%;
-}
 .text-word p{
   color: #000000ba;
 }
@@ -286,6 +282,9 @@
   .Reload-Icon{
     display:none;
   }
+  .btn-inline-3 button {
+    background-color: rgba(0, 217, 255, 0.377);
+  }
   
 }
 @media only screen and (min-width :1451px) {
@@ -302,7 +301,26 @@
   }
   
 }
-@media only screen and (max-width :991px) {}
+/* min 540 max 1250 */
+@media only screen and (min-width :580px) and (max-width :1250px) {
+  
+  .btn-inline-2 ,.btn-inline-3{
+    left: 25vw;
+  }
+  .btn-inline-3{
+    left:50vw;
+  }
+}
+@media only screen and (min-width :740px) and (max-width :1250px) {
+  
+  .btn-inline-2 ,.btn-inline-3{
+    left: 20vw;
+  }
+  .btn-inline-3{
+    left:40vw;
+  }
+}
+
 @media only screen and (max-width :768px) {}
 @media only screen and (max-width :678px) {}
 @media only screen and (max-width :480px) {}

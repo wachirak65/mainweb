@@ -10,7 +10,8 @@ function PublicProjectPage() {
     return (
         <div class='background'>
            <Navbar/> 
-           <Sidebar/>
+           <div class="Sidebar"><Sidebar/></div>
+          
            
            <div className="public-project-bar">
                 <div className="hearder-bar">
@@ -22,7 +23,8 @@ function PublicProjectPage() {
                         <h1>โปรเจกต์สาธารณะ</h1>
                     </div>
                     <hr />
-                    <p>เป็นโปรเจกต์ที่ได้รับการยินยอมต่อการเปิดเผยต่อสาธารณะ</p>
+                    
+                    <p className='public-project-dis'>เป็นโปรเจกต์ที่ได้รับการยินยอมต่อการเปิดเผยต่อสาธารณะ</p>
                 </div>
                 <div className="tail-bar">
                     <SelectButton title="สร้างโปรเจกต์" color='#CDFFF3' state="create" width={190} height={40}/>
