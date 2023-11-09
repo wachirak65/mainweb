@@ -20,9 +20,7 @@ function Locate() {
                         <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                         </svg>
                         </i>
-                    
                     </div>
-
                     <div>
                         <input class = "inputLocate" type="text" placeholder="ค้นหา"/>
                         <hr class="line" />
@@ -49,11 +47,11 @@ function Locate() {
                 </div>
                 <div class="right-card">
                     <div> <iframe class="Map" src="https://www.google.com/maps/embed?
-                pb=!1m14!1m8!1m3!1d120867.06238707463!2d98.9331292!
-                3d18.793888!3m2!1i1024!2i768!4f13.1!3m3!1m2!
-                1s0x30da3ab069eed275%3A0x8f895bdf1c2a33af!
-                2sArcobaleno%20Italian%20Restaurant!5e0!3m2!
-                1sth!2sth!4v1698573157298!5m2!1sth!2sth" 
+                        pb=!1m14!1m8!1m3!1d120867.06238707463!2d98.9331292!
+                        3d18.793888!3m2!1i1024!2i768!4f13.1!3m3!1m2!
+                        1s0x30da3ab069eed275%3A0x8f895bdf1c2a33af!
+                        2sArcobaleno%20Italian%20Restaurant!5e0!3m2!
+                        1sth!2sth!4v1698573157298!5m2!1sth!2sth" 
                 allowfullscreen 
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade"
