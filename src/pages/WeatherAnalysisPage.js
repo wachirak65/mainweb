@@ -1,4 +1,6 @@
 import React from 'react'
+import Sidebar from '../component/sidebar'
+
 import {
     LineChart,
     Line,
@@ -63,8 +65,10 @@ function WeatherAnalysisPage(){
       ];
 
     return (
-        <div className='background'>
+        <div className='background' id = "WeatherAnalysis-Container">
             <Navbar/>
+            <Sidebar/>
+
             <div className="main-content">
                 <div className="weather-table">
                     <div className="title-chart">

@@ -62,8 +62,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 335px;
-    height: 58px;
+    width: 17.448vw;
+    height: 5.8vh;
     background-color: #F8F8FF;
     border-radius: 18px;
 }
@@ -82,8 +82,8 @@
     font-size: 14px;
     color: white;
     background-color: #1E1B39;
-    width: 100px;
-    height: 37px;
+    width: 5.208vw;
+    height: 3.7vh;
     border-radius: 18px;
 }
 
@@ -92,12 +92,12 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    width: 142px;
-    height: 58px;
+    width: 7.396vw;
+    height: 5.8vh;
     border-radius: 20px;
     background-color: #F8F8FF;
     cursor: pointer;
-    margin-left: 10px;
+    margin-left: 0.521vw;
 }
 
 .dropdown-weather-detail > p {
@@ -116,9 +116,9 @@
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 182px;
+    min-width: 9.479vw;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    margin-top: 10px;
+    margin-top: 1vh;
     z-index: 2;
 }
 
@@ -144,8 +144,8 @@
 }
 
 .label .circle-label {
-    width: 14px;
-    height: 14px;
+    width: 0.729vw;
+    height: 1.4vh;
     border-radius: 40px;
     
 }
@@ -154,20 +154,27 @@
     margin: 0;
     color: #615E83;
     font-size: 14px;
-    margin-left: 10px;
+    margin-left: 0.521vw;
 }
 
 .space-label {
-    margin-left: 100px;
+    margin-left: 5.208vw;
 }
 
 .dropdown-graph-table {
     position: absolute;
     top: 15%;
     right: 5%;
-    z-index: 3;
+    border-radius: 8px;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.112);
+    z-index: 999;
 }
 
 .dropdown-graph-table:hover .dropdown-content {
     display: block;
+}
+@media only screen and (max-width :1250px) {
+    #WeatherAnalysis-Container{
+        display: none;
+    }
 }
