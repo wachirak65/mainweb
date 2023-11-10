@@ -93,13 +93,17 @@ function WeatherAnalysisPage(){
                         </div>
                         <div className="label-chart">
                             <div className="label">
-                                <div className="circle-label" style={{backgroundColor:'#93AAFD'}}></div>
-                                <p>ปริมาณน้ำฝน</p>
+                                <div className="circle-used">
+                                    <div className="circle-label" style={{backgroundColor:'#93AAFD'}}></div>
+                                </div>
+                                <p className='t-circle'>ปริมาณน้ำฝน</p>
                             </div>
                             <div className="space-label"></div>
                             <div className="label">
+                            <div className="circle-used">
                                 <div className="circle-label" style={{backgroundColor:'#FF718B'}}></div>
-                                <p>อุณหภูมิ</p>
+                            </div>
+                                <p className='t-circle'>อุณหภูมิ</p>
                             </div>
                         </div>
                         <div className="date-range">

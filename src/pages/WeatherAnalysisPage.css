@@ -163,18 +163,57 @@
 
 .dropdown-graph-table {
     position: absolute;
-    top: 15%;
-    right: 5%;
+    top: 10vh;
+    right: 5vw;
     border-radius: 8px;
-    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.112);
-    z-index: 999;
+    z-index: 99;
 }
 
 .dropdown-graph-table:hover .dropdown-content {
     display: block;
 }
 @media only screen and (max-width :1250px) {
-    #WeatherAnalysis-Container{
-        display: none;
+    .weather-title{
+       margin-top: 30vh;
+       position: absolute;
+       width: 90vw;
+       bottom:14vh;
+       left: 19vw;
+       margin-left: 2vw;
+    }
+    .weather-table{
+        position: absolute;
+        width: 95vw;
+        bottom:36vh;
+        height: 50vh;
+    }
+    .date-range{
+        position: absolute;
+        top: 52vh;
+        width: 50vw;
+    }
+    .dropdown-graph-table{
+        position: absolute;
+        top: 52vh;
+        width: 19vw;
+    }
+    .dropdown-weather-detail{
+        width: 100%;
+    }
+    .dropdown{
+        width: 30vw;
+        position: absolute;
+        top: 57vh;
+        margin-left: 0;
+    }
+    .label .circle-label {
+        width: 10px;
+        height: 10px;
+        border-radius: 40px;
+        
+    }
+    .label-chart{
+        width: 100vw;
+        position: absolute;
     }
 }
