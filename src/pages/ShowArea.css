@@ -1,35 +1,36 @@
-
 .Sidemain {
-    width:1050px ;
-    height: 570px;
+    width:72vw ;
+    height: 83vh;
     background-color: rgb(233, 233, 233);
     border-radius: 15px;
-    margin-top: 2%;
-    margin-left: 7%;
+    margin-top: 1vh;
+    margin-left: 5.5vw;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.151);
 }
 .text-1{
-    margin-top: 40px;
+    margin-top: 4vh;
 }
 .Container-all{
     display: flex;
 }
 .Side-Right{
-    margin-left: 10%;
+    margin-left: 3vw;
     margin-top: 3%;
     width: 18%;
+    height: 80vh;
 }
-.Zonebutton {
-    text-align: center;
+.ShowArea-Container {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.Progress-work{
+    height: 40vh;
+    overflow: scroll;
 }
 
 .Zonebutton {
     text-align: center;
-    position: relative;
-}
-
-.Zonebutton {
-    text-align: center;
+    width: 18vw;
     position: relative;
     display: inline-block;
 }
@@ -37,8 +38,8 @@
 .dp-button {
     background-color: #F8F8FF;
     color: #615E83;
-    height: 60px;
-    width: 150px;
+    height: 6vh;
+    width: 10vw;
     padding: 10px 20px;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.123);
     border: none;
@@ -46,7 +47,7 @@
     cursor: pointer;
 }
 .text-1 hr{
-    width: 90px;
+    width: 4.688vw;
 }
 
 .text-2 button{
@@ -57,15 +58,14 @@
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    margin-left: 50%;
-    position: relative;
-    top: 40px;
+    margin-left: 8.5vw;
+    
 }
 .SideLine button{
     background-color: #B9FFBB;
     color: #615E83;
-    width: 45px;
-    height: 45px;
+    width: 2.344vw;
+    height: 4.5vh;
     padding: 2px 10px;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.185);
     border: none;
@@ -101,7 +101,9 @@
     background-color: #ddd;
 }
 .SideLine{
-    margin-top: 18rem;
+    margin-top: 11vh;
+    height: 100vh;
+    max-height: 100px;
 }
 .SideLine hr{
     width: 90%;
@@ -110,4 +112,13 @@
     text-align: center;
     position: relative;
     top: 50%;
+}
+.ShowArea-Container{
+    width: 100vw;
+    
+}
+@media only screen and (max-width :1250px) {
+    .ShowArea-Container{
+        display: none;
+    }
 }

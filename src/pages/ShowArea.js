@@ -6,7 +6,7 @@ import TreeIcon from '../assets/icons/tree.svg'
 
 function ShowArea() {
     return (
-        <div>
+        <div className='ShowArea-Container'>
             <header>
                 <Navbar/>
                 <Sidebar/>
@@ -31,6 +31,26 @@ function ShowArea() {
                 <div class = "text-1">
                     <p>รายการที่กำลังดำเนินการ</p>
                     <hr/>
+                    <div className='Progress-work'>
+                            <ul>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                            <li>รายการ A </li>
+                        </ul>
+                    </div>
+                    
                 </div>
                 <div class = 'text-2'>
                     <button>การจัดสรรพื้นที่</button>
