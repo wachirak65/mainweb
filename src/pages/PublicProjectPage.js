@@ -8,7 +8,7 @@ import Sidebar from '../component/sidebar'
 
 function PublicProjectPage() {
     return (
-        <div class='background'>
+        <div class='background' >
            <Navbar/> 
            <div class="Sidebar"><Sidebar/></div>
           

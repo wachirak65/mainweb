@@ -158,4 +158,51 @@
         margin-top: -1vh;
     }
 }
-    
+@media only screen and (max-width :1250px) {
+    .public-project-dis{
+        margin-top: -1vh;
+    }
+    .tail-bar{
+        width: 80vw;
+        margin-left: 0;
+        right: 60vw;
+        position: relative;
+        top: 10vh;
+    }
+    .public-project-view{
+        width: 100vw;
+    }
+    .hearder-bar{
+        width: 80vw;
+        margin-left: 0;
+        padding-left: 0;
+        position: relative;
+        bottom: 5vh;
+    }
+    .tool{
+        display: none;
+    }
+    .public-project-tool{
+        width: 0px;
+    }
+    .public-project-view{
+        margin-top: 6vh;
+        height: 67vh;
+        margin-left: 2.3vw;
+    }
+}
+@media only screen and (max-width :401px) {
+    .public-project-view{
+        margin-top: 6vh;
+    }
+}
+@media only screen and (max-width :376px) {
+    .public-project-view{
+        margin-top: 8vh;
+        height: 60vh;
+    }
+    .hearder-bar{
+        position: relative;
+        bottom: 11vh;
+    }
+}
