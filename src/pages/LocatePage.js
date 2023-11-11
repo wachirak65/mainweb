@@ -37,7 +37,7 @@ function Locate() {
                                 <ConfirmBtn  bg_color='#E4E4E4' title='ยืนยัน' onClick={()=>
                                     console.log("confirm")}/>
                             </div>
-                            <div class='btn-back-1'>
+                            <div class='btn-back-1' >
                                 <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
                                         console.log("back")}/>
                             </div>

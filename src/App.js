@@ -12,6 +12,7 @@ import JoinProjectPage from "./pages/JoinProjectPage";
 import Uploadpage from "./Uploadpage";
 import Areadata from "./pages/Areadata";
 import Dragarea from "./pages/Dragarea";
+import DragArea_2 from "./pages/DragArea_2";
 import Locate from "./pages/LocatePage"
 import ChoosePage from "./pages/ChoosePage";
 import PublicProjectPage from "./pages/PublicProjectPage";
@@ -34,6 +35,7 @@ function App() {
         <Route path="Selection" element={<Selection/>}/>
         <Route path="Areadata" element={<Areadata/>}/>
         <Route path="Dragarea" element={<Dragarea/>}/>
+        <Route path="NewDragarea" element={<DragArea_2/>}/>
         <Route path="Locate" element={<Locate/>}/>
         <Route path="JoinProject" element={<JoinProjectPage/>}/>
         <Route path="ChoosePage" element={<ChoosePage/>}/>
