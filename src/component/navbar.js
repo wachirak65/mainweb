@@ -13,6 +13,7 @@ function Navbar() {
     };
     return (
          <nav class="navbar" id='nav-all'>
+                    <div className="on-nav"></div>
                     <div class="first-navbar">
                         <a class="navbar-logo" href="#">
                             <img src={logo_untired} alt="Logo" class="logo" />
