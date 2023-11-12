@@ -3,14 +3,31 @@ import logo_untired from '../assets/logo_untired.PNG';
 import person_icon from '../assets/icons/person_icon.svg'
 import gear_icon from '../assets/icons/gear_icon.svg'
 import './navbar.css'
+import { useUserAuth } from '../context/UserAuthContext';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
     
     const [showMobileMenu, setShowMobileMenu] = useState(false);
+    const { logOut } = useUserAuth();
+
+    let navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            await logOut();
+            navigate("/login")
+        } catch (err) {
+            console.log("error:", err.message);
+        }
+    }
   
     const toggleMobileMenu = () => {
       setShowMobileMenu(!showMobileMenu);
     };
+
     return (
          <nav class="navbar" id='nav-all'>
                     <div className="on-nav"></div>
@@ -40,6 +57,7 @@ function Navbar() {
                             <div class="dropdown-content">
                                 <a href="#"><img src={person_icon} alt="person_icon_img" class="icon-dropdown-content"/> โหมดผู้ใช้ทั่วไป</a>
                                 <a href="#"><img src={gear_icon} alt="person_icon_img" class="icon-dropdown-content"/> สมัครสมาชิก</a>
+                                <a onClick={handleSubmit}><img src={gear_icon} alt="person_icon_img" class="icon-dropdown-content"/> ออกจากระบบ</a>
                             </div>
                         </div>
                         <div class="check-icon">

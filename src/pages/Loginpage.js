@@ -4,72 +4,48 @@ import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import "../pages/LoginRegisterpage.css"
 import {provider,auth} from '../until/App2';
-import { signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import Navbar from '../component/navbar.js'
 import Arrow from '../assets/icons/arrow_auth.svg'
 import google_icon from '../assets/icons/google_icon.svg'
+import { useUserAuth } from '../context/UserAuthContext';
 
 function Login  () {
-    const navigate = useNavigate()
-    const MySwal = withReactContent(Swal)
     
-    const [inputs, setInputs] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError ] = useState(""); 
+    const { logIn, SignUpUsingGoogle } = useUserAuth();
     
-    // const handleClick =async(e)=>{
-    //     const provider = await new GoogleAuthProvider();
-    //     return signInWithPopup(auth,provider)
-    // }
+    let navigate = useNavigate();
     
-    const handleChange = (event) => {
-        
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs(values => ({...values, [name]: value}))
+    const handleGoogleSubmit = async (e) => {
+        e.preventDefault();
+        setError("");
+
+        try {
+            await SignUpUsingGoogle();
+            navigate("/");
+        } catch (err) {
+            console.log("error:", err.message);
+            setError(err.message)
+        }
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // signInWithEmailAndPassword(auth ,email,password)
-        signInWithEmailAndPassword(auth ,inputs.name,inputs.value)
-        .then((user)=>{
-            navigate('../Selection')
-            console.log(user);
-        }).catch((error) => {
-            console.log(error);
-            MySwal.fire({
-            html:<i>{error.message}</i>,
-            icon:"error",
-            })
-        });
-        
-    };
-    const signInWithGoogle = () =>{
-        signInWithPopup(auth,provider)
-        .then((result)=>{
-            console.log(result);
-            navigate('../Selection')
-            MySwal.fire({
-            html:<i>{result.message}</i>,
-            icon:"success"})
-            const name = result.user.displayName;
-            const email = result.user.email;
-            const profilePic = result.user.photoURL;
-            localStorage.setItem('name', name);
-            localStorage.setItem('email', email);
-            localStorage.setItem('profilePic', profilePic);
-        })
-        .catch((error) =>{
-            console.log(error);
-            MySwal.fire({
-            html:<i>{error.message}</i>,
-            icon:"error",
-            })
-        });
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError("");
+
+        try {
+            await logIn(email, password);
+            navigate("/welcome");
+
+        } catch (err) {
+            console.log("error:", err.message);
+            setError(err.message);
+        }
     }
-    
-    const handleReset = ()=>{
-        navigate('/Reset');
-    }
+
     return (
         <div class='background'>
             
@@ -80,22 +56,26 @@ function Login  () {
                     <img src={Arrow} alt="arrow-auth-icon" width='40' height='40'/>
                     <h2>เข้าสู่ระบบ</h2>
                     <p>กรอกบัญชีอีเมลและรหัสผ่านเพื่อเข้าสู่ระบบ</p>
-                    <div class="big-button"><img src={google_icon} alt="google-icon" width='20' height='20'/><p>เข้าสู่ระบบด้วยบัญชี Google</p></div>
+                    <div class="big-button" onClick={handleGoogleSubmit}><img src={google_icon} alt="google-icon" width='20' height='20'/><p>เข้าสู่ระบบด้วยบัญชี Google</p></div>
                     <div class='or-line'><p>OR</p></div>
                 </div>
                 
-                <form action="">
+                <form>
                     <div class="mb-3">
                         <label for="email-input" class="form-label">อีเมล</label>
-                        <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" placeholder='username@gmail.com'/>
+                        <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" placeholder='username@gmail.com'
+                            onChange={(e)=> setEmail(e.target.value)}
+                        />
                     </div>
                     <div class="mb-3">
                         <div class='label-content'>
                             <label for="password-input" class="form-label" >รหัสผ่าน</label>
                             <a href='#'>ลืมรหัสผ่าน ?</a>
                         </div>
-                        <input type="password" class="form-control" id="password-input" placeholder='Enter your password'/>
-                        <div class='big-button-login'>เข้าสู่ระบบ</div>
+                        <input type="password" class="form-control" id="password-input" placeholder='Enter your password'
+                            onChange={(e)=> setPassword(e.target.value)}
+                        />
+                        <div class='big-button-login' onClick={handleSubmit}>เข้าสู่ระบบ</div>
 
                     </div>
                 </form>
