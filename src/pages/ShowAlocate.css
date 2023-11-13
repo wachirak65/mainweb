@@ -136,12 +136,21 @@
   font-size: 16px;
   color: #000000ba;
   padding-top: 5%;
-  margin-left: 6%;
+  margin-left: -6vw;
 }
 .Data-2 p {
-  padding-left: 9%;
+  position: relative;
+  right: 2vw;
   color: #000000ba;
 
+}
+#p-2,#p-3{
+  position: relative;
+  right: 4vw;
+}
+#p-1{
+  position: relative;
+  right: 4.5vw;
 }
 .line-on-bottom{
   width: 85%;
@@ -156,13 +165,15 @@
   color: #000000ba;
 
   padding-top: 2%;
-  margin-left: 4%;
+  margin-left: -30vw;
 }
 .Data-3 p {
   color: #000000ba;
-
-  padding-left: 4%;
+  position: relative;
+  top: 1vw;
+  right: 15vw;
 }
+
 .btn-inline-2 button{
     background-color: #B9FFBB;
     color: #0000009e;
@@ -214,6 +225,46 @@
       height: 40vh;
       margin-left: 0;
     }
+    .Data-3 h4{
+      font-size: 17px;
+      color: #000000ba;
+    
+      padding-top: 2%;
+      margin-left: -30vw;
+    }
+    .Data-3 p {
+      color: #000000ba;
+      position: relative;
+      top: 1vw;
+      right: 15vw;
+    }
+    .Data-2 h4{
+      font-size: 16px;
+      color: #000000ba;
+      padding-top: 5%;
+      margin-left: -6vw;
+    }
+    .show-process p{
+      font-size: 15px;
+    }
+    .Data-2 p {
+      position: relative;
+      right: 2vw;
+      color: #000000ba;
+    
+    }
+    #p-2,#p-3{
+      position: relative;
+      right: 33vw;
+    }
+    #p-1{
+      position: relative;
+      right: 33vw;
+    }
+    .Data-2 p{
+      position: relative;
+      right: 28vw;
+    }
     .Data-1{
       width: 100vw;
       height: 35.04vh;
@@ -224,6 +275,8 @@
       background-color: #F8FDFF;
       font-size: 60px;
     }
+    
+    
     .front {
       padding-top: 8vw;
     }
@@ -237,6 +290,7 @@
       padding-left: 3vw;
       background-color: #F8FDFF;
     }
+
     .Data-3{
       width: 100vw;
       margin-left: 0vw;
@@ -256,7 +310,7 @@
     top: 4vh;
     z-index: 90;
     width: 100vw;
-    margin-left:10px;
+    margin-left:-20vw;
     font-size: 30px;
   }
   .btn-inline-1 ,.btn-inline-2 ,.btn-inline-3 {
@@ -285,43 +339,51 @@
   .btn-inline-3 button {
     background-color: rgba(0, 217, 255, 0.377);
   }
-  
-}
+  .Data-3 p{
+    position: relative;
+    right: 30vw;
+  }}
+
 @media only screen and (min-width :1451px) {
   .btn-inline-1 , .btn-inline-2 , .btn-inline-3{
     font-size: 14.5px;
   }
-  
-  
-  
 }
+
 @media only screen and (max-width :1450px) {
   .btn-inline-1 , .btn-inline-2 , .btn-inline-3{
     font-size: calc(31% + 0.8vmin);
   }
   
 }
-/* min 540 max 1250 */
+
 @media only screen and (min-width :580px) and (max-width :1250px) {
   
   .btn-inline-2 ,.btn-inline-3{
-    left: 25vw;
+    left: 28vw;
   }
   .btn-inline-3{
     left:50vw;
   }
 }
+
+@media only screen and (max-width :450px) {
+  .btn-inline-1{
+    left: -3vw;
+  }
+  .btn-inline-2{
+    left: 32vw;
+  }
+  .btn-inline-3{
+    left:60vw;
+  }
+}
 @media only screen and (min-width :740px) and (max-width :1250px) {
   
   .btn-inline-2 ,.btn-inline-3{
-    left: 20vw;
+    left:23vw;
   }
   .btn-inline-3{
     left:40vw;
   }
 }
-
-@media only screen and (max-width :768px) {}
-@media only screen and (max-width :678px) {}
-@media only screen and (max-width :480px) {}
-@media only screen and (max-width :380px) {}

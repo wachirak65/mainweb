@@ -14,7 +14,7 @@ function ShowAlocate() {
                 </div>
             </header>
             <div class="grid-container">
-                <div class="AlocateShow">img</div>
+                <div class="AlocateShow"></div>
                     <div class = 'button-line'>
                     <div class ="text-word"><p>พืชที่แนะนำ : มะละกอ</p></div>
                         <span class = 'btn-inline-1'>
@@ -60,9 +60,9 @@ function ShowAlocate() {
                 <div class="Data-2">
                     <h4>ข้อมูลพื้นฐานทั่วไป</h4>
                     <hr class="line-on-bottom"/>
-                    <p>พื้นที่เพาะปลูก : </p>
-                    <p>ปริมาณการใช้น้ำ : </p>
-                    <p>ปริมาณการใช้ปุ๋ย : </p>
+                    <p id='p-1'>พื้นที่เพาะปลูก : </p>
+                    <p id='p-2'>ปริมาณการใช้น้ำ : </p>
+                    <p id='p-3'>ปริมาณการใช้ปุ๋ย : </p>
                     <p>ระยะเวลาในการเพาะปลูก : </p>
                     <div class ="show-process">
                         <hr class="line-on-bottom"/>
@@ -77,8 +77,6 @@ function ShowAlocate() {
                 </div>
             </div>
 
-                                                    
-    
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>            
         </div>
     )

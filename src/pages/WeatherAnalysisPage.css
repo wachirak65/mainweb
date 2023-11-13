@@ -2,9 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 90% ;
-    padding: 35px 95px 28px;
+    width: 100vw;
+    height: 90vh ;
+    padding: 1.823vw 4.948vw 1.458vw;
+    overflow-y: hidden;
 }
 
 .weather-table {
@@ -14,7 +15,7 @@
     background-color: white;
     box-shadow: 0 2px 6px rgba(13, 10, 44, 0.08);
     border-radius: 20px;
-    padding-bottom: 38px;
+    padding-bottom: 3.8vh;
 }
 
 .weather-chart {
@@ -31,7 +32,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 40px 38px 0px;
+    padding: 2.083vw 1.979vw 0vw;
 }
 
 .weather-header {
@@ -82,6 +83,7 @@
     font-size: 14px;
     color: white;
     background-color: #1E1B39;
+    
     width: 5.208vw;
     height: 3.7vh;
     border-radius: 18px;
@@ -119,12 +121,12 @@
     min-width: 9.479vw;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin-top: 1vh;
-    z-index: 2;
+    z-index: 30;
 }
 
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 0.625vw 0.833vw;
     text-decoration: none;
     display: block;
 }
@@ -164,6 +166,7 @@
 .dropdown-graph-table {
     position: absolute;
     top: 10vh;
+    height: 30vh;
     right: 5vw;
     border-radius: 8px;
     z-index: 99;
@@ -172,12 +175,13 @@
 .dropdown-graph-table:hover .dropdown-content {
     display: block;
 }
+
 @media only screen and (max-width :1250px) {
     .weather-title{
        margin-top: 30vh;
        position: absolute;
        width: 90vw;
-       bottom:14vh;
+       bottom:7vh;
        left: 19vw;
        margin-left: 2vw;
     }
@@ -199,6 +203,14 @@
     }
     .dropdown-weather-detail{
         width: 100%;
+        margin-top: 2vh;
+    }
+    .dropdown-weather-detail p{
+        margin-right: 5vw;
+    }
+    .dropdown-graph-table{
+        padding-top: 5vh;
+        padding-left: 1vw;
     }
     .dropdown{
         width: 30vw;
@@ -215,5 +227,16 @@
     .label-chart{
         width: 100vw;
         position: absolute;
+    }
+    .dropdown-content a{
+        font-size: 14px;
+    }
+    .dropdown-content{
+        width: 20vw;
+    }
+}
+@media only screen and (max-width :410px) {
+    .dropdown-content a{
+        font-size: 12px;
     }
 }
