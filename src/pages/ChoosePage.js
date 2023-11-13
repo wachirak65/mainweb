@@ -110,7 +110,7 @@ function ChoosePage() {
                     
                 </div>
                 <div class="right-on-container">
-                    <p>ประเภทจัดสรรพื้นที่</p>
+                    <p id='name-1'>ประเภทจัดสรรพื้นที่</p>
                     <div class = 'button-right'>
                         <button>แบบพื้นฐาน
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
@@ -122,7 +122,7 @@ function ChoosePage() {
                        <hr /> 
                     </div>
                     
-                    <p>พื้นที่เลือกทั้งหมด :</p>
+                    <p id='name-2'>พืชที่เลือกทั้งหมด :</p>
                     <div class = "buttom-line-1">
                        <hr /> 
                     </div>

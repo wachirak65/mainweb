@@ -74,6 +74,14 @@
     padding-left: 5vw;
     padding-top: 2.5vh;
 }
+#name-1  , .button-right {
+    position: relative;
+    right: 5vw ;
+}
+#name-2 {
+    position: relative;
+    right: 9vw ;
+}
 .button-right button{
     border: none;
     height: 4vh;

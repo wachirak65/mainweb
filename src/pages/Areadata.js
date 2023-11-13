@@ -22,7 +22,7 @@ function Areadata() {
         </div>      
         <div className='first-container'>
             
-            <label>ชื่อโปรเจกต์:
+            <label id='p1'>ชื่อโปรเจกต์:
                 <div className='FCL-1'>
                 <input 
                         className='form-control'
@@ -37,7 +37,7 @@ function Areadata() {
                     </div>
             </label>
             <br/>
-            <label>ต้นทุนต่อรอบ:
+            <label id='p2'>ต้นทุนต่อรอบ:
                 <div className='FCL-2'>
                 <input 
                         className='form-control'
@@ -50,7 +50,7 @@ function Areadata() {
                     /></div><p style={{position:"relative", right:"-170%",transform:"translateY(-250%)"}}>บาท</p>
             </label>
             <br/>
-            <label style={{marginTop:"-2rem"}}>พืชที่ปลูกในปัจจุบัน:
+            <label style={{marginTop:"-2rem"}} id='p3'>พืชที่ปลูกในปัจจุบัน:
                 <div className='FCL-3'>
                 <input 
                         className='form-control'
@@ -64,7 +64,7 @@ function Areadata() {
                     <button type='submit' class="w-20 btn btn-m btn-white nothing-1">ไม่มี</button>
             </label>
             <br/>
-            <label style={{marginTop:"-2rem"}}>พืชที่เคยปลูก:
+            <label style={{marginTop:"-2rem"}} id='p4'>พืชที่เคยปลูก:
             <div className='FCL-4'>
                 <input 
                         className='form-control'
@@ -78,7 +78,7 @@ function Areadata() {
                     <button type='submit' class="w-20 btn btn-m btn-white nothing-2">ไม่มี</button>
             </label>
             <br/>
-            <label style={{marginTop:"-2rem"}}>กำลังคนที่มีในการดูแล :
+            <label style={{marginTop:"-2rem"}} id='p5'>กำลังคนที่มีในการดูแล :
                 <div className='FCL-5'>
                 <input 
                         className='form-control'
@@ -91,7 +91,7 @@ function Areadata() {
                     /></div><p style={{position:"relative", right:"-190%",transform:"translateY(-260%)"}}>คน</p>
             </label>
             <br/>
-            <label style={{marginTop:"-2rem"}}>ระยะเวลาที่สามารถรอได้ :
+            <label style={{marginTop:"-2rem"}} id='p6'>ระยะเวลาที่สามารถรอได้ :
             <div className='FCL-6'>
                 <input 
                         className='form-control'
@@ -107,7 +107,7 @@ function Areadata() {
                     <div className='SSS-2'>
                     <button type='submit' class="w-20 btn btn-m btn-white month" maxLength={12}>เดือน</button></div>
                     <div className='SSS-3'><button type='submit' class="w-20 btn btn-m btn-white year">ปี</button></div>
-                    <footer class="down-container">
+            <div class="down-container">
                 <div class='black-btn-div-4'>
                     <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
                             console.log("back")}/>
@@ -116,7 +116,7 @@ function Areadata() {
                     <ConfirmBtn  bg_color='#E4E4E4' title='เริ่มประมวลพื้นที่' onClick={()=>
                         console.log("confirm")}/>
                 </div>
-            </footer>
+            </div>
             </label>
             
         </div>

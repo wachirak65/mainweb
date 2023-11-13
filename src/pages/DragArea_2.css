@@ -6,8 +6,11 @@
     position:fixed;
     overflow:hidden;
 }
+#title-drag-1{
+    position: relative;
+    right: 26vw;
+}
 .label-drag p {
-    padding-left: 50%;
     padding-top: 25%;
 }
 .left-drag{
@@ -23,6 +26,9 @@
     font-size: 2vw;
     font-weight: 100;
     color: #141414c5;
+}
+#title-drag-1{
+    margin-left: 0;
 }
 #title-drag-2{
     font-size: 1.5vw;

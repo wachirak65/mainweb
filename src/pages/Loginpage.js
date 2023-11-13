@@ -38,6 +38,16 @@ function Login  () {
 
         try {
             await logIn(email, password);
+
+              // Show the login notification
+            const MySwal = withReactContent(Swal);
+            await MySwal.fire({
+                icon: 'success',
+                title: 'เข้าสู่ระบบเรียบร้อย',
+                text: 'You are now logged in!',
+                showConfirmButton: false,
+                timer: 2300 
+            });
             navigate("/welcome");
 
         } catch (err) {

@@ -52,6 +52,7 @@
     position: relative;
     left: 0.313rem;
 }
+
 .LocationShow p{
     font-size: calc(95%+0.8vmin);
     margin-left: 3vw;
@@ -98,9 +99,9 @@ textarea:focus, input:focus{
 }
 .icon-geo2{
     color:rgb(67, 141, 91);
-    margin-left: 1rem;
     position: relative;
-    bottom: 2.8rem;
+    bottom: 5vh;
+    right: 6vw;
 }
 .btn-all {
     margin-top: 20vh;
@@ -112,6 +113,7 @@ textarea:focus, input:focus{
 *{
     font-size: calc(60%+0.8vmin);
 }
+
 @media only screen and (max-width :1440px) {
     .Map{
         height: 88vh;
@@ -125,7 +127,7 @@ textarea:focus, input:focus{
         margin-left: 5vw;
     }
 }
-@media only screen and (max-width :880px ) {
+@media only screen and (max-width :1280px ) {
     .main-all{
         display: none;
     }

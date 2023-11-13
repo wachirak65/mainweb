@@ -31,7 +31,7 @@
     white-space: nowrap;
     text-decoration: none;
 }
-.sidebar ul li a .icon{
+.sidebar ul li a .icon-Sidebar{
     position: relative;
     display: flex;
     justify-content: center;
@@ -49,11 +49,11 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
-.sidebar ul li.logo{
+.sidebar ul li.logo-Sidebar{
     margin-bottom: 50px;
 }
 
-.sidebar ul li.logo .text{
+.sidebar ul li.logo-Sidebar .text{
     font-weight: 500;
 }
 .hamburger-icon{

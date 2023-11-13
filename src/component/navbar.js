@@ -5,6 +5,8 @@ import gear_icon from '../assets/icons/gear_icon.svg'
 import './navbar.css'
 import { useUserAuth } from '../context/UserAuthContext';
 import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 function Navbar() {
     
@@ -18,7 +20,17 @@ function Navbar() {
 
         try {
             await logOut();
-            navigate("/login")
+
+               const MySwal = withReactContent(Swal);
+               await MySwal.fire({
+                   icon: 'success',
+                   title: 'ออกจากระบบเรียบร้อย',
+                   text: 'You have been logged out.',
+                   showConfirmButton: false,
+                   timer: 2300 
+               });
+   
+               navigate("/login");
         } catch (err) {
             console.log("error:", err.message);
         }

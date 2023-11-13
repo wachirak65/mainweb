@@ -130,6 +130,11 @@
     margin-top: 13vh;
     z-index: 1;
 }
+.public-project-dis{
+    
+    position: relative;
+    right: 15vw;
+}
 
 .dropdown-content2 a {
     color: black;
@@ -151,6 +156,7 @@
     }
     .public-project-dis{
         margin-top: 1vh;
+        
     }
 }
 @media only screen and (max-width :1280px) {
