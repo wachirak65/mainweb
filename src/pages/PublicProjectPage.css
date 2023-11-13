@@ -125,9 +125,11 @@
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 9.479vw;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    margin-top: 13vh;
+    margin-top: 8vw;
+    width: 9.3vw;
+    border-radius: 6px;
+    font-size: 14px;
     z-index: 1;
 }
 .public-project-dis{
@@ -142,7 +144,6 @@
     text-decoration: none;
     display: block;
 }
-
 .dropdown2:hover .dropdown-content2 {
     display: block;
 }
@@ -201,6 +202,9 @@
     .public-project-view{
         margin-top: 6vh;
     }
+    .tail-bar{
+        margin-left: 7vw;
+    }
 }
 @media only screen and (max-width :376px) {
     .public-project-view{
@@ -210,5 +214,8 @@
     .hearder-bar{
         position: relative;
         bottom: 11vh;
+    }
+    .tail-bar{
+        margin-left: 7vw;
     }
 }

@@ -113,10 +113,21 @@
     width: 100vw;
     
 }
+@media only screen and (min-width:1250px) {
+    .Container-all{
+        display: flex;
+        position: fixed;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+}
 @media only screen and (max-width :1250px) {
     /* .ShowArea-Container{
         display: none;
     } */
+    .Zonebutton{
+        font-size: 14px;
+    }
     .Sidemain{
         height: 40vh;
         width: 100vh;
@@ -138,13 +149,15 @@
     }
     .text-1{
         padding-left: 5vw;
+        font-size: 20px;
         
     }
     .Progress-work{
         height: 20vh;
     }
     .text-2{
-        padding-left: 70vw;
+        padding-left: 63vw;
+        font-size: 13px;
     }
     .SideLine{
         margin-top: 0;
@@ -154,6 +167,12 @@
         width: 10vw;
         height: 10vw;
         margin-left: 5vw;
+    }
+    .SideLine-DataShow{
+        font-size: 14px;
+    }
+    .Zonebutton{
+        width: fit-content;
     }
 }
 @media only screen and (max-width :500px) {
@@ -170,6 +189,9 @@
         height: 9vw;
         margin-left: 5vw;
     }
+    .Zonebutton{
+        font-size: 12px;
+    }
 }
 
 @media only screen and (max-width :391px) {
@@ -183,6 +205,9 @@
     }
 }
 @media only screen and (max-width :376px) {
+    .Zonebutton{
+        font-size: 11px;
+    }
     .Side-Right{
         margin-top: 43vh;
     }

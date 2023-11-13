@@ -15,7 +15,7 @@ function ShowArea() {
             <span>
                 <div class = "Sidemain">
                 <span>
-                    <p>Image</p>
+                    <p></p>
                 </span>
                 </div>
             </span>
@@ -59,7 +59,7 @@ function ShowArea() {
                 <div class="SideLine">
                     <hr />
                     <span><button><img src={TreeIcon} alt="tree_icon" /></button></span>&nbsp;&nbsp;&nbsp;
-                    <span>ข้อมูลความสมดุลพื้นที่</span>
+                    <span class="SideLine-DataShow">ข้อมูลความสมดุลพื้นที่</span>
                 </div>
             </div>
             
