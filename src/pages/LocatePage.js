@@ -1,10 +1,118 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import "../pages/LocatePage.css"
 import Navbar from '../component/navbar'
 import ConfirmBtn from '../component/confirm_btn'
 import BackBtn from '../component/back_btn'
 
 function Locate() {
+    let map;
+    let marker;
+
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBCTbDuLw_0s3XN3lYrEVi5UtLFCetzRfA&libraries=places&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+
+        script.onload = () => {
+            initMap();
+        };
+
+        return () => {
+            document.head.removeChild(script);
+        };
+    }, []);
+    function centerMapOnMarker() {
+        if (map && marker) {
+            map.panTo(marker.getPosition());
+        }
+    }
+    
+    function initMap() {
+        
+        map = new window.google.maps.Map(document.getElementById('map'), {
+            center: { lat: 13.7563, lng: 100.5018 }, // ตั้งต้นที่กรุงเทพ
+            zoom: 8
+        });
+        const centerMarkerButton = document.getElementById('center-marker-button');
+
+        centerMarkerButton.addEventListener('click', function () {
+            centerMapOnMarker();
+        });
+        marker = new window.google.maps.Marker({
+            position: { lat: 13.7563, lng: 100.5018 },
+            map: map,
+            draggable: true, // ทำให้ Marker สามารถลากได้
+            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' 
+        });
+    
+        
+        window.google.maps.event.addListener(marker, 'dragstart', function() {
+            console.log('เริ่ม Marker');
+        });
+    
+        window.google.maps.event.addListener(marker, 'drag', function() {
+            console.log('Marker กำลังลาก');
+        });
+        
+        window.google.maps.event.addListener(marker, 'dragend', function() {
+            console.log('ลาก Marker เสร็จ');
+            const newPosition = marker.getPosition();
+
+            // ละติจูดและลองจิจูด
+            const latitude = newPosition.lat();
+            const longitude = newPosition.lng();
+            
+            // ค่าละติจูดและลองจิจูด จาก marker 
+            console.log('ละติจูดจาก Marker =', latitude);
+            console.log('ลองจิจูดจาก Marker =', longitude);
+        });
+        window.google.maps.event.addListener(map, 'dblclick', function(event) {
+            marker.setPosition(event.latLng);
+            console.log('ละติจูด ลองติจูดของ Marker จากการ double click:',
+             event.latLng.lat(), event.latLng.lng());
+        });
+    
+        const input = document.getElementById('place-input');
+        const searchButton = document.getElementById('search-button');
+    
+        searchButton.addEventListener('click', function () {
+            searchPlace(input.value);
+        });
+    }
+    
+
+    function searchPlace(query) {
+        const service = new window.google.maps.places.PlacesService(map);
+    
+        service.textSearch({
+            query: query
+        }, (results, status) => {
+            if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+                if (results.length > 0) {
+                    const place = results[0];
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(15);
+    
+                    const marker = new window.google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location,
+                        title: place.name
+                    });
+    
+                    // ระบุละติจูด ลองติจูดใน console log นะ
+                    console.log("ละติจูด :", place.geometry.location.lat());
+                    console.log("ลองติจูด :", place.geometry.location.lng());
+                    console.log("ชื่อสถานที่ :", place.name);
+                } else {
+                    alert('ไม่พบสถานที่ที่ระบุ โปรดตรวจสอบอีกครั้ง');
+                }
+            } else {
+                alert('พบข้อผิดพลาด : ' + status);
+            }
+        });
+    }
     return (
         <div class = "main-all">
             <header>
@@ -14,6 +122,8 @@ function Locate() {
                 <div class="left-card">
                     <div class="LocationSearch"> 
                         <p>ระบุพิกัดสถานที่</p>
+                        <button id="center-marker-button" onClick={() => centerMapOnMarker()}>Center Marker</button>
+
 
                         <i class = 'icon-geo1' >
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
@@ -22,7 +132,8 @@ function Locate() {
                         </i>
                     </div>
                     <div>
-                        <input class = "inputLocate" type="text" placeholder="ค้นหา"/>
+                        <input id="place-input" class = "inputLocate" type="text" placeholder="ค้นหา"/>
+                        <button id="search-button" onClick={() => searchPlace()}>Search</button>
                         <hr class="line" />
                     </div>
 
@@ -49,23 +160,15 @@ function Locate() {
                         
                 </div>
                 <div class="right-card">
-                    <div> <iframe class="Map" src="https://www.google.com/maps/embed?
-                        pb=!1m14!1m8!1m3!1d120867.06238707463!2d98.9331292!
-                        3d18.793888!3m2!1i1024!2i768!4f13.1!3m3!1m2!
-                        1s0x30da3ab069eed275%3A0x8f895bdf1c2a33af!
-                        2sArcobaleno%20Italian%20Restaurant!5e0!3m2!
-                        1sth!2sth!4v1698573157298!5m2!1sth!2sth" 
-                allowfullscreen 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade"
-                title='Responsive Google Map'>
-                </iframe></div>
-                    
-                    
+                    <div id='map' class="Map"></div>             
                 </div>
             </span>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>     
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCTbDuLw_0s3XN3lYrEVi5UtLFCetzRfA&libraries=places&callback=initMap" async defer></script>
+
+    </div>
     )
 }
 
 export default Locate;
+

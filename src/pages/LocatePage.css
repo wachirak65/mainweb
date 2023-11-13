@@ -3,6 +3,9 @@
     margin: 0 auto;
     position: fixed;
 }
+.Map{
+    background-color: rgb(211, 211, 211);
+}
 .right-card{
     width: 80%;
     margin-left: 19%;

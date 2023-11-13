@@ -1,15 +1,10 @@
-import { createUserWithEmailAndPassword} from "firebase/auth";
 import React, {  useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Swal from "sweetalert2"
-import withReactContent from "sweetalert2-react-content"
-import "../pages/LoginRegisterpage.css"
-import {auth,provider } from "../until/App2"
-import { signInWithPopup } from "firebase/auth";
-import Navbar from "../component/navbar";
-import google_icon from '../assets/icons/google_icon.svg'
-import people_icon from '../assets/icons/register_logo.svg'
-import { useUserAuth } from "../context/UserAuthContext";
+import "./LoginRegisterpage.css"
+import Navbar from "../../component/navbar";
+import google_icon from '../../assets/icons/google_icon.svg'
+import people_icon from '../../assets/icons/register_logo.svg'
+import { useUserAuth } from "../../context/UserAuthContext";
 
 function Register () {
     const [username, setUsername] = useState("");
@@ -20,13 +15,36 @@ function Register () {
 
     let navigate = useNavigate();
 
+    const createUser = (userData) => {
+        const uid = userData.user.uid;
+        const email = userData.user.email;
+        
+        fetch('http://127.0.0.1:5000/createUser', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "uid": uid,
+                "email": email,
+                "username": username
+              })
+        }).then((response) => {
+            if (response.status === 201) {
+                console.log("success");
+            }
+        }).catch((error)=>{
+            console.log(error);
+        })
+    }
+
     const handleGoogleSubmit = async (e) => {
         e.preventDefault();
         setError("");
 
         try {
             await SignUpUsingGoogle();
-            navigate("/");
+            navigate("/Selection");
         } catch (err) {
             console.log("error:", err.message);
             setError(err.message)
@@ -38,8 +56,9 @@ function Register () {
         setError("");
 
         try {
-            await signUp(email, password);
-            navigate("/welcome")
+            const userData = await signUp(email, password);
+            createUser(userData);
+            navigate("/Selection")
         } catch (err) {
             console.log("error:", err.message);
             setError(err.message);

@@ -12,8 +12,8 @@ import  {
 
 import App from "./App.js";
 import WelcomePage from './pages/WelcomePage';
-import Login from './pages/Loginpage';
-import Register from './pages/Registerpage';
+import Login from './pages/LoginRegister/Loginpage';
+import Register from './pages/LoginRegister/Registerpage';
 import ProtectedRoute from './auth/ProtectRoute';
 import Selection from './pages/Selection.js';
 import JoinProjectPage from './pages/JoinProjectPage.js';

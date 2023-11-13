@@ -26,7 +26,7 @@
     left: 78vw;
     bottom: 86.7vh;
     
-    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.199);
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.141);
     background-color: #F8FDFF;
 }
 
@@ -35,12 +35,16 @@
   height: 90vh;
   overflow-y: hidden; 
   overflow-x: hidden;
+  position: fixed;
 }
 .first-icon svg{
     color: rgba(0, 0, 0, 0.56);
+    margin-right: 1vw;
 }
 .button-sort-line{
     width: 0px;
+    height: 100vh;
+    
     
 }
 
@@ -51,7 +55,7 @@
     width: 8vw;
     border-radius: 3px;
     background-color: #f8f8f8;
-    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.255);
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.107);
 
 }
 
@@ -86,13 +90,17 @@
     border: none;
     height: 4vh;
     width: 12vw;
-    border-radius: 15px;
+    border-radius: 6px;
     background-color: #f8f8f8;
-    box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.255);
+    box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.097);
 }
 .button-right button svg{
     position: relative;
     left: 2.3vw;
+}
+.button-right{
+    position: relative;
+    height: 14vh;
 }
 .buttom-line-1{
     margin-top: 20vh;
@@ -124,7 +132,7 @@
     border-radius: 13px;
     margin-left: 2.3%;
     margin-top: 2%;
-    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.297);
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.144);
     background-color: #F9FAFA;
 }
 .img-scroll{
@@ -136,7 +144,7 @@
     margin-top: 1%;
     border-radius: 13px;
     
-    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.336);
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.163);
     background-color: #F9FAFA;
 
 }
@@ -156,7 +164,60 @@
 .btn-all-in{
     margin-left: 2vw;
 }
-@media only screen and (max-width :880px ) {
+.button-sort-line:hover .dropdown-sort-choose {
+    display: block;
+}
+.dropdown-sort-choose li:hover .dropdown-sort-choose{
+    display: block;
+}
+.dropdown-content-sec{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    width: 12.5vw;
+    margin-left: 4.6vw;
+    margin-top: .3vh;
+    border-radius: 3px;
+}
+.dropdown-content-sec a {
+display: block;
+padding: 8px 12px;
+text-decoration: none;
+color: #333;
+}
+.button-right:hover .dropdown-content-sec {
+display: block;
+}
+.dropdown-sort-choose {
+    display: none;
+    margin-left: 34vw;
+    width: 8.5vw;
+    background-color: #FFFFFF;
+    margin-top: .03vh;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.127);
+    z-index: 2223;
+}
+
+.dropdown-sort-choose ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-sort-choose li {
+    padding: 8px;
+    text-align: center;
+}
+.dropdown-sort-choose a{
+    color: inherit;
+    text-decoration: inherit;
+    cursor: inherit;
+    cursor: pointer;
+}
+@media only screen and (max-width :1250px ) {
     .ChoosePageNew{
         display: none;
     }

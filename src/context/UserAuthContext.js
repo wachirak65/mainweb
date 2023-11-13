@@ -18,7 +18,7 @@ export function UserAuthContextProvider({ children }) {
     const [user, setUser] = useState({});
     
     
-    const SignUpUsingGoogle = () => {
+    function SignUpUsingGoogle () {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
@@ -28,19 +28,28 @@ export function UserAuthContextProvider({ children }) {
                 // The signed-in user info.
                 const user = result.user;
                 setUser(result);
+                fetch('http://127.0.0.1:5000/createUser', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "uid": user.uid,
+                        "email": user.email,
+                        "username": user.displayName
+                    })
+                }).then((response) => {
+                    if (response.status === 201) {
+                        console.log("success");
+                    }
+                }).catch((error)=>{
+                    console.log(error);
+                })
                 console.log({user})
             }).catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                const email = error.customData.email;
-                // The AuthCredential type that was used.
-                const credential = GoogleAuthProvider.credentialFromError(error);
-                
                 console.log("error");
             });
-    }   
+    }  
 
     function logIn(email, password) {
         return signInWithEmailAndPassword(auth, email, password);
