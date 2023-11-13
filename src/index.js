@@ -12,9 +12,12 @@ import  {
 
 import App from "./App.js";
 import WelcomePage from './pages/WelcomePage';
-import Login from './pages/Loginpage';
-import Register from './pages/Registerpage';
+import Login from './pages/LoginRegister/Loginpage';
+import Register from './pages/LoginRegister/Registerpage';
 import ProtectedRoute from './auth/ProtectRoute';
+import Selection from './pages/Selection';
+import Uploading from './pages/Uploading';
+import Locate from './pages/LocatePage'
 
 const router = createBrowserRouter(
   [
@@ -34,7 +37,18 @@ const router = createBrowserRouter(
       path: '/register',
       element: <Register/>
     },
-   
+    {
+      path: '/selection',
+      element: <ProtectedRoute><Selection/></ProtectedRoute>
+    }, 
+    {
+      path: '/Uploading',
+      element: <ProtectedRoute><Uploading/></ProtectedRoute>
+    },
+    {
+      path: '/Locate',
+      element: <ProtectedRoute><Locate/></ProtectedRoute>
+    }
   ]
 )
 

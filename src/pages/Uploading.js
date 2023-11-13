@@ -5,22 +5,22 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../component/navbar'
 import BackBtn  from '../component/back_btn'
-import OvalButton from '../component/oval_button'
-import SelectButton from '../component/selection_button';
+import { useUserAuth } from '../context/UserAuthContext';
 
 function Uploading() {
     // drag state
     const [dragActive, setDragActive] = React.useState(false);
     const inputRef = React.useRef(null);
-
+    const { user } = useUserAuth();
+    let navigate = useNavigate();
     // handle drag events
     const handleDrag = function(e) {
         e.preventDefault();
         e.stopPropagation();
         if (e.type === "dragenter" || e.type === "dragover") {
-        setDragActive(true);
+            // setDragActive(true);
         } else if (e.type === "dragleave") {
-        setDragActive(false);
+            setDragActive(false);
         }
     };
 
@@ -42,9 +42,82 @@ function Uploading() {
         }
     };
 
-    const onButtonClick = () => {
+    const onButtonClick = async  () => {
         inputRef.current.click();
+        await waitForFileSelection();
+        setDragActive(true);
     };
+
+    const waitForFileSelection = () => {
+        return new Promise(resolve => {
+          const fileInput = inputRef.current;
+    
+          const checkFiles = () => {
+            if (fileInput.files.length > 0) {
+              resolve();
+            } else {
+              setTimeout(checkFiles, 100); // ตรวจสอบอีกครั้งใน 100 มิลลิวินาที
+            }
+          };
+    
+          checkFiles();
+        });
+      };
+    
+    function uploadfile() {
+        const file = inputRef.current.files[0];
+
+        if (!file){
+            alert('กรุณาเลือกไฟล์ที่จะอัปโหลด');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', file);
+        
+        fetch('http://127.0.0.1:5000/upload', {
+            method: "POST",
+            body: formData
+        })
+        .then((response) => {
+            if (response.status === 201) {
+                return response.json()
+            } 
+            else
+            {
+                throw new Error('ไม่สามารถรับข้อมูลได้');
+            }
+        }).then((data) => {
+            createProject(data['url_public']);
+            console.log('data:', data['url_public']);
+        }).catch((error) => {
+            console.error('Error:', error);
+        })
+    }
+
+    function createProject(url_public) {
+        fetch('http://127.0.0.1:5000/createProject', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "member": user.email,
+                "land_url": url_public
+            })
+        }).then((response) => {
+            if (response.status === 201) {
+                navigate("/Locate")
+                return response.json()
+            } 
+            else
+            {
+                throw new Error('ไม่สามารถรับข้อมูลได้');
+            }
+        }).catch((error) => {
+            console.error('Error:', error);
+        })
+    }
     
 
     return (
@@ -78,10 +151,10 @@ function Uploading() {
                     { dragActive && 
                     <div className="drag-file-element" onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}>
                         <p>ไฟล์ที่กำลังอัพโหลด...</p>
-                        <div className="construction-area"></div>
+                        <div className="construction-area">{inputRef.current.files[0].name}</div>
                         <div className="button-element">
 
-                            <div className="commit-button">
+                            <div className="commit-button" onClick={uploadfile}>
                                 <p>อัพโหลดและสร้างโปรเจ็ค</p>
                             </div>
                         </div>

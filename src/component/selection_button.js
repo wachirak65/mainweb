@@ -1,8 +1,9 @@
 import React from 'react';
 import './selection_button.css'
+
 function SelectButton(props) {
     return (
-        <div style={{backgroundColor:props.color, width:props.width, height:props.height}} class="select-btn">
+        <div style={{backgroundColor:props.color, width:props.width, height:props.height}} onClick={props.click_method} class="select-btn">
             <p>{props.title}</p>
             {(() => {
               if (props.state === 'create'){

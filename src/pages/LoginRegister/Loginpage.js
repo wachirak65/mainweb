@@ -1,20 +1,17 @@
 import React ,{ useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Swal from "sweetalert2"
-import withReactContent from "sweetalert2-react-content"
-import "../pages/LoginRegisterpage.css"
-import {provider,auth} from '../until/App2';
-import Navbar from '../component/navbar.js'
-import Arrow from '../assets/icons/arrow_auth.svg'
-import google_icon from '../assets/icons/google_icon.svg'
-import { useUserAuth } from '../context/UserAuthContext';
+import "./LoginRegisterpage.css"
+import Navbar from '../../component/navbar';
+import Arrow from '../../assets/icons/arrow_auth.svg'
+import google_icon from '../../assets/icons/google_icon.svg'
+import { useUserAuth } from '../../context/UserAuthContext';
 
 function Login  () {
     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError ] = useState(""); 
-    const { logIn, SignUpUsingGoogle } = useUserAuth();
+    const { user, logIn, SignUpUsingGoogle } = useUserAuth();
     
     let navigate = useNavigate();
     
@@ -37,9 +34,9 @@ function Login  () {
         setError("");
 
         try {
-            await logIn(email, password);
-            navigate("/welcome");
-
+            const userData =  await logIn(email, password);
+            console.log("User: " + userData.user.uid)
+            navigate("/Selection");
         } catch (err) {
             console.log("error:", err.message);
             setError(err.message);
