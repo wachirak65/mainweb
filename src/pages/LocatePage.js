@@ -9,20 +9,35 @@ function Locate() {
     let marker;
 
     useEffect(() => {
+        
+        fetch('https://maps.googleapis.com/maps/api/js?key=AIzaSyBCTbDuLw_0s3XN3lYrEVi5UtLFCetzRfA&libraries=places&callback=initMap')
+        .then(response => response.json())
+        .then(data => {
+            console.log('API data:', data);
+        })
+        .catch(error => {
+            console.error('Error fetching data from API:', error);
+        });
         const script = document.createElement('script');
         script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBCTbDuLw_0s3XN3lYrEVi5UtLFCetzRfA&libraries=places&callback=initMap`;
         script.async = true;
         script.defer = true;
         document.head.appendChild(script);
-
+    
         script.onload = () => {
+            window.initMap = initMap;
             initMap();
         };
-
+    
+        script.onerror = (error) => {
+            console.error('Error loading Google Maps API:', error);
+        };
+    
         return () => {
             document.head.removeChild(script);
         };
     }, []);
+    
     function centerMapOnMarker() {
         if (map && marker) {
             map.panTo(marker.getPosition());
