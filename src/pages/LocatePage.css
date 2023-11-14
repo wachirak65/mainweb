@@ -3,9 +3,7 @@
     margin: 0 auto;
     position: fixed;
 }
-.Map{
-    background-color: rgb(211, 211, 211);
-}
+
 .right-card{
     width: 80%;
     margin-left: 19%;
@@ -26,11 +24,7 @@
     border-radius: 1px;
     
 }
-.Map{
-    width: 100%;
-    height: 91vh;
-    border-radius: 20px;
-}
+
 .inputLocate{
     width: 15vw;
     box-sizing: border-box;
@@ -115,6 +109,19 @@ textarea:focus, input:focus{
 }
 *{
     font-size: calc(60%+0.8vmin);
+}
+mapTypeControlOptions{
+    background-color: green;
+}
+.gm-style .gm-style-mtc {
+    pointer-events: auto; /* Ensure pointer events are enabled on the control */
+    height: fit-content;
+    border-radius: 12px; /* Optional: add border-radius for rounded corners */
+    margin-top: 78vh; /* Set the desired left margin */
+    margin-left: 1.5vw;
+}
+.gm-style .gm-style-mtc button {
+    border-radius: 3px;
 }
 
 @media only screen and (max-width :1440px) {

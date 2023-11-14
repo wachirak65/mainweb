@@ -48,7 +48,10 @@ function Locate() {
         
         map = new window.google.maps.Map(document.getElementById('map'), {
             center: { lat: 13.7563, lng: 100.5018 }, // ตั้งต้นที่กรุงเทพ
-            zoom: 8
+            zoom: 8,
+            fullscreenControl: false,
+            mapTypeControl: true, 
+            
         });
         const centerMarkerButton = document.getElementById('center-marker-button');
 
