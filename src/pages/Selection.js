@@ -18,9 +18,9 @@ function Selection() {
                     <SelectButton title="สร้างโปรเจกต์" color='#CDFFF3' state="create" width={281} height={40} click_method={()=>navigate('/Uploading')}/>
                 </div>                    
                     <p id='discription-1' class = "discription">เริ่มต้นสร้างโปรเจกต์ใหม่</p>
-                <SelectButton title="เข้าร่วมโปรเจกต์" color="#C1F5A9" state="join" width={281} height={40} click_method={()=>console.log("hello2")}/>
+                <SelectButton title="เข้าร่วมโปรเจกต์" color="#C1F5A9" state="join" width={281} height={40} click_method={()=>navigate("/JoinProject")}/>
                 <p class = "discription">เข้าร่วมโปรเจกต์กับคนอื่นๆผ่านหมายเลข</p>
-                <SelectButton title="ตัวอย่างโปรเจกต์" color="#F0F0F0" state="public" width={281} height={40} click_method={()=>console.log("hello3")}/>
+                <SelectButton title="ตัวอย่างโปรเจกต์" color="#F0F0F0" state="public" width={281} height={40} click_method={()=>navigate("PublicProject")}/>
                 <p class = "discription">แสดงตัวอย่างของโปรเจกต์ที่เป็นสาธารณะ</p>
                 <hr/>
             </div>

@@ -1,22 +1,22 @@
-import React ,{ useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./LoginRegisterpage.css"
+import "./LoginRegisterpage.css";
 import Navbar from '../../component/navbar';
-import Arrow from '../../assets/icons/arrow_auth.svg'
-import google_icon from '../../assets/icons/google_icon.svg'
+import Arrow from '../../assets/icons/arrow_auth.svg';
+import google_icon from '../../assets/icons/google_icon.svg';
 import { useUserAuth } from '../../context/UserAuthContext';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
-function Login  () {
+function Login() {
     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError ] = useState(""); 
+    const [error, setError] = useState(""); 
     const { user, logIn, SignUpUsingGoogle } = useUserAuth();
     
     let navigate = useNavigate();
-    
+
     const handleGoogleSubmit = async (e) => {
         e.preventDefault();
         setError("");
@@ -30,7 +30,6 @@ function Login  () {
         }
     }
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
@@ -38,7 +37,7 @@ function Login  () {
         try {
             await logIn(email, password);
 
-              // Show the login notification
+            // Show the login notification
             const MySwal = withReactContent(Swal);
             await MySwal.fire({
                 icon: 'success',
@@ -47,13 +46,15 @@ function Login  () {
                 showConfirmButton: false,
                 timer: 2300 
             });
-            navigate("/welcome");
+
+            navigate("/Selection");
 
         } catch (err) {
             console.log("error:", err.message);
             setError(err.message);
         }
     }
+
 
     return (
         <div class='background'>

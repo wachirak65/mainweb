@@ -83,9 +83,9 @@ function Locate() {
             console.log('ละติจูดจาก Marker =', latitude);
             console.log('ลองจิจูดจาก Marker =', longitude);
         });
-        window.google.maps.event.addListener(map, 'dblclick', function(event) {
+        window.google.maps.event.addListener(map, 'click', function(event) {
             marker.setPosition(event.latLng);
-            console.log('ละติจูด ลองติจูดของ Marker จากการ double click:',
+            console.log('ละติจูด ลองติจูดของ Marker จากการ คลิ๊ก:',
              event.latLng.lat(), event.latLng.lng());
         });
     
