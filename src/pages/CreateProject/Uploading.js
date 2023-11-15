@@ -3,15 +3,18 @@ import "./Uploading.css"
 import { useState } from "react"
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../component/navbar'
-import BackBtn  from '../component/back_btn'
-import { useUserAuth } from '../context/UserAuthContext';
+import Navbar from '../../component/navbar'
+import BackBtn  from '../../component/back_btn'
+import { useUserAuth } from '../../context/UserAuthContext';
+import { useCreateProject } from '../../context/CreateProjectContet'
 
 function Uploading() {
     // drag state
     const [dragActive, setDragActive] = React.useState(false);
     const inputRef = React.useRef(null);
     const { user } = useUserAuth();
+    const { updateProjectID, updateLandURL, updateClsImg, updateMask } = useCreateProject();
+
     let navigate = useNavigate();
     // handle drag events
     const handleDrag = function(e) {
@@ -19,6 +22,7 @@ function Uploading() {
         e.stopPropagation();
         if (e.type === "dragenter" || e.type === "dragover") {
             // setDragActive(true);
+            // console.log(e.dataTransfer.files[0])
         } else if (e.type === "dragleave") {
             setDragActive(false);
         }
@@ -26,11 +30,11 @@ function Uploading() {
 
     const handleDrop = function(e) {
         e.preventDefault();
-        e.stopPropagation();
-        setDragActive(false);
+        console.log('drop');
         if (e.dataTransfer.files && e.dataTransfer.files[0]) {
           // at least one file has been dropped so do something
           // handleFiles(e.dataTransfer.files);
+          console.log(e.dataTransfer.files[0])
         }
     };
 
@@ -89,11 +93,43 @@ function Uploading() {
             }
         }).then((data) => {
             createProject(data['url_public']);
+            updateLandURL(data['url_public']);
+            // postDataToApi(data['url_public']);
             console.log('data:', data['url_public']);
         }).catch((error) => {
             console.error('Error:', error);
         })
     }
+
+    const postDataToApi = async (data) => {
+          // ส่งข้อมูลไปที่ API และไม่รอคำตอบ
+        await fetch('http://127.0.0.1:5001/segment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                'img_url': data
+            }),
+            }).then((response) => {
+            if (response.status === 201) {
+                return response.json()
+            } 
+            else
+            {
+                throw new Error('ไม่สามารถรับข้อมูลได้');
+            }
+        }).then((data) => {
+            updateClsImg(data['cls_img']);
+            updateMask(data['mask']);
+            alert("segment success");
+        }).catch((error) => {
+            console.error('Error:', error);
+            alert("segment error");
+        });
+    
+        
+      };
 
     function createProject(url_public) {
         fetch('http://127.0.0.1:5000/createProject', {
@@ -114,6 +150,8 @@ function Uploading() {
             {
                 throw new Error('ไม่สามารถรับข้อมูลได้');
             }
+        }).then((data) => {
+            updateProjectID(data['project_id']);
         }).catch((error) => {
             console.error('Error:', error);
         })

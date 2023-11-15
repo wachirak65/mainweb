@@ -17,8 +17,6 @@ import Register from './pages/LoginRegister/Registerpage';
 import ProtectedRoute from './auth/ProtectRoute';
 import Selection from './pages/Selection.js';
 import JoinProjectPage from './pages/JoinProjectPage.js';
-import Uploading from './pages/Uploading.js';
-import Locate from './pages/LocatePage.js';
 import DragArea_2 from './pages/DragArea_2.js';
 import ChoosePage from './pages/ChoosePage.js';
 import PublicProjectPage from './pages/PublicProjectPage.js';
@@ -26,6 +24,9 @@ import ShowArea from './pages/ShowArea.js';
 import ShowAlocate from './pages/ShowAlocate.js';
 import WeatherAnalysisPage from './pages/WeatherAnalysisPage.js';
 import Areadata from './pages/Areadata.js';
+import { CreateProjectContextProvider } from "./context/CreateProjectContet";
+import Uploading from './pages/CreateProject/Uploading';
+import Locate from './pages/CreateProject/LocatePage';
 
 const router = createBrowserRouter(
   [
@@ -54,11 +55,11 @@ const router = createBrowserRouter(
       element: <ProtectedRoute><JoinProjectPage/></ProtectedRoute>
     },
     {
-      path: '/uploading',
+      path: '/Uploading',
       element: <ProtectedRoute><Uploading/></ProtectedRoute>
     },
     {
-      path: '/locate',
+      path: '/Locate',
       element: <ProtectedRoute><Locate/></ProtectedRoute>
     },
     {
@@ -100,8 +101,11 @@ root.render(
   // <React.StrictMode>
     <React.StrictMode>
       <UserAuthContextProvider>
-        <RouterProvider router={router}/>
+        <CreateProjectContextProvider>
+          <RouterProvider router={router}/>
+        </CreateProjectContextProvider>
       </UserAuthContextProvider>
+      
      
     </React.StrictMode>
   // </React.StrictMode>
