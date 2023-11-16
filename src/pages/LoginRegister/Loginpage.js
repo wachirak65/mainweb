@@ -23,7 +23,16 @@ function Login() {
 
         try {
             await SignUpUsingGoogle();
-            navigate("/");
+
+            const MySwal = withReactContent(Swal);
+            await MySwal.fire({
+                icon: 'success',
+                title: 'เข้าสู่ระบบเรียบร้อย',
+                text: 'You are now logged in!',
+                showConfirmButton: false,
+                timer: 2300 
+            });
+            navigate("/Selection");
         } catch (err) {
             console.log("error:", err.message);
             setError(err.message)
@@ -46,7 +55,6 @@ function Login() {
                 showConfirmButton: false,
                 timer: 2300 
             });
-
             navigate("/Selection");
 
         } catch (err) {
