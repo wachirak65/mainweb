@@ -8,6 +8,8 @@
 
     function DragArea_2() {
         let map;
+        let areaAll = [] 
+
 
         useEffect(() => {
             
@@ -40,7 +42,7 @@
         }, []);
         
         function haversineDistance(lat1, lon1, lat2, lon2) {
-            const R = 6371; // รัศมีของโลกเป็นกิโลเมตร
+            const R = 6371; 
             const dLat = toRad(lat2 - lat1);
             const dLon = toRad(lon2 - lon1);
             const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
@@ -48,14 +50,14 @@
                     Math.sin(dLon / 2) * Math.sin(dLon / 2);
             const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
             const distance = R * c;
-            return distance * 1000; // คืนค่าเป็นเมตร
+            return distance * 1000; // เป็นเมตร
         }
         
         function toRad(deg) {
             return deg * (Math.PI / 180);
         }
             var center = { lat: 13.7563, lng: 100.5018 }; // ตำแหน่งกึ่งกลาง
-        var maxDistance = 100; // ระยะทางสูงสุดที่อนุญาตให้ขยับ (หน่วยเป็นเมตร)
+        var maxDistance = 100; // ระยะทางสูงสุด
         var lastValidCenter = center; // ตำแหน่งสุดท้ายที่ขยับได้และใช้ต่อข้เางล่าง
 
         function initMap() {
@@ -96,9 +98,9 @@
             drawingManager.setMap(map);
             let drawnPolygons = []; // Array สำหรับเก็บพิกัดของ polygon ที่วาด
             let overlayAll = []
-            let areaAll = [] // Array สำหรับเก็บพท.ของ polygon ที่วาด
             let currentOverlay;
             let forwardOverlayAll = []
+            let forwardArea = []
 
             window.google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
                 if (event.type === window.google.maps.drawing.OverlayType.POLYGON) {
@@ -119,8 +121,7 @@
                     forwardOverlayAll.push(event.overlay)
                     drawnPolygons.push(coordinates);
                     
-                    console.log('Area', areaAll)
-                    console.log('Polygon coordinates:', drawnPolygons);
+                    console.log('Update Area:', areaAll);
                     currentOverlay = event.overlay;
                 }
                 
@@ -148,32 +149,48 @@
             dragButton.addEventListener('click' , function(){
                 drawingManager.setDrawingMode(window.google.maps.drawing.OverlayType.POLYGON);
             })
+
+
             const undoButton = document.getElementById('drag-4');
             undoButton.addEventListener('click', function() {
-            if (drawnPolygons.length >= 0) {
-                drawnPolygons.pop();
-                areaAll.pop();
-                console.log('Updated drawnPolygons:', drawnPolygons);
-                console.log('Update Area :',areaAll)
-                
-                if (overlayAll.length > 0) {
-                    const lastOverlayIndex = overlayAll.length - 1;
-                    const lastOverlay = overlayAll[lastOverlayIndex];
-                    lastOverlay.setMap(null);
-                    overlayAll.pop();
+                if (drawnPolygons.length > 0 && areaAll.length > 0 && overlayAll.length > 0) {
+                    const removedOverlay = overlayAll.pop();
+                    const removedArea = areaAll.pop();
+
+                    if (removedOverlay !== undefined && removedArea !== undefined) {
+                        forwardOverlayAll.unshift(removedOverlay);   
+                        forwardArea.unshift(removedArea);  
+                    }
+
+                    removedOverlay.setMap(null);
+
+                    console.log('Update Area:', areaAll);
+                } else {
+                    console.log("Error: Array is empty");
                 }
-            }
             });
 
             const forwardButton = document.getElementById('drag-5');
             forwardButton.addEventListener('click', function() {
-                if (forwardOverlayAll.length>0) {
-                    const lastIndexPolygon = forwardOverlayAll.length - 1;
-                    forwardOverlayAll[lastIndexPolygon].setMap(map); 
-                    overlayAll.push(forwardOverlayAll[lastIndexPolygon])
-                    forwardOverlayAll.pop()
+                if (forwardOverlayAll.length > 0 && forwardArea.length > 0) {
+                    const restoredOverlay = forwardOverlayAll.shift(); 
+                    const restoredArea = forwardArea.shift(); 
+
+                    overlayAll.push(restoredOverlay); 
+                    drawnPolygons.push(restoredOverlay); 
+                    areaAll.push(restoredArea); 
+
+                    restoredOverlay.setMap(null); 
+
+                    restoredOverlay.setMap(map); 
+
+                    console.log('Update Area:', areaAll);
+                } else {
+                    console.log("Error: Array is empty");
+                    console.log('Update Area:', areaAll);
                 }
-            });
+
+});
             
         }
         return (
@@ -262,7 +279,7 @@
                         <div className="btn-drag-all">
                         <div class='btn-cf-1'>
                                     <ConfirmBtn  bg_color='#E4E4E4' title='ยืนยัน' onClick={()=>
-                                        console.log("confirm")}/>
+                                        console.log("All Area Confirm = " , areaAll)}/>
                                 </div>
                                 <div class='btn-back-1'>
                                     <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
