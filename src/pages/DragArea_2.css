@@ -22,6 +22,29 @@
     margin-top: 3vh;
     margin-left: 2vw;
 }
+.icon-drag{
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+
+  }
+.icon-drag:hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+}
+  
+.icon-drag:active {
+animation: customAnimation 1s ease infinite;
+}
+
+@keyframes customAnimation {
+    0% {
+        transform: translate(5%, 5%) scale(1);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+}
 #title-drag-1,#title-drag-2{
     font-size: 2vw;
     font-weight: 100;
