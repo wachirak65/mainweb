@@ -3,11 +3,14 @@ import './JoinProjectPage.css'
 import Navbar from '../component/navbar.js'
 import ConfirmBtn from '../component/confirm_btn'
 import BackBtn from '../component/back_btn'
+import Chatbot from '../component/chatbot.js'
 
 function JoinProjectPage() {
     return (
+        
         <div class='background'>
             <Navbar/>
+            <Chatbot/>
             <div class='content'>
                 <div class='top-background'>
                     <div className="header-title">

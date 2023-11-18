@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './DragArea_2.css'
 import Navbar from '../component/navbar.js'
 import ConfirmBtn from '../component/confirm_btn'
 import BackBtn from '../component/back_btn'
-
+import Chatbot from '../component/chatbot.js';
 
 function DragArea_2() {
     let map;
@@ -127,8 +127,6 @@ function DragArea_2() {
             
         });
         
-        
-
         //ฟังก์ชันสำหรับเข้าถึงตัว drag และกำหนด last position 
         var listener = map.addListener('drag', function() {
             var centerPosition = map.getCenter();
@@ -219,6 +217,7 @@ function DragArea_2() {
         <div class='background' id='bg-dragArea'>
             <header>
                 <Navbar/>
+                
             </header>
             <div className="All-Drag">
                 <div className="left-drag">

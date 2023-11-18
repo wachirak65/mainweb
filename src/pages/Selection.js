@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "./Selection.css"
 import Navbar from '../component/navbar.js'
 import SelectButton from '../component/selection_button'
-
+import Chatbot from '../component/chatbot.js';
 function Selection() {
     let navigate = useNavigate();
 
@@ -14,6 +14,7 @@ function Selection() {
             <div class='top-background'></div>
             <div className="selection-card">
                 <h1>กรุณาเลือกรายการทำการ</h1>
+                <Chatbot/>
                 <div class = "Create-pj">
                     <SelectButton title="สร้างโปรเจกต์" color='#CDFFF3' state="create" width={281} height={40} click_method={()=>navigate('/Uploading')}/>
                 </div>                    

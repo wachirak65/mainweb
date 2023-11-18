@@ -29,7 +29,14 @@
     color: rgba(124, 124, 124, 1);
     margin-bottom: 35px;
 }
+.last-container{
+    transition: all 0.5s ease;
 
+}
+.last-container:hover{
+    opacity: .99;
+    transform: scale(1.1);
+}
 .main-container h1 {
     font-size: 40px;
     font-weight: bold;

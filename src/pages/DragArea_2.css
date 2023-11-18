@@ -27,8 +27,12 @@
     transition: transform 0.3s ease; 
 
   }
+
+
+
 .icon-drag:hover {
     opacity: 0.9;
+    animation:  1s ease infinite;
     transform: scale(1.1);
 }
   
