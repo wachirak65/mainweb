@@ -3,12 +3,14 @@ import "../pages/ShowArea.css"
 import Navbar from '../component/navbar'
 import Sidebar from '../component/sidebar'
 import TreeIcon from '../assets/icons/tree.svg'
+import Chatbot from '../component/chatbot'
 
 function ShowArea() {
     return (
         <div className='ShowArea-Container'>
             <header>
                 <Navbar/>
+                <Chatbot/>
                 <Sidebar/>
             </header>
             <div class = "Container-all">

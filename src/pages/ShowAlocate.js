@@ -3,12 +3,15 @@ import "../pages/ShowAlocate.css"
 import Navbar from '../component/navbar'
 import Sidebar from '../component/sidebar'
 import OvalButton from '../component/oval_button'
+import Chatbot from '../component/chatbot'
 
 function ShowAlocate() {
     return (
         <div class = "Allin">
             <header>
                 <Navbar/>
+                <Chatbot/>
+
                 <div className="Sidebar">
                     <Sidebar/>
                 </div>

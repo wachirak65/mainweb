@@ -4,10 +4,12 @@ import Navbar from '../component/navbar.js'
 import ConfirmBtn from '../component/confirm_btn'
 import BackBtn from '../component/back_btn'
 import Chatbot from '../component/chatbot.js';
+import { useNavigate } from 'react-router-dom';
 
 function DragArea_2() {
     let map;
     let areaAll = [] 
+    let navigate = useNavigate();
 
 
     useEffect(() => {
@@ -217,6 +219,7 @@ function DragArea_2() {
         <div class='background' id='bg-dragArea'>
             <header>
                 <Navbar/>
+                <Chatbot/>
                 
             </header>
             <div className="All-Drag">
@@ -299,8 +302,8 @@ function DragArea_2() {
                     </div>
                     <div className="btn-drag-all">
                     <div class='btn-cf-1'>
-                                <ConfirmBtn  bg_color='#E4E4E4' title='ยืนยัน' onClick={()=>
-                                    console.log("All Area Confirm = " , areaAll)}/>
+                                <ConfirmBtn  bg_color='#C1F5A9' title='ยืนยัน' onClick={()=>
+                                    {navigate("/Areadata");console.log("All Area Confirm = " , areaAll)}}/>
                             </div>
                             <div class='btn-back-1'>
                                 <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>

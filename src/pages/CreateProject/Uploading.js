@@ -205,7 +205,7 @@ function Uploading() {
         </div>
         <div class='black-btn-div'>
             <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
-                    console.log("back")}/>
+                    navigate("/Selection")}/>
         </div>
         </div>
     )

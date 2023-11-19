@@ -15,8 +15,7 @@ import {
   
 import Navbar from '../component/navbar';
 import './WeatherAnalysisPage.css'
-
-
+import Chatbot from '../component/chatbot';
 
 function WeatherAnalysisPage(){
     const data = [
@@ -68,6 +67,7 @@ function WeatherAnalysisPage(){
         <div className='background' id = "WeatherAnalysis-Container">
             <Navbar/>
             <Sidebar/>
+            <Chatbot/>
 
             <div className="main-content">
                 <div className="weather-table">

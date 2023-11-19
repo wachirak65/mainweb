@@ -88,6 +88,19 @@ textarea:focus, input:focus{
     border-top: 2px solid #000000c9;
 
 }
+.btn-cf-1,.btn-back-1{
+    transition: all 0.4s ease;
+
+}
+.btn-cf-1:hover ,.btn-back-1:hover{
+transform: scale(1.06); 
+}
+#ConfirmBtn:hover{
+    background-color: red;
+}
+.btn-cf-1:active,.btn-back-1:active {
+transform: scale(0.9);
+}
 .icon-geo1{
     color: rgb(179, 179, 179);
     margin-left: 12rem;

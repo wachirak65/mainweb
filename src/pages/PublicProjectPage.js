@@ -5,11 +5,14 @@ import SelectButton from '../component/selection_button'
 import ProjectCard from '../component/project_card'
 import BackBtn from '../component/back_btn'
 import Sidebar from '../component/sidebar'
+import Chatbot from '../component/chatbot'
 
 function PublicProjectPage() {
     return (
         <div class='background' >
            <Navbar/> 
+           <Chatbot/>
+
            <div class="Sidebar"><Sidebar/></div>
           
            

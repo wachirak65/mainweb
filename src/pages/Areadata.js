@@ -4,6 +4,7 @@ import "./Areadata.css"
 import Navbar from '../component/navbar';
 import BackBtn from '../component/back_btn';
 import ConfirmBtn from '../component/confirm_btn';
+import Chatbot from '../component/chatbot.js';
 
 function Areadata() {
     const [inputs, setInputs] = useState("");
@@ -17,6 +18,7 @@ function Areadata() {
     return (
         <div class = "all-AreaData" >
         <Navbar/>  
+        <Chatbot/>
         <div class='top-background-3'>
             <h4>กรอกข้อมูลพื้นฐานของคุณ</h4>
         </div>      

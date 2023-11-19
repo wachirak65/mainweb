@@ -4,12 +4,14 @@ import Navbar from '../component/navbar'
 import ConfirmBtn from '../component/confirm_btn'
 import BackBtn from '../component/back_btn'
 import Sidebar from '../component/sidebar'
+import Chatbot from '../component/chatbot'
 
 function ChoosePage() {
     return (
         <div class = "ChoosePageNew">
             <header>
                 <Navbar/>
+                <Chatbot/>
             </header>
             <div class = "All-in-Container">
                 <div class="left-on-top">

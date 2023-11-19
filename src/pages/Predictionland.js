@@ -4,12 +4,14 @@ import "./Predictionland.css"
 import Chumphon_9 from '../assets/Chumphon_9.jpg';
 import { useNavigate } from "react-router-dom";
 import OvalButton from '../component/oval_button.js';
+import Chatbot from '../component/chatbot.js';
 
 function Predictionland() {
     const navigate = useNavigate();
     return (
     <div>
     <Navbar/>
+    <Chatbot/>
     <div className='Land'>
         <div class='top-background-2'>
             <h3>รายการที่กำลังประมวลผล(1)</h3>

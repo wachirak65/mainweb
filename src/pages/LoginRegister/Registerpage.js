@@ -75,7 +75,9 @@ function Register () {
                     <img src={people_icon} alt="arrow-auth-icon" width='40' height='40'/>
                     <h2>สมัครสมาชิก</h2>
                     <br />
-                    <div class="big-button" onClick={handleGoogleSubmit}><img src={google_icon} alt="google-icon" width='20' height='20'/><p>เข้าสู่ระบบด้วยบัญชี Google</p></div>
+                    <div class = "Create-pj">
+                         <div class="big-button" onClick={handleGoogleSubmit}><img src={google_icon} alt="google-icon" width='20' height='20'/><p>เข้าสู่ระบบด้วยบัญชี Google</p></div>
+                    </div>
                     <div class='or-line'><p>OR</p></div>
                 </div>
                 

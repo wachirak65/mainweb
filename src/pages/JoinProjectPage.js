@@ -4,8 +4,11 @@ import Navbar from '../component/navbar.js'
 import ConfirmBtn from '../component/confirm_btn'
 import BackBtn from '../component/back_btn'
 import Chatbot from '../component/chatbot.js'
+import { useNavigate } from 'react-router-dom';
 
 function JoinProjectPage() {
+    let navigate = useNavigate();
+
     return (
         
         <div class='background'>
@@ -39,7 +42,7 @@ function JoinProjectPage() {
             </div>
             <div class='black-btn-div'>
                 <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
-                        console.log("back")}/>
+                        navigate("/Selection")}/>
             </div>
         </div>
     

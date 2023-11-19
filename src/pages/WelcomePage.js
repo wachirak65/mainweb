@@ -18,12 +18,13 @@ function WelcomePage() {
     return (
         <div>
             <Navbar/>
+
             <div class="welcome-content">
                 <div className='main-container' >
                     <h5>UNTIRED</h5>
                     <h1>ยินดีต้อนรับเข้าสู่เว็บไซต์</h1>
                     <p>“ท่านไม่ต้องเสียเวลาและทรัพยากรในการทดลองผิดพลาดและทำลายพืชอีกต่อไป ให้โดรนบินสำรวจของเราช่วยเสริมสร้างฐานข้อมูลเพื่อการตัดสินใจที่แม่นยำและปลอดภัย เริ่มเพิ่มประสิทธิภาพในการเกษตรของคุณด้วยโดรนบินสำรวจเราวันนี้ ”</p>
-                    <img src={Slide} alt="slide-icon" width="65" height="77" onClick={scrollToPosition}/>
+                    <img className='slide-obj' src={Slide} alt="slide-icon" width="65" height="77" onClick={scrollToPosition}/>
                 </div>
                 <div class='space-row'></div>
                 <div className='main-container-hidden'>
@@ -47,9 +48,13 @@ function WelcomePage() {
                         <h1>บริการของพวกเรา ?</h1>
                         <p>ท่านสามารถเพิ่มประสิทธิภาพการเกษตรของคุณได้ด้วยเทคโนโลยีของเรา โดรนบินสำรวจของเราจะช่วยท่านทำนายพื้นที่ที่เหมาะสมในการปลูกพืชและพืชที่ควรปลูกอย่างไรให้เหมาะกับสภาพแวดล้อม ด้วยการสแกนและวิเคราะห์ข้อมูลที่รวบรวมจากโดรนบินสำรวจเรา ท่านจะได้รับข้อมูลที่แม่นยำเกี่ยวกับปริมาณน้ำ, สภาพดิน, และสภาพอากาศที่ช่วยให้การเกษตรของท่านประสบความสำเร็จ</p>
                         <div class='btn-groub'>
-                            <OvalButton title="เข้าสู่ระบบ" color="#BEEFC3" next_route={()=>navigate('/Login')}/>
+                            <div className="btn-g-1">
+                                <OvalButton title="เข้าสู่ระบบ" color="#BEEFC3" next_route={()=>navigate('/Login')}/>
+                            </div>
                             <div class='space-center'></div>
-                            <OvalButton title="สมัครสมาชิก" color="#82CEDE" next_route={()=>navigate('/Register')}/>
+                            <div className="btn-g-2">
+                                <OvalButton title="สมัครสมาชิก" color="#82CEDE" next_route={()=>navigate('/Register')}/>
+                            </div>
                         </div>
                     </div>
                 </div>

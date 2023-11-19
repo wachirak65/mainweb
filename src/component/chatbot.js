@@ -137,7 +137,6 @@ function Chatbot() {
         </div>
       </div>
       <script src="chatbot_2.js" defer></script>
-
     </div>
     
     )

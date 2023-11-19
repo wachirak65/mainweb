@@ -4,13 +4,15 @@ import Navbar from '../../component/navbar'
 import ConfirmBtn from '../../component/confirm_btn'
 import BackBtn from '../../component/back_btn'
 import { useCreateProject } from '../../context/CreateProjectContet'
+import { useNavigate } from 'react-router-dom';
 
 function Locate() {
     let map;
     let marker;
+    let namePlace = ''; 
+    let navigate = useNavigate();
 
     const { project_id, latitude, longitude, land_url, mask, cls_img, updateLatitude, updateLongitude } = useCreateProject();
-
 
     useEffect(() => {
         
@@ -67,7 +69,7 @@ function Locate() {
             position: { lat: 13.7563, lng: 100.5018 },
             map: map,
             draggable: true, // ทำให้ Marker สามารถลากได้
-            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' 
+            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' 
         });
     
         
@@ -82,13 +84,21 @@ function Locate() {
         window.google.maps.event.addListener(marker, 'dragend', function() {
             console.log('ลาก Marker เสร็จ');
             const newPosition = marker.getPosition();
-
+            
             // ละติจูดและลองจิจูด
             updateLatitude(newPosition.lat());
             updateLongitude(newPosition.lng());
+            const geocoder = new window.google.maps.Geocoder();
+            
+            const latlng = {
+                lat: newPosition.lat(),
+                lng: newPosition.lng()
+            };
+        
             // ค่าละติจูดและลองจิจูด จาก marker 
             console.log('ละติจูดจาก Marker =', latitude);
             console.log('ลองจิจูดจาก Marker =', longitude);
+            
         });
         window.google.maps.event.addListener(map, 'click', function(event) {
             marker.setPosition(event.latLng);
@@ -97,10 +107,11 @@ function Locate() {
         });
     
         const input = document.getElementById('place-input');
-        const searchButton = document.getElementById('search-button');
     
-        searchButton.addEventListener('click', function () {
-            searchPlace(input.value);
+        input.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchPlace(input.value);
+            }
         });
     }
     
@@ -139,6 +150,7 @@ function Locate() {
     function confirmLocate() {
         console.log('Test');
         console.log(project_id, latitude, longitude, land_url, mask, cls_img);
+
     }
 
     return (
@@ -150,10 +162,8 @@ function Locate() {
                 <div class="left-card">
                     <div class="LocationSearch"> 
                         <p>ระบุพิกัดสถานที่</p>
-                        <button id="center-marker-button" onClick={() => centerMapOnMarker()}>Center Marker</button>
 
-
-                        <i class = 'icon-geo1' >
+                        <i class = 'icon-geo1' id="center-marker-button" onClick={() => centerMapOnMarker()} >
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                         <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                         </svg>
@@ -161,7 +171,6 @@ function Locate() {
                     </div>
                     <div>
                         <input id="place-input" class = "inputLocate" type="text" placeholder="ค้นหา"/>
-                        <button id="search-button" onClick={() => searchPlace()}>Search</button>
                         <hr class="line" />
                     </div>
 
@@ -177,11 +186,13 @@ function Locate() {
                         <hr class="line2" />
                         <div class = "btn-all">
                                 <div class='btn-cf-1'>
-                                <ConfirmBtn  bg_color='#E4E4E4' title='ยืนยัน' onClick={confirmLocate}/>
+                                <ConfirmBtn  id= 'ConfirmBtn' bg_color='#C1F5A9' title='ยืนยัน' onClick={() => {
+                                            confirmLocate();
+                                            navigate("/dragareas");}}/>
                             </div>
                             <div class='btn-back-1' >
                                 <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
-                                        console.log("back")}/>
+                                        navigate("/Selection")}/>
                             </div>
                         </div>
                         

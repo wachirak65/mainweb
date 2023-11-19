@@ -56,6 +56,20 @@ body{
 .label-div > svg {
     color: #088586;
 }
+.black-btn-div{
+    transition: all 0.4s ease;
+}
+
+.black-btn-div:hover{
+transform: scale(1.1); 
+}
+.black-btn-div:hover{
+    box-shadow: 1px 1px 2px 2px rgba(245, 254, 255, 0.725);
+    border-radius: 10px;
+}
+.black-btn-div:active{
+transform: scale(0.9);
+}
 
 .label-div > h5 {
     display: flex;

@@ -3,11 +3,14 @@ import "./Dragarea.css"
 import Navbar from '../component/navbar'
 import ConfirmBtn from '../component/confirm_btn'
 import BackBtn from '../component/back_btn'
+import Chatbot from '../component/chatbot'
 
 function Dragarea() {
     return (
         <div>
         <Navbar/>
+        <Chatbot/>
+
         <div className='Lander'>
             <h3>วาดเส้นพื้นที่ของคุณ</h3>
             <hr/>

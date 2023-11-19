@@ -74,7 +74,9 @@ function Login() {
                     <img src={Arrow} alt="arrow-auth-icon" width='40' height='40'/>
                     <h2>เข้าสู่ระบบ</h2>
                     <p>กรอกบัญชีอีเมลและรหัสผ่านเพื่อเข้าสู่ระบบ</p>
-                    <div class="big-button" onClick={handleGoogleSubmit}><img src={google_icon} alt="google-icon" width='20' height='20'/><p>เข้าสู่ระบบด้วยบัญชี Google</p></div>
+                    <div className="google-login-btn">
+                        <div class="big-button" onClick={handleGoogleSubmit}><img src={google_icon} alt="google-icon" width='20' height='20'/><p>เข้าสู่ระบบด้วยบัญชี Google</p></div>
+                    </div>
                     <div class='or-line'><p>OR</p></div>
                 </div>
                 
@@ -93,7 +95,9 @@ function Login() {
                         <input type="password" class="form-control" id="password-input" placeholder='Enter your password'
                             onChange={(e)=> setPassword(e.target.value)}
                         />
-                        <div class='big-button-login' onClick={handleSubmit}>เข้าสู่ระบบ</div>
+                        <div className="button-login">
+                            <div class='big-button-login' onClick={handleSubmit}>เข้าสู่ระบบ</div>
+                        </div>
 
                     </div>
                 </form>
