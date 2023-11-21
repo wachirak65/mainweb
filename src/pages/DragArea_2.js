@@ -59,7 +59,7 @@ function DragArea_2() {
         return deg * (Math.PI / 180);
     }
         var center = {lat: 14.393023069951163, lng: 100.00741523437502}; // ตำแหน่งกึ่งกลาง
-    var maxDistance = 100; // ระยะทางสูงสุด
+    var maxDistance = 1500; // ระยะทางสูงสุด
     var lastValidCenter = center; // ตำแหน่งสุดท้ายที่ขยับได้และใช้ต่อข้เางล่าง
 
     function initMap() {
@@ -203,10 +203,12 @@ function DragArea_2() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({coordinatesDict}),
+                
             })
             .then(response => response.json())
             .then(data => {
                 console.log('Response from API:', data);
+                localStorage.setItem('coordinateLine', JSON.stringify(coordinatesDict));
                 localStorage.setItem('apiResult', JSON.stringify(data));
                 const checkLocalStorage = setInterval(() => {
                     const apiResult = JSON.parse(localStorage.getItem('apiResult'));

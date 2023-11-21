@@ -11,6 +11,9 @@ function ShowAlocate() {
     let map;
 
     const apiResult = JSON.parse(localStorage.getItem('apiResult'));
+    const coordinateLine = JSON.parse(localStorage.getItem('coordinateLine'));
+    console.log('coordinateLine =' , coordinateLine[1])
+    
     const area = apiResult.location.area; 
     const locations = apiResult.location.location; 
     useEffect(() => {
@@ -59,8 +62,35 @@ function ShowAlocate() {
               }
             
         });
+        for (let index in coordinateLine) {
+            const coordinates = coordinateLine[index];
+            console.log(`Coordinates for index ${index}:`, coordinates);
+            // ทำอะไรกับ coordinates ต่อไปนั้นขึ้นอยู่กับการใช้งานของคุณ
+            const swap_coordinates = coordinates.map(point => [point[1], point[0]]);
+            console.log('swap' , swap_coordinates)
+            const path = swap_coordinates.map(point => ({ lat: point[0], lng: point[1] }));
+            const polyline = new window.google.maps.Polyline({
+                path: path,
+                geodesic: true,
+                strokeColor: 'yellow',
+                strokeOpacity: 1.0,
+                strokeWeight: 2,
+              });
+            const polygon = new window.google.maps.Polygon({
+            paths: path, 
+            strokeOpacity: 0, 
+            fillColor: 'blue', 
+            fillOpacity: 0.1, 
+            });
+              
+              polygon.setMap(map);
+              polyline.setMap(map); 
+        }
+        
 
+        
 
+     
         const pathCoordinates = [];
         locations.forEach((locateArr) => {
         locateArr.forEach((locationArray) => {
@@ -68,9 +98,10 @@ function ShowAlocate() {
             pathCoordinates.push(latLng);
         });
         });
-          console.log(pathCoordinates);
+        
         pathCoordinates.forEach((coordinate) => {
             const marker = new window.google.maps.Marker({
+                
                 position: coordinate,
                 map: map, // map คือตัวแปรที่เก็บข้อมูลแผนที่
                 icon: {
