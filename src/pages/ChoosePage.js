@@ -5,6 +5,9 @@ import ConfirmBtn from '../component/confirm_btn'
 import BackBtn from '../component/back_btn'
 import Sidebar from '../component/sidebar'
 import { useNavigate } from 'react-router-dom';
+import BoxChoose from '../component/choosepage/box'
+import SlideBox from '../component/choosepage/slide-box'
+
 
 function ChoosePage() {
     let navigate = useNavigate();
@@ -43,72 +46,12 @@ function ChoosePage() {
                 <div class="left-on-bottom">
                     <div class="scrollbox">
                         <div class = "scrollbox-inner">
-                            <div class="box-scroll">
-                                <div class = "inside-scroll">
-                                    <div class= "img-scroll">Img</div>
-                                    <div class="discript-scroll">
-                                        <p>ชื่อ :</p>
-                                        <p>ความเหมาะสม :</p>
-                                        <p>รายละเอียดอื่นๆ :</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="box-scroll">
-                                <div class = "inside-scroll">
-                                    <div class= "img-scroll">Img</div>
-                                    <div class="discript-scroll">
-                                        <p>ชื่อ :</p>
-                                        <p>ความเหมาะสม :</p>
-                                        <p>รายละเอียดอื่นๆ :</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="box-scroll">
-                                <div class = "inside-scroll">
-                                    <div class= "img-scroll">Img</div>
-                                    <div class="discript-scroll">
-                                        <p>ชื่อ :</p>
-                                        <p>ความเหมาะสม :</p>
-                                        <p>รายละเอียดอื่นๆ :</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="box-scroll">
-                                <div class = "inside-scroll">
-                                    <div class= "img-scroll">Img</div>
-                                    <div class="discript-scroll">
-                                        <p>ชื่อ :</p>
-                                        <p>ความเหมาะสม :</p>
-                                        <p>รายละเอียดอื่นๆ :</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="box-scroll">
-                                <div class = "inside-scroll">
-                                    <div class= "img-scroll">Img</div>
-                                    <div class="discript-scroll">
-                                        <p>ชื่อ :</p>
-                                        <p>ความเหมาะสม :</p>
-                                        <p>รายละเอียดอื่นๆ :</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="box-scroll">
-                                <div class = "inside-scroll">
-                                    <div class= "img-scroll">Img</div>
-                                    <div class="discript-scroll">
-                                        <p>ชื่อ :</p>
-                                        <p>ความเหมาะสม :</p>
-                                        <p>รายละเอียดอื่นๆ :</p>
-                                    </div>
-
-                                </div>
-                            </div>
+                            <SlideBox img = "https://images.unsplash.com/photo-1562486683-67d4d5886f99?q=80&w=1675&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                            name ="ทุเรียน" suitability = "94.2" details = "นี่คือทุเรียน"></SlideBox>
+                            <SlideBox img = "https://images.unsplash.com/photo-1591073113125-e46713c829ed?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                            name ="มะม่วง" suitability = "40.2" details = "ฉันคือมะม่วง"></SlideBox>
+                            <SlideBox img = "https://images.unsplash.com/photo-1445282768818-728615cc910a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                            name ="แครอท" suitability = "10.2" details = "ฉันคือแครอท"></SlideBox>
                         </div>
                     </div>
                     
@@ -131,6 +74,13 @@ function ChoosePage() {
                     </div>
                     
                     <p id='name-2'>พืชที่เลือกทั้งหมด :</p>
+                    <div className = "space-bucket">
+                        <BoxChoose> มะละกอ </BoxChoose>
+                        <BoxChoose> มะละกอ </BoxChoose>
+                        <BoxChoose> มะละกอ </BoxChoose>
+                        <BoxChoose> มะละกอ </BoxChoose>
+                      
+                    </div>
                     <div class = "buttom-line-1">
                        <hr /> 
                     </div>

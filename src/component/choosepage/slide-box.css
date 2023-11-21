@@ -1,0 +1,94 @@
+.box-scroll{
+    width: 95%;
+    height: 19vh;
+    border-radius: 13px;
+    margin-left: 2.3%;
+    margin-top: 2%;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.144);
+    background-color: #F9FAFA;
+}
+.img-scroll{
+    width: 17%;
+    height: 16vh;
+    position: relative;
+    
+    left: 4%;
+    margin-top: 1%;
+    border-radius: 13px;
+    
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.163);
+    background-color: #F9FAFA;
+
+}
+.img-scroll img{
+    width: 98%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 1px 1px 2px 2px rgb(236, 236, 236);
+}
+.inline-choose p {
+    background-color: red;
+    width: 40vw;
+    overflow-x: hidden;
+    
+    
+}
+#details-slide{
+    height: 3vw;
+    overflow: hidden;
+    width: 100%;
+}
+.inline-choose{
+    background-color: yellow;
+    height: 0vh;
+}
+.discript-scroll{
+    width: 49vw;
+    height: 17vh;
+}
+.details-choose{
+    background-color: green;
+    width: 30vw;
+}
+.btn-choose{
+    background-color: #C3FFD0;
+    width: 6vw;
+    height: 4vh;
+    position: relative;
+    left: 21vw;
+    bottom: 3vw;
+    border: none;
+    box-shadow: 1px 1px 2px 2px rgb(197, 197, 197);
+    border-radius: 5px;
+}
+.btn-choose:hover{
+    background-color: #b9ffca;
+}
+.btn-choose:hover{
+    transform: scale(1.02); 
+    }
+.inline-choose svg{
+    color: rgb(169, 207, 223);
+    margin-left: .5vw;
+}
+.discript-scroll{
+    margin-top: 1%;
+    margin-left: 7%;
+}
+.inside-scroll:hover{
+    cursor: pointer;
+}
+.discript-scroll p{
+    padding-right: 35vw;
+    padding-left: 0;
+    align-items: start;
+    justify-content: start;
+    text-align: left;
+}
+.inside-scroll{
+    border-radius: 10px;
+    height: 100%;
+}
+.inside-scroll{
+    display: flex;
+}

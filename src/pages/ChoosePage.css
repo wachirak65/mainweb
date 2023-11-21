@@ -104,7 +104,7 @@
     height: 14vh;
 }
 .buttom-line-1{
-    margin-top: 20vh;
+    margin-top: 7vh;
     width: 18rem;
     position: relative;
     right: 1vw;
@@ -112,7 +112,6 @@
 .scrollbox{
     overflow: auto;
     overflow-x: hidden;
-    
 }
 ::-webkit-scrollbar {
     width: 5px;
@@ -228,13 +227,39 @@ display: block;
     cursor: pointer;
 }
 .inside-scroll{
-    background-color: rgb(244, 255, 230);
     border-radius: 10px;
     height: 100%;
 }
-.inside-scroll:active{
-    background-color: rgb(188, 230, 204);
+
+.btn-choose{
+    background-color: #C3FFD0;
+    width: 6vw;
+    height: 4vh;
+    position: relative;
+    left: 42vw;
+    bottom: 2vw;
+    border: none;
+    box-shadow: 1px 1px 2px 2px rgb(197, 197, 197);
+    border-radius: 5px;
 }
+.btn-choose:hover{
+    background-color: #b9ffca;
+}
+
+.inline-choose svg{
+    color: rgb(169, 207, 223);
+    margin-left: .5vw;
+}
+.space-bucket{
+    overflow-y: scroll;
+    margin-left: 0;
+    padding-left: 0;
+    width: 18.5vw;
+    height: 12vw;
+    position: relative;
+    right: 3vw;
+}
+
 .dropdown-content-sec a:hover{
     background-color: #e2e2e2;
 }
@@ -244,7 +269,7 @@ display: block;
 .button-sort-line button {
     transition: all 0.4s ease;
 }
-.button-sort-line button:hover , .box-scroll:hover{
+.button-sort-line button:hover , .btn-choose:hover{
 transform: scale(1.02); 
 }
 
