@@ -3,14 +3,15 @@ import './DragArea_2.css'
 import Navbar from '../component/navbar.js'
 import ConfirmBtn from '../component/confirm_btn'
 import BackBtn from '../component/back_btn'
-import Chatbot from '../component/chatbot.js';
 import { useNavigate } from 'react-router-dom';
 
 function DragArea_2() {
     let map;
     let areaAll = [] 
     let navigate = useNavigate();
-
+    let polygonCoordinates = {};
+    let drawnPolygons = [];
+    let coordinatesDict = {};
 
     useEffect(() => {
         
@@ -98,11 +99,11 @@ function DragArea_2() {
         });
         
         drawingManager.setMap(map);
-        let drawnPolygons = [];
         let overlayAll = []
         let currentOverlay;
         let forwardOverlayAll = []
         let forwardArea = []
+        let polygons = {}
 
         window.google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
             if (event.type === window.google.maps.drawing.OverlayType.POLYGON) {
@@ -114,6 +115,11 @@ function DragArea_2() {
                     
                     
                 }));
+                const polygonName = `Polygon ${Object.keys(polygons).length + 1}`; 
+                polygons[polygonName] = coordinates; 
+                console.log(`Coordinates of ${polygonName}:`, coordinates);
+
+
                 const polygonPath = event.overlay.getPath();
                 // คำนวณ พื้นที่
                 const area = window.google.maps.geometry.spherical.computeArea(polygonPath);
@@ -122,14 +128,12 @@ function DragArea_2() {
                 overlayAll.push(event.overlay)
                 forwardOverlayAll.push(event.overlay)
                 drawnPolygons.push(coordinates);
-                
-                console.log('Update Area:', areaAll);
+                // console.log('Update Area:', areaAll);
                 currentOverlay = event.overlay;
             }
             
         });
         
-        //ฟังก์ชันสำหรับเข้าถึงตัว drag และกำหนด last position 
         var listener = map.addListener('drag', function() {
             var centerPosition = map.getCenter();
             var distance = haversineDistance(center.lat, center.lng, centerPosition.lat(), centerPosition.lng());
@@ -155,7 +159,6 @@ function DragArea_2() {
             forwardOverlayAll = []
             forwardArea = []
             areaAll = [];
-            console.log('Update Area:', areaAll);
 
         };
         
@@ -164,7 +167,11 @@ function DragArea_2() {
             drawingManager.setDrawingMode(window.google.maps.drawing.OverlayType.POLYGON);
 
         })
-
+        const cfButton = document.getElementById('cf-btn');
+        cfButton.addEventListener('click', function() {
+            updateCoordinatesDict();
+        });
+        
         const cancelDragButton = document.getElementById('drag-2');
         cancelDragButton.addEventListener('click', function(){
             drawingManager.setDrawingMode(null);
@@ -173,11 +180,50 @@ function DragArea_2() {
         const clearButton = document.getElementById('drag-3');
         clearButton.addEventListener('click', clearAllPolygons);
 
+        function updateCoordinatesDict() {
+            let coordinatesDict = {}; 
+        
+            overlayAll.forEach((polygonOverlay, index) => {
+                const path = polygonOverlay.getPath(); 
+                const coordinates = []; 
+                
+                for (let i = 0; i < path.getLength(); i++) {
+                    const point = path.getAt(i); 
+                    coordinates.push([point.lng(), point.lat()]); 
+                }
+        
+                coordinatesDict[index + 1] = coordinates; 
+            });
+        
+            console.log('Coordinates Dictionary:', coordinatesDict);
+
+            fetch('http://127.0.0.1:5000/coordinate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({coordinatesDict}),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Response from API:', data);
+                navigate("/ChoosePage")
+            })
+            .catch(error => {
+                // กรณีเกิด error ในการส่งข้อมูลหรือการตอบกลับจาก API
+                console.error('Error sending data to API:', error);
+                alert("เกิดข้อผิดพลาดจากการส่งข้อมูล",error)
+
+            });
+            return coordinatesDict;
+        }
+
         const undoButton = document.getElementById('drag-4');
         undoButton.addEventListener('click', function() {
             if (drawnPolygons.length > 0 && areaAll.length > 0 && overlayAll.length > 0) {
                 const removedOverlay = overlayAll.pop();
                 const removedArea = areaAll.pop();
+
 
                 if (removedOverlay !== undefined && removedArea !== undefined) {
                     forwardOverlayAll.unshift(removedOverlay);   
@@ -186,10 +232,7 @@ function DragArea_2() {
 
                 removedOverlay.setMap(null);
 
-                console.log('Update Area:', areaAll);
-            } else {
-                console.log("Error: Array is empty");
-            }
+            } 
         });
 
         const forwardButton = document.getElementById('drag-5');
@@ -201,15 +244,9 @@ function DragArea_2() {
                 overlayAll.push(restoredOverlay); 
                 drawnPolygons.push(restoredOverlay); 
                 areaAll.push(restoredArea); 
-
                 restoredOverlay.setMap(null); 
-
                 restoredOverlay.setMap(map); 
 
-                console.log('Update Area:', areaAll);
-            } else {
-                console.log("Error: Array is empty");
-                console.log('Update Area:', areaAll);
             }
 
 });
@@ -219,7 +256,6 @@ function DragArea_2() {
         <div class='background' id='bg-dragArea'>
             <header>
                 <Navbar/>
-                <Chatbot/>
                 
             </header>
             <div className="All-Drag">
@@ -301,13 +337,12 @@ function DragArea_2() {
                         <hr />
                     </div>
                     <div className="btn-drag-all">
-                    <div class='btn-cf-1'>
-                                <ConfirmBtn  bg_color='#C1F5A9' title='ยืนยัน' onClick={()=>
-                                    {navigate("/Areadata");console.log("All Area Confirm = " , areaAll)}}/>
+                    <div class='btn-cf-1' id='cf-btn'>
+                                <ConfirmBtn  bg_color='#C1F5A9' title='ยืนยัน' />
                             </div>
                             <div class='btn-back-1'>
                                 <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
-                                        console.log("back")}/>
+                                        navigate("/Locate")}/>
                             </div>
                     </div>
                 </div>

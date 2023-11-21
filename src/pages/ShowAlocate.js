@@ -4,8 +4,11 @@ import Navbar from '../component/navbar'
 import Sidebar from '../component/sidebar'
 import OvalButton from '../component/oval_button'
 import Chatbot from '../component/chatbot'
+import { useNavigate } from 'react-router-dom';
 
 function ShowAlocate() {
+    let navigate = useNavigate();
+
     return (
         <div class = "Allin">
             <header>
@@ -21,7 +24,7 @@ function ShowAlocate() {
                     <div class = 'button-line'>
                     <div class ="text-word"><p>พืชที่แนะนำ : มะละกอ</p></div>
                         <span class = 'btn-inline-1'>
-                            <button>การจัดสรรพื้นที่</button>
+                            <button >เปลี่ยนชนิดพืช</button>
                         </span>                            
                         <span class = 'btn-inline-2'>
                             <button>เปลี่ยนการวางแผนพื้นที่</button>
@@ -34,7 +37,8 @@ function ShowAlocate() {
 
                             </div>
                         <span class = 'btn-inline-3'>
-                        <button>พื้นที่ทั้งหมด</button>           
+                        <button onClick={()=>
+                        navigate("/ShowArea")}>พื้นที่ทั้งหมด</button>           
                     </span>
                     </div>
                 

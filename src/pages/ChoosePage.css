@@ -30,6 +30,7 @@
     background-color: #F8FDFF;
 }
 
+
 .All-in-Container{
   width: 100%;
   height: 90vh;
@@ -217,6 +218,40 @@ display: block;
     cursor: inherit;
     cursor: pointer;
 }
+.button-sort-line button{
+    background-color: rgb(242, 248, 209);
+}
+.button-sort-line button:hover {
+    background-color: rgb(228, 235, 196);
+}
+.button-right:hover , .inside-scroll:hover{
+    cursor: pointer;
+}
+.inside-scroll{
+    background-color: rgb(244, 255, 230);
+    border-radius: 10px;
+    height: 100%;
+}
+.inside-scroll:active{
+    background-color: rgb(188, 230, 204);
+}
+.dropdown-content-sec a:hover{
+    background-color: #e2e2e2;
+}
+.dropdown-content-sec{
+    border-radius: 10px;
+}
+.button-sort-line button {
+    transition: all 0.4s ease;
+}
+.button-sort-line button:hover , .box-scroll:hover{
+transform: scale(1.02); 
+}
+
+button-sort-line button:active {
+transform: scale(0.7);
+}
+
 @media only screen and (max-width :1250px ) {
     .ChoosePageNew{
         display: none;

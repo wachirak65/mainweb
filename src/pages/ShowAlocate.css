@@ -175,7 +175,7 @@
 }
 
 .btn-inline-2 button{
-    background-color: #B9FFBB;
+    background-color: #b9dbff;
     color: #0000009e;
     padding: 2px 10px;
     margin-left:.6rem ;
@@ -186,7 +186,7 @@
     
 }
 .btn-inline-1 button{
-  background-color: #B9FFBB;
+  background-color: #f1ffb9;
   color: #0000009e;
   padding: 2px 10px;
   margin-left: 1rem;
@@ -196,6 +196,15 @@
   cursor: pointer;
   
   
+}
+.btn-inline-1, .btn-inline-2,.btn-inline-3{
+  transition: all 0.4s ease;
+}
+.btn-inline-1:hover ,.btn-inline-2:hover ,.btn-inline-3:hover {
+transform: scale(1.05); 
+}
+.btn-inline-1:active,.btn-inline-2:active,.btn-inline-3:active{
+transform: scale(0.9);
 }
 .btn-inline-3 button{
   background-color: #B9FFBB;

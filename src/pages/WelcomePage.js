@@ -7,6 +7,7 @@ import OvalButton from '../component/oval_button'
 import PackageCard from '../component/card_package.js'
 
 function WelcomePage() {
+    
     const navigate = useNavigate();
 
     const scrollToPosition = () => {
@@ -15,15 +16,17 @@ function WelcomePage() {
         console.log("Click");
         window.scrollTo(0, 900);
     }
+
     return (
+        
         <div>
             <Navbar/>
-
-            <div class="welcome-content">
+            <div class="welcome-content" >
+           
                 <div className='main-container' >
                     <h5>UNTIRED</h5>
                     <h1>ยินดีต้อนรับเข้าสู่เว็บไซต์</h1>
-                    <p>“ท่านไม่ต้องเสียเวลาและทรัพยากรในการทดลองผิดพลาดและทำลายพืชอีกต่อไป ให้โดรนบินสำรวจของเราช่วยเสริมสร้างฐานข้อมูลเพื่อการตัดสินใจที่แม่นยำและปลอดภัย เริ่มเพิ่มประสิทธิภาพในการเกษตรของคุณด้วยโดรนบินสำรวจเราวันนี้ ”</p>
+                    <p>“ชาวเกษตรกรทุกท่านจะได้ไม่ต้องเสียแรง เวลา และทรัพยากรให้การเพาะปลูกพืชที่ให้ผลลัพธ์ทางด้านผลผลิตที่ไม่เต็มประสิทธิภาพ ดังนั้นการให้โดรนบินสำรวจของเราช่วยเสริมสร้างฐานข้อมูลเพื่อใช้ในการตัดสินใจที่แม่นยำและปลอดภัยยิ่งขึ้นได้ตั้งแต่วันนี้ ”</p>
                     <img className='slide-obj' src={Slide} alt="slide-icon" width="65" height="77" onClick={scrollToPosition}/>
                 </div>
                 <div class='space-row'></div>
@@ -35,7 +38,11 @@ function WelcomePage() {
                         </svg>
                         </div>
                         <div class="image-content">
-                            <div class="scene-slider"></div>
+                            <div class="scene-slider">
+                            <img src="https://images.unsplash.com/photo-1535379453347-1ffd615e2e08?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                            <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                            <img src="https://images.unsplash.com/photo-1508175688576-0c076b47b5b5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                            </div>
                         </div>
                         <div class="slider-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -44,9 +51,9 @@ function WelcomePage() {
                         </div>
                     </div>
                     <div class='space-center'></div>
-                    <div class="text-content">
+                    <div class="text-content"  >
                         <h1>บริการของพวกเรา ?</h1>
-                        <p>ท่านสามารถเพิ่มประสิทธิภาพการเกษตรของคุณได้ด้วยเทคโนโลยีของเรา โดรนบินสำรวจของเราจะช่วยท่านทำนายพื้นที่ที่เหมาะสมในการปลูกพืชและพืชที่ควรปลูกอย่างไรให้เหมาะกับสภาพแวดล้อม ด้วยการสแกนและวิเคราะห์ข้อมูลที่รวบรวมจากโดรนบินสำรวจเรา ท่านจะได้รับข้อมูลที่แม่นยำเกี่ยวกับปริมาณน้ำ, สภาพดิน, และสภาพอากาศที่ช่วยให้การเกษตรของท่านประสบความสำเร็จ</p>
+                        <p>พื้นที่ของการให้บริการของพวกเรา คือ การเพิ่มประสิทธิภาพทางการเกษตรของคุณได้ด้วยเทคโนโลยีของเรา โดยการใช้โดรนเพื่อบินสำรวจพื้นที่เพาะปลูกของคุณเพื่อช่วยทำนายพื้นที่ที่เหมาะสมในการปลูกพืชว่าควรปลูกอย่างไรให้เหมาะกับสภาพแวดล้อม ด้วยการสแกนและวิเคราะห์ข้อมูลที่รวบรวมจากโดรนบินสำรวจเรา ท่านจะได้รับข้อมูลที่แม่นยำเกี่ยวกับปริมาณน้ำ, สภาพดิน, และสภาพอากาศที่ช่วยให้การเกษตรของท่านประสบความสำเร็จสูงสุด</p>
                         <div class='btn-groub'>
                             <div className="btn-g-1">
                                 <OvalButton title="เข้าสู่ระบบ" color="#BEEFC3" next_route={()=>navigate('/Login')}/>

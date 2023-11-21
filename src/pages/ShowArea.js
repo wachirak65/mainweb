@@ -4,14 +4,19 @@ import Navbar from '../component/navbar'
 import Sidebar from '../component/sidebar'
 import TreeIcon from '../assets/icons/tree.svg'
 import Chatbot from '../component/chatbot'
+import { useNavigate } from 'react-router-dom';
 
 function ShowArea() {
+    let navigate = useNavigate();
+
     return (
+        
         <div className='ShowArea-Container'>
             <header>
+            <Chatbot/>
                 <Navbar/>
-                <Chatbot/>
                 <Sidebar/>
+
             </header>
             <div class = "Container-all">
             <span>
@@ -36,31 +41,22 @@ function ShowArea() {
                     <div className='Progress-work'>
                             <ul>
                             <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
-                            <li>รายการ A </li>
+                            <li>รายการ B </li>
+                            <li>รายการ C </li>
+                            <li>รายการ D </li>
+                            
                         </ul>
                     </div>
                     
                 </div>
                 <div class = 'text-2'>
-                    <button>การจัดสรรพื้นที่</button>
+                    <button  onClick={()=>
+                            navigate('/ShowAlocate')}>การจัดสรรพื้นที่</button>
                 </div>
                 
                 <div class="SideLine">
                     <hr />
-                    <span><button><img src={TreeIcon} alt="tree_icon" /></button></span>&nbsp;&nbsp;&nbsp;
+                    <span><button className='Tree-btn'><img src={TreeIcon} alt="tree_icon" /></button></span>&nbsp;&nbsp;&nbsp;
                     <span class="SideLine-DataShow">ข้อมูลความสมดุลพื้นที่</span>
                 </div>
             </div>

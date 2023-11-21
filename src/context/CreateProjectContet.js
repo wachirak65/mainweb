@@ -9,6 +9,7 @@ export const CreateProjectContextProvider = ({ children }) => {
     const [longitude, setLongitude] = useState(null);
     const [mask, setMask] = useState(null);
     const [cls_img, setClsImg] = useState(null);
+    
 
     const updateProjectID = (newProjectID) => {
         setProjectID(newProjectID);

@@ -4,14 +4,16 @@ import Navbar from '../component/navbar'
 import ConfirmBtn from '../component/confirm_btn'
 import BackBtn from '../component/back_btn'
 import Sidebar from '../component/sidebar'
-import Chatbot from '../component/chatbot'
+import { useNavigate } from 'react-router-dom';
 
 function ChoosePage() {
+    let navigate = useNavigate();
+
     return (
+        
         <div class = "ChoosePageNew">
             <header>
                 <Navbar/>
-                <Chatbot/>
             </header>
             <div class = "All-in-Container">
                 <div class="left-on-top">
@@ -25,15 +27,8 @@ function ChoosePage() {
 
                 <p class = "text-for-show">เลือกรายการพืชที่เหมาะสม : (สามารถเลือกได้มากที่สุด _ ชนิด)</p>
                 <div class = 'button-sort-line'>
-                     <button><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                    </svg>เรียงลำดับ</button>
-                    <div class="dropdown-sort-choose">
-                        <ul>
-                            <li><a href="#">มากไปน้อย</a></li>
-                            <li><a href="#">น้อยไปมาก</a></li>
-                        </ul>
-                    </div>
+                     <button>เรียงลำดับ</button>
+                    
                 
                 </div>
                 <div class = "Icon-Sec">
@@ -142,11 +137,11 @@ function ChoosePage() {
                     <div class = "btn-all-in">
                     <div class='btn-cf-1'>
                     <ConfirmBtn  bg_color='#E4E4E4' title='ยืนยัน' onClick={()=>
-                        console.log("confirm")}/>
+                        navigate("/ShowArea")}/>
                     </div>
                     <div class='btn-back-1'>
                         <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
-                                console.log("back")}/>
+                                navigate("/areadata")}/>
                     </div>
                 </div>
                 </div>

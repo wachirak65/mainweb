@@ -4,9 +4,11 @@ import "./Areadata.css"
 import Navbar from '../component/navbar';
 import BackBtn from '../component/back_btn';
 import ConfirmBtn from '../component/confirm_btn';
-import Chatbot from '../component/chatbot.js';
+import { useNavigate } from 'react-router-dom';
 
 function Areadata() {
+    let navigate = useNavigate();
+
     const [inputs, setInputs] = useState("");
     const handleChange = (event) => {
         
@@ -18,7 +20,6 @@ function Areadata() {
     return (
         <div class = "all-AreaData" >
         <Navbar/>  
-        <Chatbot/>
         <div class='top-background-3'>
             <h4>กรอกข้อมูลพื้นฐานของคุณ</h4>
         </div>      
@@ -112,11 +113,11 @@ function Areadata() {
             <div class="down-container">
                 <div class='black-btn-div-4'>
                     <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
-                            console.log("back")}/>
+                            navigate('/dragareas')}/>
                 </div>
                 <div class='button-state-4'>
                     <ConfirmBtn  bg_color='#E4E4E4' title='เริ่มประมวลพื้นที่' onClick={()=>
-                        console.log("confirm")}/>
+                        navigate('/choosepage')}/>
                 </div>
             </div>
             </label>

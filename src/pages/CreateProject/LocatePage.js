@@ -5,14 +5,14 @@ import ConfirmBtn from '../../component/confirm_btn'
 import BackBtn from '../../component/back_btn'
 import { useCreateProject } from '../../context/CreateProjectContet'
 import { useNavigate } from 'react-router-dom';
+import { getFirestore, collection, query, where, addDoc } from 'firebase/firestore';
 
 function Locate() {
     let map;
     let marker;
     let namePlace = ''; 
     let navigate = useNavigate();
-
-    const { project_id, latitude, longitude, land_url, mask, cls_img, updateLatitude, updateLongitude } = useCreateProject();
+    const { project_id, latitude, longitude, land_url, mask, cls_img, updateLatitude, updateLongitude , updateLandURL } = useCreateProject();
 
     useEffect(() => {
         
@@ -150,8 +150,36 @@ function Locate() {
     function confirmLocate() {
         console.log('Test');
         console.log(project_id, latitude, longitude, land_url, mask, cls_img);
-
+        sendDataToAPI(latitude,longitude)
+        
     }
+    function sendDataToAPI(latitude, longitude) {
+        const apiUrl = 'http://127.0.0.1:5000/location'; 
+        const data = {
+          latitude: latitude,
+          longitude: longitude
+        };
+      
+        fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+            navigate('/Dragareas')
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert("เกิดข้อผิดพลาดจากการส่งข้อมูล",error)
+
+        });
+      }
+      
+      
 
     return (
         <div class = "main-all">
@@ -187,8 +215,7 @@ function Locate() {
                         <div class = "btn-all">
                                 <div class='btn-cf-1'>
                                 <ConfirmBtn  id= 'ConfirmBtn' bg_color='#C1F5A9' title='ยืนยัน' onClick={() => {
-                                            confirmLocate();
-                                            navigate("/dragareas");}}/>
+                                            confirmLocate();}}/>
                             </div>
                             <div class='btn-back-1' >
                                 <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
