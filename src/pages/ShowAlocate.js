@@ -1,4 +1,4 @@
-import React from 'react'
+import {React,useEffect} from 'react'
 import "../pages/ShowAlocate.css"
 import Navbar from '../component/navbar'
 import Sidebar from '../component/sidebar'
@@ -8,7 +8,85 @@ import { useNavigate } from 'react-router-dom';
 
 function ShowAlocate() {
     let navigate = useNavigate();
+    let map;
 
+    const apiResult = JSON.parse(localStorage.getItem('apiResult'));
+    const area = apiResult.location.area; 
+    const locations = apiResult.location.location; 
+    useEffect(() => {
+        
+        fetch('https://maps.googleapis.com/maps/api/js?key=AIzaSyBCTbDuLw_0s3XN3lYrEVi5UtLFCetzRfA&libraries=places,drawing&callback=initMap')
+        .then(response => response.json())
+        .then(data => {
+            console.log('API data:', data);
+        })
+        .catch(error => {
+            console.error('Error fetching data from API:', error);
+        });
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBCTbDuLw_0s3XN3lYrEVi5UtLFCetzRfA&libraries=places,drawing&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+    
+        script.onload = () => {
+            window.initMap = initMap;
+            initMap();
+        };
+    
+        script.onerror = (error) => {
+            console.error('Error loading Google Maps API:', error);
+        };
+    
+        return () => {
+            document.head.removeChild(script);
+        };
+    }, []);
+    
+
+    function initMap() {
+        map = new window.google.maps.Map(document.getElementById('alocate-show'), {
+            center: { lat: 14.393023069951163, lng: 100.00741523437502 }, 
+            zoom: 17,
+            mapTypeId: 'satellite',
+            
+            fullscreenControl: false,
+            mapTypeControl: true, 
+            streetViewControl: false ,
+            mapTypeControlOptions: {
+                style: window.google.maps.MapTypeControlStyle.VERTICAL_BAR, 
+                position: window.google.maps.ControlPosition.BOTTOM_RIGHT 
+              }
+            
+        });
+
+
+        const pathCoordinates = [];
+        locations.forEach((locateArr) => {
+        locateArr.forEach((locationArray) => {
+            const latLng = new window.google.maps.LatLng(locationArray[0], locationArray[1]);
+            pathCoordinates.push(latLng);
+        });
+        });
+          console.log(pathCoordinates);
+        pathCoordinates.forEach((coordinate) => {
+            const marker = new window.google.maps.Marker({
+                position: coordinate,
+                map: map, // map คือตัวแปรที่เก็บข้อมูลแผนที่
+                icon: {
+                    url:'http://maps.google.com/mapfiles/ms/icons/green-dot.png' ,
+                    scaledSize: new window.google.maps.Size(15, 15)
+                }
+            });
+            marker.setMap(map);
+        });
+      
+        // แสดงเส้นทางบนแผนที่
+       
+      }
+        console.log("this is B Page" , apiResult)
+        console.log("area = ",area);
+        console.log("location = ",locations);
     return (
         <div class = "Allin">
             <header>
@@ -19,8 +97,10 @@ function ShowAlocate() {
                     <Sidebar/>
                 </div>
             </header>
-            <div class="grid-container">
-                <div class="AlocateShow"></div>
+            <div class="grid-container" >
+                <div class="AlocateShow" id='alocate-show'>
+                    This is for google map
+                </div>
                     <div class = 'button-line'>
                     <div class ="text-word"><p>พืชที่แนะนำ : มะละกอ</p></div>
                         <span class = 'btn-inline-1'>

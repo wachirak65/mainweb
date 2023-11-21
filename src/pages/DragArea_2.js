@@ -58,14 +58,14 @@ function DragArea_2() {
     function toRad(deg) {
         return deg * (Math.PI / 180);
     }
-        var center = { lat: 13.7563, lng: 100.5018 }; // ตำแหน่งกึ่งกลาง
+        var center = {lat: 14.393023069951163, lng: 100.00741523437502}; // ตำแหน่งกึ่งกลาง
     var maxDistance = 100; // ระยะทางสูงสุด
     var lastValidCenter = center; // ตำแหน่งสุดท้ายที่ขยับได้และใช้ต่อข้เางล่าง
 
     function initMap() {
         map = new window.google.maps.Map(document.getElementById('label-drag'), {
             center: center, 
-            zoom: 20,
+            zoom: 17,
             fullscreenControl: true,
             mapTypeControl: false,
             streetViewControl: false,
@@ -207,7 +207,15 @@ function DragArea_2() {
             .then(response => response.json())
             .then(data => {
                 console.log('Response from API:', data);
-                navigate("/ChoosePage")
+                localStorage.setItem('apiResult', JSON.stringify(data));
+                const checkLocalStorage = setInterval(() => {
+                    const apiResult = JSON.parse(localStorage.getItem('apiResult'));
+                
+                    if (apiResult) {
+                        clearInterval(checkLocalStorage); 
+                        navigate("/ShowAlocate");
+                    }
+                }, 4000);
             })
             .catch(error => {
                 // กรณีเกิด error ในการส่งข้อมูลหรือการตอบกลับจาก API

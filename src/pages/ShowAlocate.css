@@ -206,6 +206,7 @@ transform: scale(1.05);
 .btn-inline-1:active,.btn-inline-2:active,.btn-inline-3:active{
 transform: scale(0.9);
 }
+
 .btn-inline-3 button{
   background-color: #B9FFBB;
   max-height: 50px;
