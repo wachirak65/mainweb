@@ -1,9 +1,15 @@
 import './slide-box.css'
+import React, { useState } from 'react';
+import BoxChoose from './box';
 
 function SlideBox(props){
+  const handleAddToSelection = () => {
+    props.onClick();
+};
+
     return (
-      <div class="box-scroll">
-        <div class="inside-scroll">
+      <div className={`box-scroll ${props.hidden ? 'hidden' : ''}`}>
+      <div class="inside-scroll">
           <div class="img-scroll"><img src={props.img} alt="" /></div>
           <div class="discript-scroll">
             <p>ชื่อ : {props.name}</p>
@@ -15,7 +21,7 @@ function SlideBox(props){
 
             <div className="inline-choose">
                 
-              <button className="btn-choose">
+              <button className="btn-choose" onClick={handleAddToSelection}>
                 เพิ่มพืช
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

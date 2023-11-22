@@ -11,7 +11,7 @@ function Chatbot() {
     const sendChatBtn = document.querySelector(".chat-input span");
 
     let userMessage = null;
-    const API_KEY = "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"; 
+    const API_KEY = "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"; 
     const inputInitHeight = chatInput.scrollHeight;
 
     const createChatLi = (message, className) => {
@@ -68,7 +68,7 @@ function Chatbot() {
             chatbox.appendChild(incomingChatLi);
             chatbox.scrollTo(0, chatbox.scrollHeight);
             generateResponse(incomingChatLi);
-        }, 600);
+        }, 100);
     }
 
     chatInput.addEventListener("input", () => {

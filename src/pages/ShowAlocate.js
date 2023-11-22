@@ -4,6 +4,7 @@ import Navbar from '../component/navbar'
 import Sidebar from '../component/sidebar'
 import OvalButton from '../component/oval_button'
 import Chatbot from '../component/chatbot'
+import Iconandriod from '../assets/icons/android.svg'
 import { useNavigate } from 'react-router-dom';
 
 function ShowAlocate() {
@@ -108,11 +109,10 @@ function ShowAlocate() {
                     url:'http://maps.google.com/mapfiles/ms/icons/green-dot.png' ,
                     scaledSize: new window.google.maps.Size(15, 15)
                 }
+                
             });
             marker.setMap(map);
         });
-      
-        // แสดงเส้นทางบนแผนที่
        
       }
         console.log("this is B Page" , apiResult)

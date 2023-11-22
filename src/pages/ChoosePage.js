@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react';
 import "../pages/ChoosePage.css"
 import Navbar from '../component/navbar'
 import ConfirmBtn from '../component/confirm_btn'
@@ -10,7 +10,33 @@ import SlideBox from '../component/choosepage/slide-box'
 
 
 function ChoosePage() {
+    const [selectedPlants, setSelectedPlants] = useState([]);
+    const [hiddenSlideBoxes, setHiddenSlideBoxes] = useState({});
     let navigate = useNavigate();
+
+    const addPlantToSelection = (name) => {
+        if (!selectedPlants.includes(name)) {
+            setSelectedPlants([...selectedPlants, name]);
+            setHiddenSlideBoxes((prevHidden) => {
+                console.log(`Hiding SlideBox for plant: ${name}`);
+                console.log('Previous hidden state:', prevHidden);
+                return { ...prevHidden, [name]: true };
+            });
+        } else {
+            alert(`Plant "${name}" is already selected.`);
+        }
+    };
+    
+    const removePlantFromSelection = (name) => {
+        setSelectedPlants(selectedPlants.filter((plant) => plant !== name));
+        setHiddenSlideBoxes((prevHidden) => {
+            console.log(`Showing SlideBox for plant: ${name}`);
+            console.log('Previous hidden state:', prevHidden);
+            return { ...prevHidden, [name]: false };
+        });
+    };
+    useEffect(() => {
+    }, [hiddenSlideBoxes]);
 
     return (
         
@@ -46,12 +72,26 @@ function ChoosePage() {
                 <div class="left-on-bottom">
                     <div class="scrollbox">
                         <div class = "scrollbox-inner">
-                            <SlideBox img = "https://images.unsplash.com/photo-1562486683-67d4d5886f99?q=80&w=1675&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                            name ="ทุเรียน" suitability = "94.2" details = "นี่คือทุเรียน"></SlideBox>
-                            <SlideBox img = "https://images.unsplash.com/photo-1591073113125-e46713c829ed?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                            name ="มะม่วง" suitability = "40.2" details = "ฉันคือมะม่วง"></SlideBox>
-                            <SlideBox img = "https://images.unsplash.com/photo-1445282768818-728615cc910a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                            name ="แครอท" suitability = "10.2" details = "ฉันคือแครอท"></SlideBox>
+                            <SlideBox
+                            img={'https://images.unsplash.com/photo-1562486683-67d4d5886f99?q=80&w=1675&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
+                            name={"ทุเรียน"}
+                            suitability={ "94.2"}
+                            details={"นี่คือทุเรียน"}
+                            onClick={() => addPlantToSelection("ทุเรียน")}
+                            hidden={hiddenSlideBoxes["ทุเรียน"]}
+
+
+                            />
+                            <SlideBox
+                            img={'https://images.unsplash.com/photo-1562486683-67d4d5886f99?q=80&w=1675&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
+                            name={"มะระ"}
+                            suitability={ "94.2"}
+                            details={"นี่คือทุเรียน"}
+                            onClick={() => addPlantToSelection("มะระ")}
+                            hidden={hiddenSlideBoxes["มะระ"]}
+
+
+                            />
                         </div>
                     </div>
                     
@@ -75,10 +115,14 @@ function ChoosePage() {
                     
                     <p id='name-2'>พืชที่เลือกทั้งหมด :</p>
                     <div className = "space-bucket">
-                        <BoxChoose> มะละกอ </BoxChoose>
-                        <BoxChoose> มะละกอ </BoxChoose>
-                        <BoxChoose> มะละกอ </BoxChoose>
-                        <BoxChoose> มะละกอ </BoxChoose>
+                        {selectedPlants.map((plantName, index) => (
+                        <BoxChoose
+                        key={index}
+                        nameBox={plantName}
+                        onClick={() => removePlantFromSelection(plantName)}/>   
+                        
+                        ))}
+                        
                       
                     </div>
                     <div class = "buttom-line-1">

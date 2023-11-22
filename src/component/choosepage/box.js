@@ -1,10 +1,17 @@
 import './box.css'
+import React, { useState } from 'react';
 
 function BoxChoose(props){
+  const [clicked, setClicked] = useState(false);
+
+  const handleRemove = () => {
+      setClicked(true);
+      props.onClick();
+  };
     return(
-       <div className="inside-bucket">
-      <p>{props.children}</p>
-      <button>
+      <div className={`inside-bucket ${clicked ? 'clicked' : ''}`} id={props.numberID}>
+      <p>{props.nameBox}</p>
+      <button class = 'cancel-click' onClick={handleRemove}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="25"
