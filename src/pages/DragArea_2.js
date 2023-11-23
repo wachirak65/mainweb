@@ -12,7 +12,9 @@ function DragArea_2() {
     let polygonCoordinates = {};
     let drawnPolygons = [];
     let coordinatesDict = {};
+    const LocateResult = JSON.parse(localStorage.getItem('LocationResult'));
 
+    console.log('Location Result get =>' , LocateResult.latitude)
     useEffect(() => {
         
         fetch('https://maps.googleapis.com/maps/api/js?key=AIzaSyBCTbDuLw_0s3XN3lYrEVi5UtLFCetzRfA&libraries=places,drawing&callback=initMap')
@@ -58,7 +60,8 @@ function DragArea_2() {
     function toRad(deg) {
         return deg * (Math.PI / 180);
     }
-        var center = {lat: 14.393023069951163, lng: 100.00741523437502}; // ตำแหน่งกึ่งกลาง
+
+    var center = {lat: LocateResult.latitude, lng: LocateResult.longitude}; // ตำแหน่งกึ่งกลาง
     var maxDistance = 1500; // ระยะทางสูงสุด
     var lastValidCenter = center; // ตำแหน่งสุดท้ายที่ขยับได้และใช้ต่อข้เางล่าง
 
@@ -215,7 +218,7 @@ function DragArea_2() {
                 
                     if (apiResult) {
                         clearInterval(checkLocalStorage); 
-                        navigate("/ShowAlocate");
+                        navigate("/ShowArea");
                     }
                 }, 4000);
             })

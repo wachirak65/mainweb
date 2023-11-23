@@ -59,6 +59,8 @@ function Locate() {
             mapTypeControl: true, 
             
         });
+        updateLatitude(map.center.lat)
+        updateLongitude(map.center.lng)
         const centerMarkerButton = document.getElementById('center-marker-button');
 
         centerMarkerButton.addEventListener('click', function () {
@@ -67,6 +69,7 @@ function Locate() {
 
         marker = new window.google.maps.Marker({
             position: { lat: 14.393023069951163, lng: 100.00741523437502 },
+            
             map: map,
             draggable: true, // ทำให้ Marker สามารถลากได้
             icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' 
@@ -96,15 +99,19 @@ function Locate() {
             };
         
             // ค่าละติจูดและลองจิจูด จาก marker 
-            console.log('ละติจูดจาก Marker =', latitude);
-            console.log('ลองจิจูดจาก Marker =', longitude);
+            console.log('ละติจูดจาก Marker =', newPosition.lat());
+            console.log('ลองจิจูดจาก Marker =', newPosition.lng());
             
         });
         window.google.maps.event.addListener(map, 'click', function(event) {
             marker.setPosition(event.latLng);
             console.log('ละติจูด ลองติจูดของ Marker จากการ คลิ๊ก:',
              event.latLng.lat(), event.latLng.lng());
+             updateLatitude(event.latLng.lat());
+             updateLongitude(event.latLng.lng());
         });
+
+        
     
         const input = document.getElementById('place-input');
     
@@ -169,8 +176,17 @@ function Locate() {
         })
         .then(response => response.json())
         .then(data => {
-          console.log('Success:', data);
-            navigate('/Dragareas')
+          // locate Data
+                localStorage.setItem('LocationResult', JSON.stringify(data));
+                const checkLocalStorage = setInterval(() => {
+                    const LocateResult = JSON.parse(localStorage.getItem('LocationResult'));
+                
+                    if (LocateResult) {
+                        clearInterval(checkLocalStorage); 
+                        navigate("/Dragareas");
+                    }
+                }, 3000);
+
         })
         .catch(error => {
           console.error('Error:', error);

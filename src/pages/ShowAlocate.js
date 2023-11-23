@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 function ShowAlocate() {
     let navigate = useNavigate();
     let map;
+    const LocateResult = JSON.parse(localStorage.getItem('LocationResult'));
 
     const apiResult = JSON.parse(localStorage.getItem('apiResult'));
     const coordinateLine = JSON.parse(localStorage.getItem('coordinateLine'));
@@ -50,7 +51,7 @@ function ShowAlocate() {
 
     function initMap() {
         map = new window.google.maps.Map(document.getElementById('alocate-show'), {
-            center: { lat: 14.393023069951163, lng: 100.00741523437502 }, 
+            center: {lat: LocateResult.latitude, lng: LocateResult.longitude},  
             zoom: 17,
             mapTypeId: 'satellite',
             
@@ -66,7 +67,6 @@ function ShowAlocate() {
         for (let index in coordinateLine) {
             const coordinates = coordinateLine[index];
             console.log(`Coordinates for index ${index}:`, coordinates);
-            // ทำอะไรกับ coordinates ต่อไปนั้นขึ้นอยู่กับการใช้งานของคุณ
             const swap_coordinates = coordinates.map(point => [point[1], point[0]]);
             console.log('swap' , swap_coordinates)
             const path = swap_coordinates.map(point => ({ lat: point[0], lng: point[1] }));
@@ -130,7 +130,6 @@ function ShowAlocate() {
             </header>
             <div class="grid-container" >
                 <div class="AlocateShow" id='alocate-show'>
-                    This is for google map
                 </div>
                     <div class = 'button-line'>
                     <div class ="text-word"><p>พืชที่แนะนำ : มะละกอ</p></div>
