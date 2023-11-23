@@ -1,4 +1,4 @@
-import React , {useEffect}from 'react'
+import React , {useEffect,useState}from 'react'
 import "../pages/ShowArea.css"
 import Navbar from '../component/navbar'
 import Sidebar from '../component/sidebar'
@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 function ShowArea() {
     let navigate = useNavigate();
     let map;
+    const [selectedZone, setSelectedZone] = useState(null);
+
     const LocateResult = JSON.parse(localStorage.getItem('LocationResult'));
 
     const apiResult = JSON.parse(localStorage.getItem('apiResult'));
@@ -46,8 +48,8 @@ function ShowArea() {
             document.head.removeChild(script);
         };
     }, []);
-    
 
+   
     function initMap() {
         map = new window.google.maps.Map(document.getElementById('Sidemain'), {
             center: {lat: LocateResult.latitude, lng: LocateResult.longitude},  // ตำแหน่งกึ่งกลาง
@@ -63,7 +65,7 @@ function ShowArea() {
               }
             
         });
-        const polygonNames = ["none", "พื้นที่ A", "พื้นที่ B", "พื้นที่ C"]; // ชื่อที่ต้องการแสดง
+        const polygonNames = ["พื้นที่ทั้งหมด", "พื้นที่ A", "พื้นที่ B", "พื้นที่ C"]; //ชื่อ
        
         for (let index in coordinateLine) {
             const coordinates = coordinateLine[index];
@@ -84,10 +86,9 @@ function ShowArea() {
                 fillColor: 'blue', 
                 fillOpacity: 0.1, 
             });
-            const contentString = `
-            <div style="font-weight: bold; font-size: 14px;">${polygonNames[index]}</div>
 
-        `;
+            const contentString = `
+            <div style="font-weight: bold; font-size: 14px;">${polygonNames[index]}</div> `;
             const infoWindow = new window.google.maps.InfoWindow({
                 content: contentString, // ใช้ชื่อที่ต้องการแสดงจากอาร์เรย์
                 disableAutoPan: true, // ไม่อนุญาตให้ InfoWindow ย้ายตำแหน่งเมื่อขนาดของแผนที่เปลี่ยนแปลง
@@ -104,9 +105,29 @@ function ShowArea() {
               polyline.setMap(map); 
              
         }
+        function addOptionsToSelect() {
+            clearSelectOptions(); // เพิ่มการเรียกฟังก์ชันเพื่อลบตัวเลือกทั้งหมดก่อน
+            var selectElement = document.getElementById("zone-btn");
+    
+            for (var i = 0; i < polygonNames.length; i++) {
+                var option = document.createElement("option");
+                option.text = polygonNames[i];
+                selectElement.add(option);
+            }
+    
+            console.log(selectElement.length);
+        }
+    
+        function clearSelectOptions() {
+            var selectElement = document.getElementById("zone-btn");
+            while (selectElement.options.length > 0) {
+                selectElement.remove(0);
+            }
+        }
+        addOptionsToSelect()
+    
         
 
-        
 
      
         const pathCoordinates = [];
@@ -152,7 +173,7 @@ function ShowArea() {
             </span>
             <div class="Side-Right">
             <div class="Zonebutton">
-                <select class="dp-button">Zone : All</select>
+                <select id = 'zone-btn'class="dp-button"></select>
                 
             </div>  
                 <div class = "text-1">
