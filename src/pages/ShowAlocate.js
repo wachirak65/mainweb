@@ -64,7 +64,7 @@ function ShowAlocate() {
     function initMap() {
         map = new window.google.maps.Map(document.getElementById('alocate-show'), {
             center: {lat: averageLng, lng: averageLat},  
-            zoom: 19,
+            zoom: 18,
             mapTypeId: 'satellite',
             
             fullscreenControl: false,
@@ -76,7 +76,8 @@ function ShowAlocate() {
               }
             
         });
-        
+        let polygonNames = ["พื้นที่ทั้งหมด", "พื้นที่ A", "พื้นที่ B", "พื้นที่ C"]; //ชื่อ
+
 
         for (let index in coordinateLine) {
             const coordinates = coordinateLine[index];
@@ -97,9 +98,20 @@ function ShowAlocate() {
             fillColor: 'blue', 
             fillOpacity: 0.1, 
             });
-              
+            const contentString = `
+            <div style="font-weight: bold; font-size: 14px;">${polygonNames[index]}</div> `;
+            const infoWindow = new window.google.maps.InfoWindow({
+                content: contentString, // ใช้ชื่อที่ต้องการแสดงจากอาร์เรย์
+                disableAutoPan: true, 
+                closeOnClick: true, 
+            });
+
+              infoWindow.setPosition(path[0]);
+              infoWindow.open(map);
+
               polygon.setMap(map);
               polyline.setMap(map); 
+
         }
         
 
