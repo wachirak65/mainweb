@@ -11,15 +11,27 @@ function ShowAlocate() {
     let navigate = useNavigate();
     let map;
     const LocateResult = JSON.parse(localStorage.getItem('LocationResult'));
+    const ShowLat = JSON.parse(localStorage.getItem('Showlat'));
 
+    let numberOfPoints = ShowLat.length;
+    let totalLat = 0;
+    let totalLng = 0;
+
+    for (let i = 0; i < numberOfPoints; i++) {
+        totalLat += ShowLat[i][0];
+        totalLng += ShowLat[i][1];
+    }
+    let averageLat = totalLat / numberOfPoints;
+    let averageLng = totalLng / numberOfPoints;
+    
+    console.log('averageLat',averageLat);
     const apiResult = JSON.parse(localStorage.getItem('apiResult'));
     const coordinateLine = JSON.parse(localStorage.getItem('coordinateLine'));
     console.log('coordinateLine =' , coordinateLine[1])
-    
+
     const area = apiResult.location.area; 
     const locations = apiResult.location.location; 
     useEffect(() => {
-        
         fetch('https://maps.googleapis.com/maps/api/js?key=AIzaSyBCTbDuLw_0s3XN3lYrEVi5UtLFCetzRfA&libraries=places,drawing&callback=initMap')
         .then(response => response.json())
         .then(data => {
@@ -48,11 +60,11 @@ function ShowAlocate() {
         };
     }, []);
     
-
+    
     function initMap() {
         map = new window.google.maps.Map(document.getElementById('alocate-show'), {
-            center: {lat: LocateResult.latitude, lng: LocateResult.longitude},  
-            zoom: 17,
+            center: {lat: averageLng, lng: averageLat},  
+            zoom: 19,
             mapTypeId: 'satellite',
             
             fullscreenControl: false,
@@ -64,6 +76,8 @@ function ShowAlocate() {
               }
             
         });
+        
+
         for (let index in coordinateLine) {
             const coordinates = coordinateLine[index];
             console.log(`Coordinates for index ${index}:`, coordinates);

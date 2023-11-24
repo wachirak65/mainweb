@@ -15,7 +15,6 @@ function ShowArea() {
 
     const apiResult = JSON.parse(localStorage.getItem('apiResult'));
     const coordinateLine = JSON.parse(localStorage.getItem('coordinateLine'));
-    console.log('coordinateLine =' , coordinateLine[1])
     
     const area = apiResult.location.area; 
     const locations = apiResult.location.location; 
@@ -65,14 +64,15 @@ function ShowArea() {
               }
             
         });
-        const polygonNames = ["พื้นที่ทั้งหมด", "พื้นที่ A", "พื้นที่ B", "พื้นที่ C"]; //ชื่อ
-       
+        let polygonNames = ["พื้นที่ทั้งหมด", "พื้นที่ A", "พื้นที่ B", "พื้นที่ C"]; //ชื่อ
+        let zoomPath 
+        let coordinates
         for (let index in coordinateLine) {
-            const coordinates = coordinateLine[index];
-            console.log(`Coordinates for index ${index}:`, coordinates);
+            
+            let coordinates = coordinateLine[index];
             const swap_coordinates = coordinates.map(point => [point[1], point[0]]);
-            console.log('swap' , swap_coordinates)
             const path = swap_coordinates.map(point => ({ lat: point[0], lng: point[1] }));
+            zoomPath = path
             const polyline = new window.google.maps.Polyline({
                 path: path,
                 geodesic: true,
@@ -91,16 +91,12 @@ function ShowArea() {
             <div style="font-weight: bold; font-size: 14px;">${polygonNames[index]}</div> `;
             const infoWindow = new window.google.maps.InfoWindow({
                 content: contentString, // ใช้ชื่อที่ต้องการแสดงจากอาร์เรย์
-                disableAutoPan: true, // ไม่อนุญาตให้ InfoWindow ย้ายตำแหน่งเมื่อขนาดของแผนที่เปลี่ยนแปลง
+                disableAutoPan: true, 
                 closeOnClick: true, 
             });
 
-            
-        
               infoWindow.setPosition(path[0]);
-        
               infoWindow.open(map);
-
               polygon.setMap(map);
               polyline.setMap(map); 
              
@@ -114,8 +110,22 @@ function ShowArea() {
                 option.text = polygonNames[i];
                 selectElement.add(option);
             }
-    
-            console.log(selectElement.length);
+            
+            selectElement.addEventListener("change", function () {
+                const selectedOption = selectElement.options[selectElement.selectedIndex].text;
+                for (var i = 0; i < polygonNames.length; i++) {
+                    if (polygonNames[i] === selectedOption){
+                        console.log(selectedOption ,'Path', zoomPath[i].lat, zoomPath[i].lng);
+                        console.log(selectedOption ,'coordinateLine', coordinateLine[i]);
+                        
+                        
+                        localStorage.setItem('Showlat', JSON.stringify(coordinateLine[i]));
+                        
+                        console.log(latLng);
+
+                    }
+                }
+            });
         }
     
         function clearSelectOptions() {
@@ -127,13 +137,11 @@ function ShowArea() {
         addOptionsToSelect()
     
         
-
-
-     
         const pathCoordinates = [];
+        let latLng
         locations.forEach((locateArr) => {
         locateArr.forEach((locationArray) => {
-            const latLng = new window.google.maps.LatLng(locationArray[0], locationArray[1]);
+            let latLng = new window.google.maps.LatLng(locationArray[0], locationArray[1]);
             pathCoordinates.push(latLng);
         });
         });
@@ -153,9 +161,6 @@ function ShowArea() {
         });
        
       }
-        console.log("this is B Page" , apiResult)
-        console.log("area = ",area);
-        console.log("location = ",locations);
 
     return (
         
