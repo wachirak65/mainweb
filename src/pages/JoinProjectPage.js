@@ -10,7 +10,6 @@ function JoinProjectPage() {
     let navigate = useNavigate();
 
     return (
-        
         <div class='background'>
             <Navbar/>
             <Chatbot/>

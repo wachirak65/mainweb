@@ -1,0 +1,37 @@
+/* loadingscreen.css */
+
+.container-loading {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .loading-bar-container {
+    width: 200px;
+    height: 4px;
+    background-color: #eee;
+    overflow: hidden;
+    border-radius: 2px;
+    margin-bottom: 16px; /* Adjust spacing between loading bar and logo */
+  }
+  
+  .loading-bar {
+    height: 100%;
+    background-color: #4c4caf;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .logo-loading {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10%; /* Adjust the width of your logo */
+    height: auto; /* Maintain the aspect ratio */
+  }
+  
+  /* You can customize the colors, size, and other styles as needed */
+  

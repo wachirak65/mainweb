@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './DragArea_2.css'
 import Navbar from '../component/navbar.js'
 import ConfirmBtn from '../component/confirm_btn'
 import BackBtn from '../component/back_btn'
 import { useNavigate } from 'react-router-dom';
+import LoadingScreen from '../component/choosepage/loadingscreen.js';
 
 function DragArea_2() {
     let map;
@@ -13,6 +14,7 @@ function DragArea_2() {
     let drawnPolygons = [];
     let coordinatesDict = {};
     const LocateResult = JSON.parse(localStorage.getItem('LocationResult'));
+    const [loading, setLoading] = useState(false);
 
     console.log('Location Result get =>' , LocateResult.latitude)
     useEffect(() => {
@@ -168,16 +170,28 @@ function DragArea_2() {
         const dragButton = document.getElementById('drag-1');
         dragButton.addEventListener('click' , function(){
             drawingManager.setDrawingMode(window.google.maps.drawing.OverlayType.POLYGON);
-
+            dragButton.style.backgroundColor = '#C3C3C3';
+            dragButton.style.transform = 'scale(1.2)';
+            cancelDragButton.style.transform = 'scale(1)';
+            cancelDragButton.style.backgroundColor = '#BAD5E8';
         })
+
         const cfButton = document.getElementById('cf-btn');
         cfButton.addEventListener('click', function() {
             updateCoordinatesDict();
+            setLoading(true);
+
         });
         
         const cancelDragButton = document.getElementById('drag-2');
         cancelDragButton.addEventListener('click', function(){
             drawingManager.setDrawingMode(null);
+            dragButton.style.backgroundColor = '#B6EBBB';
+            cancelDragButton.style.transform = 'scale(1.2)';
+            dragButton.style.transform = 'scale(1)';
+            cancelDragButton.style.backgroundColor = '#C3C3C3';
+
+
         });
 
         const clearButton = document.getElementById('drag-3');
@@ -215,9 +229,10 @@ function DragArea_2() {
                 localStorage.setItem('apiResult', JSON.stringify(data));
                 const checkLocalStorage = setInterval(() => {
                     const apiResult = JSON.parse(localStorage.getItem('apiResult'));
-                
+                    
                     if (apiResult) {
                         clearInterval(checkLocalStorage); 
+                        setLoading(false);
                         navigate("/ShowArea");
                     }
                 }, 4000);
@@ -266,10 +281,12 @@ function DragArea_2() {
         
     }
     return (
+        loading ? (
+            <LoadingScreen timetoload={3000} />
+        ) : (
         <div class='background' id='bg-dragArea'>
             <header>
                 <Navbar/>
-                
             </header>
             <div className="All-Drag">
                 <div className="left-drag">
@@ -362,9 +379,9 @@ function DragArea_2() {
             </div>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCTbDuLw_0s3XN3lYrEVi5UtLFCetzRfA&libraries=places&callback=initMap" async defer></script>
 
-        </div>
+        </div>)
+        );
     
-    )
 }
 
 export default DragArea_2

@@ -62,6 +62,7 @@ function ShowArea() {
                 style: window.google.maps.MapTypeControlStyle.VERTICAL_BAR, 
                 position: window.google.maps.ControlPosition.BOTTOM_RIGHT 
               }
+              
             
         });
         let polygonNames = ["พื้นที่ทั้งหมด", "พื้นที่ A", "พื้นที่ B", "พื้นที่ C"]; //ชื่อ
