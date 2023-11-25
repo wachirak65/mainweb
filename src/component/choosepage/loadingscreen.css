@@ -1,4 +1,3 @@
-/* loadingscreen.css */
 
 .container-loading {
     position: relative;
@@ -15,7 +14,7 @@
     background-color: #eee;
     overflow: hidden;
     border-radius: 2px;
-    margin-bottom: 16px; /* Adjust spacing between loading bar and logo */
+    margin-bottom: 16px; 
   }
   
   .loading-bar {
@@ -29,9 +28,8 @@
     top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 10%; /* Adjust the width of your logo */
-    height: auto; /* Maintain the aspect ratio */
+    width: 10%;
+    height: auto; 
   }
   
-  /* You can customize the colors, size, and other styles as needed */
   

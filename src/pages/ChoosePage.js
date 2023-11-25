@@ -7,11 +7,56 @@ import Sidebar from '../component/sidebar'
 import { useNavigate } from 'react-router-dom';
 import BoxChoose from '../component/choosepage/box'
 import SlideBox from '../component/choosepage/slide-box'
-
+import { imageUrlRanking } from '../context/imageUrl';
 
 function ChoosePage() {
+    let index
+
+    
+
     const [selectedPlants, setSelectedPlants] = useState([]);
     const [hiddenSlideBoxes, setHiddenSlideBoxes] = useState({});
+
+    const RankingData = JSON.parse(localStorage.getItem('RankingData')); //  ranking data array
+    const PercentData = JSON.parse(localStorage.getItem('PercentData')); // percent data array 
+    console.log('In ChoosePage rankingResult = ' , RankingData)
+    console.log('In ChoosePage PercentResult = ' , PercentData)
+    console.log('length = ', RankingData.length);
+    
+    index = RankingData.indexOf('ไม่มีพืชไหนปลูกได้');
+    
+    // screen ตัว model และ ranking model
+    if(index != 0){
+        console.log('not zero')
+        RankingData.splice(index, 1);
+        PercentData.splice(index, 1);
+    }else if(index == 0){
+        console.log('its zero')
+        RankingData.splice(0, index);
+        RankingData.splice(index + 1);
+        PercentData.splice(0, index);
+        PercentData.splice(index + 1);
+    }
+
+    const UpdatePercentData = PercentData.map((percent) => (percent * 100).toFixed(2));
+
+    //array สุดท้ายจากการกรองที่จะนำไปใช้
+    console.log('update RankingData = ' , RankingData);
+    console.log('update PercentData = ' , UpdatePercentData);
+
+    
+    const slideBoxes = UpdatePercentData.map((percent, index) => (
+        <SlideBox
+            key={index}
+            img={imageUrlRanking[RankingData[index]]}
+            name={RankingData[index]} // = ข้าว 
+            suitability={percent}
+            details={`นี่คือ${RankingData[index]}`}
+            onClick={() => addPlantToSelection(RankingData[index])}
+            hidden={hiddenSlideBoxes[RankingData[index]]}
+        />
+    ));
+
     let navigate = useNavigate();
 
     const addPlantToSelection = (name) => {
@@ -72,26 +117,7 @@ function ChoosePage() {
                 <div class="left-on-bottom">
                     <div class="scrollbox">
                         <div class = "scrollbox-inner">
-                            <SlideBox
-                            img={'https://images.unsplash.com/photo-1562486683-67d4d5886f99?q=80&w=1675&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
-                            name={"ทุเรียน"}
-                            suitability={ "94.2"}
-                            details={"นี่คือทุเรียน"}
-                            onClick={() => addPlantToSelection("ทุเรียน")}
-                            hidden={hiddenSlideBoxes["ทุเรียน"]}
-
-
-                            />
-                            <SlideBox
-                            img={'https://images.unsplash.com/photo-1562486683-67d4d5886f99?q=80&w=1675&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
-                            name={"มะระ"}
-                            suitability={ "94.2"}
-                            details={"นี่คือทุเรียน"}
-                            onClick={() => addPlantToSelection("มะระ")}
-                            hidden={hiddenSlideBoxes["มะระ"]}
-
-
-                            />
+                        {slideBoxes}
                         </div>
                     </div>
                     

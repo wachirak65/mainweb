@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './loadingscreen.css';
-import logo from './untired_2.PNG'; // Replace with the path to your logo file
+import logo from '../../assets/untired_2.PNG'; 
 
 function LoadingScreen({ timetoload }) {
   const [progress, setProgress] = useState(0);

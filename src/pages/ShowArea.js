@@ -16,7 +16,6 @@ function ShowArea() {
     const apiResult = JSON.parse(localStorage.getItem('apiResult'));
     const coordinateLine = JSON.parse(localStorage.getItem('coordinateLine'));
     
-    const area = apiResult.location.area; 
     const locations = apiResult.location.location; 
     useEffect(() => {
         

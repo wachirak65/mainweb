@@ -6,8 +6,10 @@ import BackBtn from '../../component/back_btn'
 import { useCreateProject } from '../../context/CreateProjectContet'
 import { useNavigate } from 'react-router-dom';
 import { getFirestore, collection, query, where, addDoc } from 'firebase/firestore';
-
+import LoadingScreen from '../../component/choosepage/loadingscreen';
 function Locate() {
+    const [loading, setLoading] = useState(false);
+
     let map;
     let marker;
     let namePlace = ''; 
@@ -183,6 +185,7 @@ function Locate() {
                 
                     if (LocateResult) {
                         clearInterval(checkLocalStorage); 
+                        setLoading(false);
                         navigate("/Dragareas");
                     }
                 }, 3000);
@@ -195,9 +198,10 @@ function Locate() {
         });
       }
       
-      
-
     return (
+        loading ? (
+            <LoadingScreen timetoload={2000} />
+        ) : (
         <div class = "main-all">
             <header>
                 <Navbar/>
@@ -231,7 +235,8 @@ function Locate() {
                         <div class = "btn-all">
                                 <div class='btn-cf-1'>
                                 <ConfirmBtn  id= 'ConfirmBtn' bg_color='#C1F5A9' title='ยืนยัน' onClick={() => {
-                                            confirmLocate();}}/>
+                                            confirmLocate(); setLoading(true);
+                                        }}/>
                             </div>
                             <div class='btn-back-1' >
                                 <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
@@ -248,7 +253,7 @@ function Locate() {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>     
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCTbDuLw_0s3XN3lYrEVi5UtLFCetzRfA&libraries=places&callback=initMap" async defer></script>
 
-    </div>
+    </div>)
     )
 }
 

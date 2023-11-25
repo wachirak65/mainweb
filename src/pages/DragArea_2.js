@@ -129,7 +129,7 @@ function DragArea_2() {
                 // คำนวณ พื้นที่
                 const area = window.google.maps.geometry.spherical.computeArea(polygonPath);
 
-                areaAll.push(area.toFixed(2)+'ตารางเมตร')
+                areaAll.push(area.toFixed(2))
                 overlayAll.push(event.overlay)
                 forwardOverlayAll.push(event.overlay)
                 drawnPolygons.push(coordinates);
@@ -227,13 +227,18 @@ function DragArea_2() {
                 console.log('Response from API:', data);
                 localStorage.setItem('coordinateLine', JSON.stringify(coordinatesDict));
                 localStorage.setItem('apiResult', JSON.stringify(data));
+                localStorage.setItem('areaAll', JSON.stringify(areaAll));
+
                 const checkLocalStorage = setInterval(() => {
                     const apiResult = JSON.parse(localStorage.getItem('apiResult'));
-                    
+                    const areaAll = JSON.parse(localStorage.getItem('areaAll'));
+
                     if (apiResult) {
                         clearInterval(checkLocalStorage); 
                         setLoading(false);
-                        navigate("/ShowArea");
+                        console.log('all area =' , areaAll)
+                        console.log('lat = ', );
+                        navigate("/Areadata");
                     }
                 }, 4000);
             })

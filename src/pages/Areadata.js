@@ -5,9 +5,72 @@ import Navbar from '../component/navbar';
 import BackBtn from '../component/back_btn';
 import ConfirmBtn from '../component/confirm_btn';
 import { useNavigate } from 'react-router-dom';
+import LoadingScreen from '../component/choosepage/loadingscreen';
 
 function Areadata() {
     let navigate = useNavigate();
+    const LocateResult = JSON.parse(localStorage.getItem('LocationResult'));
+    const areaResult = JSON.parse(localStorage.getItem('areaAll'));
+    const [loading, setLoading] = useState(false);
+
+    // if(!cost || !time || !manpower){
+    //     console.log('nothing');
+    // }else{
+    //     console.log('lat = ' ,LocateResult.latitude);
+    //     console.log('long = ' , LocateResult.longitude);
+    //     console.log('area = ', areaResult);
+    //     console.log('cost = ', cost);
+    //     console.log('time = ', time);
+    //     console.log('manpower = ', manpower);
+    // }
+
+    function sendData() {
+        const cost = document.getElementById("costInput").value;
+        const time = document.getElementById("timeInput").value;
+        const manpower = document.getElementById("manpowerInput").value;
+    
+        const postData = {
+            area: parseFloat(areaResult[0]),
+            cost: parseFloat(cost),
+            time: parseInt(time),
+            manpower: parseInt(manpower),
+            lat: parseFloat(LocateResult.latitude),
+            long: parseFloat(LocateResult.longitude)
+        };
+    
+        fetch('http://127.0.0.1:5000/ranking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(postData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            console.log("message"  , data.message);
+            console.log("ranking"  , data.ranking);
+            console.log("percent_ranking"  , data.percent_ranking);
+            localStorage.setItem('RankingData', JSON.stringify(data.ranking));
+            localStorage.setItem('PercentData' , JSON.stringify(data.percent_ranking)) ; 
+
+            const checkLocalStorage = setInterval(() => {
+                const RankingData = JSON.parse(localStorage.getItem('RankingData'));
+
+                if (RankingData) {
+                    clearInterval(checkLocalStorage); 
+                    setLoading(false);
+                    navigate("/ChoosePage");
+                }
+            }, 100);
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    
 
     const [inputs, setInputs] = useState("");
     const handleChange = (event) => {
@@ -18,6 +81,9 @@ function Areadata() {
     }
 
     return (
+        loading ? (
+            <LoadingScreen timetoload={9000} />
+        ) : (
         <div class = "all-AreaData" >
         <Navbar/>  
         <div class='top-background-3'>
@@ -43,8 +109,9 @@ function Areadata() {
             <label id='p2'>ต้นทุนต่อรอบ:
                 <div className='FCL-2'>
                 <input 
+                        id='costInput'
                         className='form-control'
-                        type="text" 
+                        type="number" 
                         name="number" 
                         value={inputs.number || ""} 
                         onChange={handleChange}
@@ -84,8 +151,9 @@ function Areadata() {
             <label style={{marginTop:"-2rem"}} id='p5'>กำลังคนที่มีในการดูแล :
                 <div className='FCL-5'>
                 <input 
+                        id='timeInput'
                         className='form-control'
-                        type="text" 
+                        type="number" 
                         name="human" 
                         value={inputs.human || ""} 
                         onChange={handleChange}
@@ -97,8 +165,9 @@ function Areadata() {
             <label style={{marginTop:"-2rem"}} id='p6'>ระยะเวลาที่สามารถรอได้ :
             <div className='FCL-6'>
                 <input 
+                        id='manpowerInput'
                         className='form-control'
-                        type="text" 
+                        type="number" 
                         name="humans" 
                         value={inputs.humans || ""} 
                         onChange={handleChange}
@@ -113,18 +182,22 @@ function Areadata() {
             <div class="down-container">
                 <div class='black-btn-div-4'>
                     <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
-                            navigate('/dragareas')}/>
+                            navigate('#')}/>
                 </div>
                 <div class='button-state-4'>
-                    <ConfirmBtn  bg_color='#E4E4E4' title='เริ่มประมวลพื้นที่' onClick={()=>
-                        navigate('/choosepage')}/>
+                    <ConfirmBtn  bg_color='#E4E4E4' title='เริ่มประมวลพื้นที่' onClick={()=> {
+                         sendData();
+                         setLoading(true)
+                    }
+                       
+                    }/>
                 </div>
             </div>
             </label>
             
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    </div>
+    </div>)
     )
 }
 
