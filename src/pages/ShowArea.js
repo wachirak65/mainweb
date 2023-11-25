@@ -15,16 +15,8 @@ function ShowArea() {
 
     const apiResult = JSON.parse(localStorage.getItem('apiResult'));
     const coordinateLine = JSON.parse(localStorage.getItem('coordinateLine'));
-
+    
     const locations = apiResult.location.location; 
-    const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
-    const areaAll = ["พื้นที่ทั้งหมด"]
-    const areaSlected = selectedPlants
-    let polygonNames = [...areaAll, ...areaSlected];
-    localStorage.setItem('polygonNames', JSON.stringify(polygonNames));
-    console.log('polygonNames =>' , polygonNames)
-
-    console.log('Show Alocate => ' , selectedPlants)
     useEffect(() => {
         
         fetch('https://maps.googleapis.com/maps/api/js?key=AIzaSyBCTbDuLw_0s3XN3lYrEVi5UtLFCetzRfA&libraries=places,drawing&callback=initMap')
@@ -72,8 +64,7 @@ function ShowArea() {
               
             
         });
-        
-
+        let polygonNames = ["พื้นที่ทั้งหมด", "พื้นที่ A", "พื้นที่ B", "พื้นที่ C"]; //ชื่อ
         let zoomPath 
         let coordinates
         for (let index in coordinateLine) {
@@ -110,7 +101,6 @@ function ShowArea() {
               polyline.setMap(map); 
              
         }
-        var arrCoordinateAll = []
         function addOptionsToSelect() {
             clearSelectOptions(); // เพิ่มการเรียกฟังก์ชันเพื่อลบตัวเลือกทั้งหมดก่อน
             var selectElement = document.getElementById("zone-btn");
@@ -123,18 +113,13 @@ function ShowArea() {
             
             selectElement.addEventListener("change", function () {
                 const selectedOption = selectElement.options[selectElement.selectedIndex].text;
-
                 for (var i = 0; i < polygonNames.length; i++) {
                     if (polygonNames[i] === selectedOption){
-
-                        if(coordinateLine[i]){
-                            localStorage.setItem('Showlat', JSON.stringify(coordinateLine[i]));
-                        }else{
-
-                            arrCoordinateAll = arrCoordinateAll.concat(LocateResult.latitude)
-                            arrCoordinateAll = arrCoordinateAll.concat(LocateResult.longitude)
-                            localStorage.setItem('Showlat', JSON.stringify(arrCoordinateAll));
-                        }
+                        console.log(selectedOption ,'Path', zoomPath[i].lat, zoomPath[i].lng);
+                        console.log(selectedOption ,'coordinateLine', coordinateLine[i]);
+                        
+                        
+                        localStorage.setItem('Showlat', JSON.stringify(coordinateLine[i]));
                         
                         console.log(latLng);
 
@@ -142,6 +127,7 @@ function ShowArea() {
                 }
             });
         }
+    
         function clearSelectOptions() {
             var selectElement = document.getElementById("zone-btn");
             while (selectElement.options.length > 0) {
@@ -200,6 +186,10 @@ function ShowArea() {
                     <hr/>
                     <div className='Progress-work'>
                             <ul>
+                            <li>รายการ A </li>
+                            <li>รายการ B </li>
+                            <li>รายการ C </li>
+                            <li>รายการ D </li>
                             
                         </ul>
                     </div>
