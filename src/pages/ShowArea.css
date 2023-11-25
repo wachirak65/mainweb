@@ -36,19 +36,21 @@
     display: inline-block;
 }
 
+
 .dp-button {
     background-color: #F8F8FF;
     color: #615E83;
     height: 6vh;
     width: 10vw;
     padding: 10px 20px;
+    padding-left: 23px;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.123);
     border: none;
     border-radius: 20px;
     cursor: pointer;
 }
 .text-1 hr{
-    width: 4.688vw;
+    width: 16.688vw;
 }
 
 .text-2 button{

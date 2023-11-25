@@ -11,14 +11,15 @@ import { imageUrlRanking } from '../context/imageUrl';
 
 function ChoosePage() {
     let index
-
     
-
     const [selectedPlants, setSelectedPlants] = useState([]);
     const [hiddenSlideBoxes, setHiddenSlideBoxes] = useState({});
-
+    const areaResult = JSON.parse(localStorage.getItem('areaAll'));
+    console.log('AreaResult = ' , areaResult.length)
     const RankingData = JSON.parse(localStorage.getItem('RankingData')); //  ranking data array
     const PercentData = JSON.parse(localStorage.getItem('PercentData')); // percent data array 
+
+    const maxChoose = areaResult.length
     console.log('In ChoosePage rankingResult = ' , RankingData)
     console.log('In ChoosePage PercentResult = ' , PercentData)
     console.log('length = ', RankingData.length);
@@ -60,18 +61,21 @@ function ChoosePage() {
     let navigate = useNavigate();
 
     const addPlantToSelection = (name) => {
-        if (!selectedPlants.includes(name)) {
+        if (selectedPlants.length < maxChoose) {
+          if (!selectedPlants.includes(name)) {
             setSelectedPlants([...selectedPlants, name]);
             setHiddenSlideBoxes((prevHidden) => {
-                console.log(`Hiding SlideBox for plant: ${name}`);
-                console.log('Previous hidden state:', prevHidden);
-                return { ...prevHidden, [name]: true };
+              console.log(`Hiding SlideBox for plant: ${name}`);
+              console.log('Previous hidden state:', prevHidden);
+              return { ...prevHidden, [name]: true };
             });
-        } else {
-            alert(`Plant "${name}" is already selected.`);
+          } else {
+            alert(`พืช "${name}" ได้ถูกเลือกไว้แล้ว`);
         }
-    };
-    
+        } else {
+            alert(`คุณสามารถเลือกได้ ${maxChoose} ชนิดเท่านั้น`);}
+      };
+      
     const removePlantFromSelection = (name) => {
         setSelectedPlants(selectedPlants.filter((plant) => plant !== name));
         setHiddenSlideBoxes((prevHidden) => {
@@ -80,6 +84,32 @@ function ChoosePage() {
             return { ...prevHidden, [name]: false };
         });
     };
+
+
+    let numberOfItemsToAdd = maxChoose-selectedPlants.length
+    var randomIndex = Math.floor(Math.random() * selectedPlants.length);
+    var randomString = selectedPlants[randomIndex];
+   
+    function sendSelectedPlants(){
+        if(maxChoose == selectedPlants.length){
+            localStorage.setItem('selectedPlants' , JSON.stringify(selectedPlants)) ; 
+        }else{
+            for (var i = 0; i < numberOfItemsToAdd; i++) {
+                selectedPlants.push(randomString);
+            }
+            localStorage.setItem('selectedPlants' , JSON.stringify(selectedPlants)) ; 
+        }
+
+        const checkLocalStorage = setInterval(() => {
+            const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
+
+            if (selectedPlants) {
+                clearInterval(checkLocalStorage); 
+                navigate("/ShowArea");
+            }
+        }, 100);
+    }
+
     useEffect(() => {
     }, [hiddenSlideBoxes]);
 
@@ -99,7 +129,7 @@ function ChoosePage() {
                 </svg>
                 </div>
 
-                <p class = "text-for-show">เลือกรายการพืชที่เหมาะสม : (สามารถเลือกได้มากที่สุด _ ชนิด)</p>
+                <p class = "text-for-show">เลือกรายการพืชที่เหมาะสม : (สามารถเลือกได้มากที่สุด {maxChoose} ชนิด)</p>
                 <div class = 'button-sort-line'>
                      <button>เรียงลำดับ</button>
                     
@@ -157,7 +187,7 @@ function ChoosePage() {
                     <div class = "btn-all-in">
                     <div class='btn-cf-1'>
                     <ConfirmBtn  bg_color='#E4E4E4' title='ยืนยัน' onClick={()=>
-                        navigate("/ShowArea")}/>
+                        {sendSelectedPlants()}}/>
                     </div>
                     <div class='btn-back-1'>
                         <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>

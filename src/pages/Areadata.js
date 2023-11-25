@@ -13,17 +13,6 @@ function Areadata() {
     const areaResult = JSON.parse(localStorage.getItem('areaAll'));
     const [loading, setLoading] = useState(false);
 
-    // if(!cost || !time || !manpower){
-    //     console.log('nothing');
-    // }else{
-    //     console.log('lat = ' ,LocateResult.latitude);
-    //     console.log('long = ' , LocateResult.longitude);
-    //     console.log('area = ', areaResult);
-    //     console.log('cost = ', cost);
-    //     console.log('time = ', time);
-    //     console.log('manpower = ', manpower);
-    // }
-
     function sendData() {
         const cost = document.getElementById("costInput").value;
         const time = document.getElementById("timeInput").value;

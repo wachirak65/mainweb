@@ -70,7 +70,7 @@ function DragArea_2() {
     function initMap() {
         map = new window.google.maps.Map(document.getElementById('label-drag'), {
             center: center, 
-            zoom: 17,
+            zoom: 18,
             fullscreenControl: true,
             mapTypeControl: false,
             streetViewControl: false,
@@ -279,10 +279,8 @@ function DragArea_2() {
                 areaAll.push(restoredArea); 
                 restoredOverlay.setMap(null); 
                 restoredOverlay.setMap(map); 
-
             }
-
-});
+        });
         
     }
     return (

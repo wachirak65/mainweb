@@ -10,7 +10,7 @@ function BoxChoose(props){
   };
     return(
       <div className={`inside-bucket ${clicked ? 'clicked' : ''}`} id={props.numberID}>
-      <p>{props.nameBox}</p>
+      <p className='nameBox'>{props.nameBox}</p>
       <button class = 'cancel-click' onClick={handleRemove}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
