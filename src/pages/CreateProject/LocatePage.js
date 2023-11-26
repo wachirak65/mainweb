@@ -180,9 +180,9 @@ function Locate() {
         .then(data => {
           // locate Data
                 localStorage.setItem('LocationResult', JSON.stringify(data));
-                const checkLocalStorage = setInterval(() => {
+                    const checkLocalStorage = setInterval(() => {
                     const LocateResult = JSON.parse(localStorage.getItem('LocationResult'));
-                
+                    
                     if (LocateResult) {
                         clearInterval(checkLocalStorage); 
                         setLoading(false);

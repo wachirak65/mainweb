@@ -12,8 +12,15 @@ function ShowAlocate() {
     let map;
     const LocateResult = JSON.parse(localStorage.getItem('LocationResult'));
     const ShowLat = JSON.parse(localStorage.getItem('Showlat'));
+    console.log('ShowLat ============>>>> ' , ShowLat)
+    const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
+    console.log('Show Alocate => ' , selectedPlants)
+    const areaAll = ["พื้นที่ทั้งหมด"]
+    const areaSlected = selectedPlants
+    let polygonNames = [...areaAll, ...areaSlected];
 
     let numberOfPoints = ShowLat.length;
+    console.log('numberofPoints', numberOfPoints);
     let totalLat = 0;
     let totalLng = 0;
 
@@ -31,6 +38,7 @@ function ShowAlocate() {
 
     const area = apiResult.location.area; 
     const locations = apiResult.location.location; 
+
     useEffect(() => {
         fetch('https://maps.googleapis.com/maps/api/js?key=AIzaSyBCTbDuLw_0s3XN3lYrEVi5UtLFCetzRfA&libraries=places,drawing&callback=initMap')
         .then(response => response.json())
@@ -76,7 +84,6 @@ function ShowAlocate() {
               }
             
         });
-        let polygonNames = ["พื้นที่ทั้งหมด", "พื้นที่ A", "พื้นที่ B", "พื้นที่ C"]; //ชื่อ
 
 
         for (let index in coordinateLine) {
@@ -114,9 +121,6 @@ function ShowAlocate() {
 
         }
         
-
-        
-
      
         const pathCoordinates = [];
         locations.forEach((locateArr) => {
