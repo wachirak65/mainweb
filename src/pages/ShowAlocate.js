@@ -8,16 +8,21 @@ import Iconandriod from '../assets/icons/android.svg'
 import { useNavigate } from 'react-router-dom';
 
 function ShowAlocate() {
+    let averageLat 
+    let averageLng
     let navigate = useNavigate();
     let map;
     const LocateResult = JSON.parse(localStorage.getItem('LocationResult'));
     const ShowLat = JSON.parse(localStorage.getItem('Showlat'));
-    console.log('ShowLat ============>>>> ' , ShowLat)
     const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
+    const boolCheck = JSON.parse(localStorage.getItem('boolCheck'));
+
+    console.log('Boolean Check ==>>>>>' , boolCheck)
     console.log('Show Alocate => ' , selectedPlants)
     const areaAll = ["พื้นที่ทั้งหมด"]
     const areaSlected = selectedPlants
     let polygonNames = [...areaAll, ...areaSlected];
+    
 
     let numberOfPoints = ShowLat.length;
     console.log('numberofPoints', numberOfPoints);
@@ -28,8 +33,14 @@ function ShowAlocate() {
         totalLat += ShowLat[i][0];
         totalLng += ShowLat[i][1];
     }
-    let averageLat = totalLat / numberOfPoints;
-    let averageLng = totalLng / numberOfPoints;
+    if(boolCheck === true){
+        averageLat = LocateResult.longitude
+        averageLng = LocateResult.latitude
+    }
+    else if(boolCheck === false){
+        averageLat = totalLat / numberOfPoints;
+        averageLng = totalLng / numberOfPoints;
+    }
     
     console.log('averageLat',averageLat);
     const apiResult = JSON.parse(localStorage.getItem('apiResult'));

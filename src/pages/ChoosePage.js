@@ -89,6 +89,7 @@ function ChoosePage() {
     let numberOfItemsToAdd = maxChoose-selectedPlants.length
     var randomIndex = Math.floor(Math.random() * selectedPlants.length);
     var randomString = selectedPlants[randomIndex];
+    
    
     function sendSelectedPlants(){
         if(maxChoose == selectedPlants.length){

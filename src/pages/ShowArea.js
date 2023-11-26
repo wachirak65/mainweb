@@ -17,7 +17,6 @@ function ShowArea() {
     const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
     const areaAll = ["พื้นที่ทั้งหมด"]
     const areaSlected = selectedPlants
-    console.log('Upsite LocateResult -===>>>>' , LocateResult.latitude)
     let polygonNames = [...areaAll, ...areaSlected];
     
     const locations = apiResult.location.location; 
@@ -93,7 +92,7 @@ function ShowArea() {
             const contentString = `
             <div style="font-weight: bold; font-size: 14px;">${polygonNames[index]}</div> `;
             const infoWindow = new window.google.maps.InfoWindow({
-                content: contentString, // ใช้ชื่อที่ต้องการแสดงจากอาร์เรย์
+                content: contentString, 
                 disableAutoPan: true, 
                 closeOnClick: true, 
             });
@@ -107,6 +106,8 @@ function ShowArea() {
         let arrCoordinateAll = []
         arrCoordinateAll = arrCoordinateAll.concat(LocateResult.latitude)
         arrCoordinateAll = arrCoordinateAll.concat(LocateResult.longitude)
+        let checkAreaCoodinate = true
+        localStorage.setItem('boolCheck', JSON.stringify(checkAreaCoodinate));
         localStorage.setItem('Showlat', JSON.stringify(arrCoordinateAll));
 
         function addOptionsToSelect() {
@@ -129,26 +130,14 @@ function ShowArea() {
                 console.log('Selected Index:', selectedIndex);
                 console.log('Selected Option:', selectedOption);
                 
-                localStorage.setItem('Showlat', JSON.stringify(coordinateLine[selectedIndex]));
-
-                
-
-                // console.log('locate result.lat => ', LocateResult.latitude);
-                // console.log('arrCoordinateAll => ', arrCoordinateAll);
-                // console.log('polygonName', polygonNames.length);
-
-                // for (var i = 0; i < polygonNames.length; i++) {
-                //     if (selectedOption !== 'พื้นที่ทั้งหมด') {
-                //         console.log(selectedOption, 'Path', zoomPath[i].lat, zoomPath[i].lng);
-                //         console.log(selectedOption, 'coordinateLine', coordinateLine[i]);
-                //         console.log('Match!!!!!!!!!!!!!!');
-                //         localStorage.setItem('Showlat', JSON.stringify(coordinateLine[i]));
-                //         console.log(latLng);
-                //     } else if (selectedOption === 'พื้นที่ทั้งหมด') {
-                //         console.log('this is All area now!');
-                //         localStorage.setItem('Showlat', JSON.stringify(arrCoordinateAll));
-                //     }
-                // }
+                if(selectedIndex == 0){
+                    checkAreaCoodinate = true
+                    localStorage.setItem('boolCheck', JSON.stringify(checkAreaCoodinate));
+                }else if (selectedIndex !== 0){
+                    checkAreaCoodinate = false
+                    localStorage.setItem('Showlat', JSON.stringify(coordinateLine[selectedIndex]));
+                    localStorage.setItem('boolCheck', JSON.stringify(checkAreaCoodinate));
+                }
             });}
     
         function clearSelectOptions() {
