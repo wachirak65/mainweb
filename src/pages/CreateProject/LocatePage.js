@@ -55,10 +55,11 @@ function Locate() {
     function initMap() {
         
         map = new window.google.maps.Map(document.getElementById('map'), {
-            center: { lat: 14.393023069951163, lng: 100.00741523437502}, // ตั้งต้นที่กรุงเทพ
+            center: { lat: 6.83376087328999, lng: 100.48742696048197}, // ตั้งต้นที่กรุงเทพ
             zoom: 16,
             fullscreenControl: false,
             mapTypeControl: true, 
+            mapTypeId: 'satellite',
             
         });
         updateLatitude(map.center.lat)
@@ -70,7 +71,7 @@ function Locate() {
         });
 
         marker = new window.google.maps.Marker({
-            position: { lat: 14.393023069951163, lng: 100.00741523437502 },
+            position: {lat: 6.83376087328999, lng: 100.48742696048197},
             
             map: map,
             draggable: true, // ทำให้ Marker สามารถลากได้

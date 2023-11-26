@@ -198,12 +198,8 @@ function ShowArea() {
                     <hr/>
                     <div className='Progress-work'>
                             <ul>
-                            <li>รายการ A </li>
-                            <li>รายการ B </li>
-                            <li>รายการ C </li>
-                            <li>รายการ D </li>
-                            
-                        </ul>
+                                
+                            </ul>
                     </div>
                     
                 </div>

@@ -12,12 +12,13 @@ function Areadata() {
     const LocateResult = JSON.parse(localStorage.getItem('LocationResult'));
     const areaResult = JSON.parse(localStorage.getItem('areaAll'));
     const [loading, setLoading] = useState(false);
+    
+    const projectname = document.getElementById('projectname').value;
+    const cost = document.getElementById("costInput").value;
+    const time = document.getElementById("timeInput").value;
+    const manpower = document.getElementById("manpowerInput").value;
 
     function sendData() {
-        const cost = document.getElementById("costInput").value;
-        const time = document.getElementById("timeInput").value;
-        const manpower = document.getElementById("manpowerInput").value;
-    
         const postData = {
             area: parseFloat(areaResult[0]),
             cost: parseFloat(cost),
@@ -26,7 +27,8 @@ function Areadata() {
             lat: parseFloat(LocateResult.latitude),
             long: parseFloat(LocateResult.longitude)
         };
-    
+
+        
         fetch('http://127.0.0.1:5000/ranking', {
             method: 'POST',
             headers: {
@@ -42,22 +44,24 @@ function Areadata() {
             console.log("percent_ranking"  , data.percent_ranking);
             localStorage.setItem('RankingData', JSON.stringify(data.ranking));
             localStorage.setItem('PercentData' , JSON.stringify(data.percent_ranking)) ; 
-
-            const checkLocalStorage = setInterval(() => {
-                const RankingData = JSON.parse(localStorage.getItem('RankingData'));
-
-                if (RankingData) {
-                    clearInterval(checkLocalStorage); 
-                    setLoading(false);
-                    navigate("/ChoosePage");
-                }
-            }, 100);
+            if (cost.trim() !== '' || time.trim() !== '' || manpower.trim() !== '') {
+                const checkLocalStorage = setInterval(() => {
+                    const RankingData = JSON.parse(localStorage.getItem('RankingData'));
+    
+                    if (RankingData) {
+                        clearInterval(checkLocalStorage); 
+                        setLoading(false);
+                        navigate("/ChoosePage");
+                    }
+                }, 100);
+                
+            }
 
         })
         .catch(error => {
             console.error('Error:', error);
-        });
-    }
+        });}
+    
 
     
 
@@ -83,6 +87,7 @@ function Areadata() {
             <label id='p1'>ชื่อโปรเจกต์:
                 <div className='FCL-1'>
                 <input 
+                        id='projectname'
                         className='form-control'
                         type="text" 
                         name="username" 
@@ -112,6 +117,7 @@ function Areadata() {
             <label style={{marginTop:"-2rem"}} id='p3'>พืชที่ปลูกในปัจจุบัน:
                 <div className='FCL-3'>
                 <input 
+                        
                         className='form-control'
                         type="text" 
                         name="plant" 
@@ -171,12 +177,17 @@ function Areadata() {
             <div class="down-container">
                 <div class='black-btn-div-4'>
                     <BackBtn bg_color='#E7E6E6' title='ย้อนกลับ' onClick={()=>
-                            navigate('#')}/>
+                            navigate('dragareas')}/>
                 </div>
                 <div class='button-state-4'>
                     <ConfirmBtn  bg_color='#E4E4E4' title='เริ่มประมวลพื้นที่' onClick={()=> {
-                         sendData();
-                         setLoading(true)
+                        if (cost.trim() === '' || time.trim() === '' || manpower.trim() === '') {
+                            alert("กรุณากรอกข้อมูลในทุกช่อง");
+                            return false; // ไม่ไปหน้าอื่น
+                        }else{
+                            sendData();
+                            setLoading(true)
+                        }
                     }
                        
                     }/>

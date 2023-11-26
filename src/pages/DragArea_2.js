@@ -70,7 +70,7 @@ function DragArea_2() {
     function initMap() {
         map = new window.google.maps.Map(document.getElementById('label-drag'), {
             center: center, 
-            zoom: 18,
+            zoom: 15,
             fullscreenControl: true,
             mapTypeControl: false,
             streetViewControl: false,
