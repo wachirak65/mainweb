@@ -1,0 +1,190 @@
+.nav-header-taskname{
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 2px 2px rgb(200, 200, 200);
+    display: flex;
+    height: 4vw;
+    padding-top: 1vw;
+    padding-left: 1vw;
+}
+.tasktodo-Container{
+    background-color: #DEE4ED;
+    height: 100vh;
+}
+.inside-tasktodo{
+    background-color: #DEE4ED;
+    margin-left:64px;
+    height: 85vh;
+
+}
+.left-container-taskname{
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 2px 2px rgb(200, 200, 200);
+
+    border: none;
+    border-radius: 10px;
+
+    width: 20vw;
+    margin-left: .3vw;
+    height: 75vh;
+    margin-top: 1.3vh;
+}
+.all-task{
+    display: flex;
+    height: 78vh;
+    overflow-x: hidden;
+}
+.left-image-todo{
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 2px 2px rgb(200, 200, 200);
+
+    width:10vw;
+    height: 10vw;
+    border-radius: 100%;
+    margin-left: 5vw;
+    margin-top: 3vw;
+}
+.right-container-taskname{
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 2px 2px rgb(200, 200, 200);
+
+    width: 80vw;
+    margin: .7vw;
+    border: none;
+    border-radius: 15px;
+}
+.name-image-todo{
+    margin-top: 1vw;
+}
+.detail-left-todo{
+    margin-top: 1vw;
+    overflow-y: scroll;
+    height: 13vw;
+    padding-left: 0;
+    text-align: left;
+    padding-left: 1vw;
+}
+.progress-lefr-todo{
+    text-align: left;
+    padding-left: 1vw;
+}
+.right-tasktodo select{
+    display: grid;
+    z-index: 1;
+}
+.right-tasktodo select option{
+    display: grid;
+    z-index: 1;
+}
+
+
+
+.task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task {
+    margin-bottom: 20px;
+}
+
+.task-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.dropdown-content p {
+    margin: 0;
+    padding: 8px;
+}
+
+.button-container-taskname {
+    display: grid;
+}
+
+.dropdown-button-taskname {
+    background-color: #FBFBFB;
+    box-shadow: 1px 1px 2px 2px rgb(202, 202, 202);
+    width: 75.5vw;
+    margin-top: 1vw;
+    height: 3.6vw;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+}
+.dropdown-button-taskname p {
+    color: rgb(43, 43, 43);
+    text-align: left;
+    padding-left: 2vw;
+    padding-top: 1vw;
+}
+.inside-task-dropdown{
+    display: flex;
+}
+.dropdown-content-taskname {
+    display: none;
+    background-color: #fafafa;
+    min-width: 160px;
+    box-shadow: 1px 1px 2px 2px rgb(228, 228, 228);
+    border-radius: 0px 0px 10px 10px;
+    z-index: 1;
+}
+.inside-task-text{
+    width: 53vw;
+    color: rgb(28, 28, 28);
+    text-align: left;
+    padding-left: 2vw;
+}
+.inside-task-btn{
+    width:15vw;
+}
+.inside-task-icon{
+    width:5vw;
+    color: rgb(82, 82, 82);
+
+}
+.inside-task-btn button{
+    border-radius: 20px;
+    width: 9vw;
+    border: none;
+    height: 1.8vw;
+    background-color: #CEF1BD;
+}
+.inside-task-btn button:active{
+    background-color: #a0d882;
+}
+
+.inside-task-dropdown{
+    display: flex;
+}
+.dropdown-content-taskname a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+.dropdown-content-taskname a:hover {
+    background-color: #f1f1f1;
+}
+
+.button-container-taskname .dropdown-container-taskname {
+    position: relative;
+}
+
+.button-container-taskname .dropdown-container-taskname.active .dropdown-content-taskname {
+    display: block;
+}

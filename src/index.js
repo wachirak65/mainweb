@@ -27,6 +27,7 @@ import Areadata from './pages/Areadata.js';
 import { CreateProjectContextProvider } from "./context/CreateProjectContet";
 import Uploading from './pages/CreateProject/Uploading';
 import Locate from './pages/CreateProject/LocatePage';
+import Tasktodo from './pages/Tasktodo.js';
 
 const router = createBrowserRouter(
   [
@@ -91,6 +92,9 @@ const router = createBrowserRouter(
     {
       path: '/weatheranalysis',
       element: <ProtectedRoute><WeatherAnalysisPage/></ProtectedRoute>
+    },{
+      path :'/tasktodo' ,
+      element :<ProtectedRoute><Tasktodo/></ProtectedRoute>
     }
    
   ]

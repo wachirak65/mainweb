@@ -13,12 +13,16 @@ function Areadata() {
     const areaResult = JSON.parse(localStorage.getItem('areaAll'));
     const [loading, setLoading] = useState(false);
     
-    const projectname = document.getElementById('projectname').value;
-    const cost = document.getElementById("costInput").value;
-    const time = document.getElementById("timeInput").value;
-    const manpower = document.getElementById("manpowerInput").value;
+    // const projectname = document.getElementById('projectname').value;
+    let cost 
+    let time 
+    let manpower 
+    let nameofProject
 
     function sendData() {
+        cost = document.getElementById("costInput").value;
+        time = document.getElementById("timeInput").value;
+        manpower = document.getElementById("manpowerInput").value;
         const postData = {
             area: parseFloat(areaResult[0]),
             cost: parseFloat(cost),
@@ -44,18 +48,17 @@ function Areadata() {
             console.log("percent_ranking"  , data.percent_ranking);
             localStorage.setItem('RankingData', JSON.stringify(data.ranking));
             localStorage.setItem('PercentData' , JSON.stringify(data.percent_ranking)) ; 
-            if (cost.trim() !== '' || time.trim() !== '' || manpower.trim() !== '') {
-                const checkLocalStorage = setInterval(() => {
-                    const RankingData = JSON.parse(localStorage.getItem('RankingData'));
-    
-                    if (RankingData) {
-                        clearInterval(checkLocalStorage); 
-                        setLoading(false);
-                        navigate("/ChoosePage");
-                    }
-                }, 100);
+            const checkLocalStorage = setInterval(() => {
+                const RankingData = JSON.parse(localStorage.getItem('RankingData'));
+
+                if (RankingData) {
+                    clearInterval(checkLocalStorage); 
+                    setLoading(false);
+                    navigate("/ChoosePage");
+                }
+            }, 100);
                 
-            }
+            
 
         })
         .catch(error => {
@@ -87,7 +90,7 @@ function Areadata() {
             <label id='p1'>ชื่อโปรเจกต์:
                 <div className='FCL-1'>
                 <input 
-                        id='projectname'
+                        id='nameofProject'
                         className='form-control'
                         type="text" 
                         name="username" 
@@ -181,7 +184,11 @@ function Areadata() {
                 </div>
                 <div class='button-state-4'>
                     <ConfirmBtn  bg_color='#E4E4E4' title='เริ่มประมวลพื้นที่' onClick={()=> {
-                        if (cost.trim() === '' || time.trim() === '' || manpower.trim() === '') {
+                        cost = document.getElementById("costInput").value;
+                        time = document.getElementById("timeInput").value;
+                        manpower = document.getElementById("manpowerInput").value;
+                        nameofProject = document.getElementById('nameofProject').value;
+                        if (cost.trim() === '' || time.trim() === '' || manpower.trim() === '' || nameofProject.trim() === '') {
                             alert("กรุณากรอกข้อมูลในทุกช่อง");
                             return false; // ไม่ไปหน้าอื่น
                         }else{

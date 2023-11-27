@@ -5,6 +5,7 @@ import Sidebar from '../component/sidebar'
 import TreeIcon from '../assets/icons/tree.svg'
 import Chatbot from '../component/chatbot'
 import { useNavigate } from 'react-router-dom';
+import TodolistIcon from '../assets/icons/check2-circle.svg'
 
 function ShowArea() {
     let navigate = useNavigate();
@@ -208,14 +209,17 @@ function ShowArea() {
                     setTimeout(() => {
                         navigate('/ShowAlocate');
                     }, 2000);
-                    }
-                           }>การจัดสรรพื้นที่</button>
+                    }}>การจัดสรรพื้นที่</button>
                 </div>
                 
                 <div class="SideLine">
                     <hr />
-                    <span><button className='Tree-btn'><img src={TreeIcon} alt="tree_icon" /></button></span>&nbsp;&nbsp;&nbsp;
-                    <span class="SideLine-DataShow">ข้อมูลความสมดุลพื้นที่</span>
+                    <span><button className='Tree-btn' onClick={()=>
+                                navigate("/tasktodo")}
+                                ><img src={TodolistIcon} alt="tree_icon" />
+                           
+                    </button></span>&nbsp;&nbsp;&nbsp;
+                    <span class="SideLine-DataShow">รายการดำเนินการทั้งหมด</span>
                 </div>
             </div>
             
