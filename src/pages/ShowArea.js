@@ -130,7 +130,8 @@ function ShowArea() {
                 console.log('arrCoordinateAll' ,arrCoordinateAll)
                 console.log('Selected Index:', selectedIndex);
                 console.log('Selected Option:', selectedOption);
-                
+                localStorage.setItem('selectedOption', JSON.stringify(selectedOption));
+
                 if(selectedIndex == 0){
                     checkAreaCoodinate = true
                     localStorage.setItem('boolCheck', JSON.stringify(checkAreaCoodinate));

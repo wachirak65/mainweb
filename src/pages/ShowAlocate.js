@@ -16,6 +16,7 @@ function ShowAlocate() {
     const ShowLat = JSON.parse(localStorage.getItem('Showlat'));
     const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
     const boolCheck = JSON.parse(localStorage.getItem('boolCheck'));
+    const selectedOption = JSON.parse(localStorage.getItem('selectedOption'));
 
     console.log('Boolean Check ==>>>>>' , boolCheck)
     console.log('Show Alocate => ' , selectedPlants)
@@ -156,9 +157,6 @@ function ShowAlocate() {
         });
        
       }
-        console.log("this is B Page" , apiResult)
-        console.log("area = ",area);
-        console.log("location = ",locations);
     return (
         <div class = "Allin">
             <header>
@@ -173,7 +171,7 @@ function ShowAlocate() {
                 <div class="AlocateShow" id='alocate-show'>
                 </div>
                     <div class = 'button-line'>
-                    <div class ="text-word"><p>พืชที่แนะนำ : มะละกอ</p></div>
+                    <div class ="text-word"><p>พืชที่แนะนำ : {selectedOption}</p></div>
                         <span class = 'btn-inline-1'>
                             <button >เปลี่ยนชนิดพืช</button>
                         </span>                            

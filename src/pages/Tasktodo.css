@@ -247,3 +247,18 @@ background-color:#98D0EF;
 .nav-header-taskname p svg{
     margin-left: 1vw;
 }
+.button-task-back{
+    border: none;
+    background-color: #d9fac8;
+    width: 6vw;
+    margin-top: .8vw;
+    margin-left: .3vw;
+    height: 1.9vw;
+    border-radius: 10px;
+}
+.button-task-back:hover{
+    border: none;
+    background-color: #cfeebe;
+    width: 6.2vw;
+    height: 2.1vw;
+}

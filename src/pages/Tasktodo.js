@@ -40,10 +40,12 @@ function Tasktodo() {
                 <div className="left-image-todo">
                     <img src="https://images.unsplash.com/photo-1519544442-93857b48665e?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                 </div>
-                <div className="name-image-todo">พืช : ข้าวโพด</div>
+                <button className='button-task-back' onClick={()=> navigate('/ShowArea')}>พื้นที่ทั้งหมด</button>
+
+                <div className="name-image-todo">พืช : ทุเรียน</div>
                 <div className="detail-left-todo">รายละเอียด : </div>
                 <div className="progress-lefr-todo">
-                    <p>ดำเนินการทั้งหมด : 23%</p>
+                    <p>ดำเนินการทั้งหมด : 0%</p>
                     <p className='progressbar'></p>
                 </div>
             </div>
