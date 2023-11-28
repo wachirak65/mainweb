@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@200;400;500;600&display=swap');
+* {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-weight: 400;
+}
 .nav-header-taskname{
     background-color: #FFFFFF;
     box-shadow: 1px 1px 2px 2px rgb(200, 200, 200);
@@ -78,10 +83,15 @@
 
 
 
+
+
+
+
 .task-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .task {
@@ -111,6 +121,7 @@
 
 .button-container-taskname {
     display: grid;
+
 }
 
 .dropdown-button-taskname {
@@ -139,7 +150,41 @@
     min-width: 160px;
     box-shadow: 1px 1px 2px 2px rgb(228, 228, 228);
     border-radius: 0px 0px 10px 10px;
-    z-index: 1;
+}
+.inside-task-dropdown-use{
+    display: flex;
+
+}
+.checkbox-task {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1.5vw;
+    height: 1.5vw;
+    border-radius: 50%;
+    border: 2px solid #b6d4eb;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+
+  }
+
+  
+.checkbox-task:checked {
+background-color:#98D0EF; 
+}
+  
+  
+.side-1{
+    width: 4vw;
+    margin: .4vw;
+}
+
+.side-2{
+    padding-top: .4vw;
+    width: 64vw;
+    text-align: left;
+    color: rgb(31, 31, 31);
 }
 .inside-task-text{
     width: 53vw;
@@ -169,7 +214,7 @@
 .inside-task-dropdown{
     display: flex;
 }
-.dropdown-content-taskname a {
+.dropdown-content-taskname p {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -177,7 +222,7 @@
 }
 
 
-.dropdown-content-taskname a:hover {
+.dropdown-content-taskname p:hover {
     background-color: #f1f1f1;
 }
 
@@ -187,4 +232,18 @@
 
 .button-container-taskname .dropdown-container-taskname.active .dropdown-content-taskname {
     display: block;
+    opacity: 1;
+}
+.left-image-todo img {
+    width: 95%;
+    height: 95%;
+    margin-top: 3%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+.nav-header-taskname p svg{
+    margin-left: 1vw;
 }
