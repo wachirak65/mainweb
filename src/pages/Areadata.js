@@ -57,9 +57,6 @@ function Areadata() {
                     navigate("/ChoosePage");
                 }
             }, 100);
-                
-            
-
         })
         .catch(error => {
             console.error('Error:', error);
@@ -129,7 +126,7 @@ function Areadata() {
                         placeholder='เลือกชนิดของพืช'
                         required
                     /></div>
-                    <button type='submit' class="w-20 btn btn-m btn-white nothing-1">ไม่มี</button>
+                    <button id='none-btn' type='submit' class="w-20 btn btn-m btn-white nothing-1">ไม่มี</button>
             </label>
             <br/>
             <label style={{marginTop:"-2rem"}} id='p4'>พืชที่เคยปลูก:
@@ -143,7 +140,7 @@ function Areadata() {
                         placeholder='เลือกชนิดของพืช'
                         required
                     /></div>
-                    <button type='submit' class="w-20 btn btn-m btn-white nothing-2">ไม่มี</button>
+                    <button id='none-btn-2' type='submit' class="w-20 btn btn-m btn-white nothing-2">ไม่มี</button>
             </label>
             <br/>
             <label style={{marginTop:"-2rem"}} id='p5'>กำลังคนที่มีในการดูแล :
@@ -183,7 +180,7 @@ function Areadata() {
                             navigate('dragareas')}/>
                 </div>
                 <div class='button-state-4'>
-                    <ConfirmBtn  bg_color='#E4E4E4' title='เริ่มประมวลพื้นที่' onClick={()=> {
+                    <ConfirmBtn  bg_color='#d9fac8' title='เริ่มประมวลพื้นที่' onClick={()=> {
                         cost = document.getElementById("costInput").value;
                         time = document.getElementById("timeInput").value;
                         manpower = document.getElementById("manpowerInput").value;

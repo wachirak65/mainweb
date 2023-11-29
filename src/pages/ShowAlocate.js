@@ -6,18 +6,35 @@ import OvalButton from '../component/oval_button'
 import Chatbot from '../component/chatbot'
 import Iconandriod from '../assets/icons/android.svg'
 import { useNavigate } from 'react-router-dom';
+import { OtherDataAlocate } from '../context/imageUrl'
 
 function ShowAlocate() {
     let averageLat 
     let averageLng
     let navigate = useNavigate();
     let map;
+    let areaOfIndex
+    const areaResult = JSON.parse(localStorage.getItem('areaAll'));
     const LocateResult = JSON.parse(localStorage.getItem('LocationResult'));
     const ShowLat = JSON.parse(localStorage.getItem('Showlat'));
     const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
     const boolCheck = JSON.parse(localStorage.getItem('boolCheck'));
     const selectedOption = JSON.parse(localStorage.getItem('selectedOption'));
+    const selectedIndex = JSON.parse(localStorage.getItem('selectedIndex'));
 
+    console.log('selectedIndex ---> ' ,selectedIndex)
+   
+    if(areaResult){
+        areaOfIndex = areaResult[selectedIndex-1]
+
+    }else{
+        let resultloop = 0
+        for (let i = 0; i < areaResult.length; i++) {
+            resultloop = i+resultloop
+        }
+        areaOfIndex = resultloop
+    }
+    console.log('พื้นที่ทั้งหมดคือ  =>>' , areaResult[selectedIndex-1])
     console.log('Boolean Check ==>>>>>' , boolCheck)
     console.log('Show Alocate => ' , selectedPlants)
     const areaAll = ["พื้นที่ทั้งหมด"]
@@ -173,7 +190,7 @@ function ShowAlocate() {
                     <div class = 'button-line'>
                     <div class ="text-word"><p>พืชที่แนะนำ : {selectedOption}</p></div>
                         <span class = 'btn-inline-1'>
-                            <button >เปลี่ยนชนิดพืช</button>
+                            <button onClick={() => navigate('/ChoosePage')}>เปลี่ยนชนิดพืช</button>
                         </span>                            
                         <span class = 'btn-inline-2'>
                             <button>เปลี่ยนการวางแผนพื้นที่</button>
@@ -199,11 +216,13 @@ function ShowAlocate() {
 			                    <div class="flip-card">
 				                    <div class="front">
                                         <p>ผลผลิต คาดการณ์:</p>
-
+                                        <p className='front-inside-1'>__</p>
                                         <hr class="line-on-top"/>
                                         <p>รายรับ คาดการณ์:</p>
+                                        <p className='front-inside-1'>__</p>
                                         <hr class="line-on-top"/>
                                         <p>ค่าใช้จ่าย คาดการณ์:</p>
+                                        <p className='front-inside-1'>__</p>
 				                        </div>
 				<div class="back">
                     <p>สรุปค่าใช้จ่ายต่างๆ</p>
@@ -216,10 +235,11 @@ function ShowAlocate() {
                 <div class="Data-2">
                     <h4>ข้อมูลพื้นฐานทั่วไป</h4>
                     <hr class="line-on-bottom"/>
-                    <p id='p-1'>พื้นที่เพาะปลูก : </p>
-                    <p id='p-2'>ปริมาณการใช้น้ำ : </p>
-                    <p id='p-3'>ปริมาณการใช้ปุ๋ย : </p>
-                    <p>ระยะเวลาในการเพาะปลูก : </p>
+                    <p id='p-1'>พื้นที่เพาะปลูก : {areaOfIndex} ตร.ม</p>
+                    
+                    <p id='p-2'>ปริมาณการใช้น้ำ : - </p>
+                    <p id='p-3'>ปริมาณการใช้ปุ๋ย : - </p>
+                    <p id='p-4'>ระยะเวลาในการเพาะปลูก : - </p>
                     <div class ="show-process">
                         <hr class="line-on-bottom"/>
                         <p>รายการที่กำลังดำเนินการ</p>
@@ -228,8 +248,10 @@ function ShowAlocate() {
                 </div>
                 <div class="Data-3">
                     <h4>รายละเอียด</h4>
-                    <p>ชนิดพืช :</p>
-                    <p>ข้อมูลเพิ่มเติม :</p>
+                    <p>ชนิดพืช : {selectedOption}</p>
+                    <div className="Data-other">
+                        <p className='Data-Other-3'>ข้อมูลเพิ่มเติม : {OtherDataAlocate[selectedOption]}</p>
+                    </div>
                 </div>
             </div>
 

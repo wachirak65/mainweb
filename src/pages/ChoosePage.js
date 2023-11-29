@@ -77,14 +77,13 @@ function ChoosePage() {
       };
       
     const removePlantFromSelection = (name) => {
-        setSelectedPlants(selectedPlants.filter((plant) => plant !== name));
+        setSelectedPlants(selectedPlants.filter((plant) => plant !== name))
         setHiddenSlideBoxes((prevHidden) => {
             console.log(`Showing SlideBox for plant: ${name}`);
             console.log('Previous hidden state:', prevHidden);
             return { ...prevHidden, [name]: false };
         });
     };
-
 
     let numberOfItemsToAdd = maxChoose-selectedPlants.length
     var randomIndex = Math.floor(Math.random() * selectedPlants.length);
@@ -187,7 +186,7 @@ function ChoosePage() {
                     </div>
                     <div class = "btn-all-in">
                     <div class='btn-cf-1'>
-                    <ConfirmBtn  bg_color='#E4E4E4' title='ยืนยัน' onClick={()=>
+                    <ConfirmBtn  bg_color='#d9fac8' title='ยืนยัน' onClick={()=>
                         {sendSelectedPlants()}}/>
                     </div>
                     <div class='btn-back-1'>
